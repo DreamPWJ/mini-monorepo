@@ -14,6 +14,14 @@
 - examples: 示例代码 常用代码模板和代码块提炼
 - tests: 测试模块
 
+### 小程序技术栈
+
+- Taro
+- React
+- Lerna
+- Tailwind CSS
+- CSS Variables
+
 ### 安装lerna相关依赖
 npm i -g lerna && npm i -g yarn &&  npm i -g gulp
 #### 安装编译所有依赖
