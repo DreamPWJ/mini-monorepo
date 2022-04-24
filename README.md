@@ -19,6 +19,8 @@
 - Taro
 - React
 - Lerna
+- Vite
+- Pnpm
 - Tailwind CSS
 - CSS Variables
 
