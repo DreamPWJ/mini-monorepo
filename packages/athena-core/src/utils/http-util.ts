@@ -1,3 +1,5 @@
+import Taro from '@tarojs/taro'
+
 /**
  * @author 潘维吉
  * @description http核心工具类
@@ -11,7 +13,11 @@ export function httpErrorMsg(status: number, msg: string) {
   try {
     if (status != 401 && msg) {
       // Message全局提示
-      // message.error(msg)
+      Taro.showToast({
+        title: msg,
+        icon: 'error',
+        duration: 2000
+      })
     }
   } catch (e) {
     console.error('错误处理: Message全局提示失败')
@@ -27,7 +33,11 @@ export function failHandle(data: any) {
     // Http状态码是200 非成功处理响应 消息提示
     if (data.code != 200 && data.msg) {
       // Message全局提示
-      // message.error(data.msg)
+      Taro.showToast({
+        title: data.msg,
+        icon: 'error',
+        duration: 2000
+      })
     }
   } catch (e) {
     console.error('失败处理: Message全局提示失败')
@@ -42,61 +52,3 @@ export function toLogin() {
   // window.location.reload()  // 可能导致无限循环
 }
 
-/**
- *  驼峰转换下划线
- */
-function humpToLine(name: string) {
-  if (name) {
-    return name.replace(/([A-Z])/g, '_$1').toLowerCase()
-  }
-  return ''
-}
-
-function setOrder(order: string) {
-  if (order === 'descend') {
-    return 'desc'
-  }
-  if (order === 'ascend') {
-    return 'asc'
-  }
-  return order
-}
-
-export function requestPage(config: any) {
-  let {url, data} = config
-  if (!url.endsWith('/page')) {
-    return
-  }
-  // 处理请求参数
-  const {current, pageSize, sorter} = data
-  config.data.page = current // 当前页
-  config.data.size = pageSize // 当前页数
-  // 排序参数
-  if (sorter) {
-    const splitIndex = sorter.lastIndexOf('_')
-    config.data.sort = humpToLine(sorter.substr(0, splitIndex))
-    config.data.order = setOrder(sorter.substr(splitIndex + 1))
-  }
-}
-
-export function responsePage(data: any, url: any) {
-  if (!url.endsWith('/page')) {
-    return data
-  }
-  const {page, size, total, hasNextPage, list} = data.data
-  // 分页参数
-  const result = {
-    current: page,
-    pageSize: size,
-    code: data.code,
-    success: data.code === 200,
-    data: list,
-    total,
-    hasNextPage,
-    msg: data.msg,
-  }
-  return {
-    ...data,
-    ...result,
-  }
-}

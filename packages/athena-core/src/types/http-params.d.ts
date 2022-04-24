@@ -16,12 +16,4 @@ export interface HttpParams {
    * headers参数
    */
   headers: any;
-  /**
-   * 是否admin类型分页处理
-   */
-  isPage: boolean;
-  /**
-   * 是否admin类型Web
-   */
-  isWeb: boolean;
 }

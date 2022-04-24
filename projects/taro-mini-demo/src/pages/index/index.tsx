@@ -5,6 +5,7 @@ import {Pipe, Validate} from "athena-common";
 import {CommonUtils} from "athena-utils";
 import {Constant} from "athena-constants";
 import {Demo} from "athena-components";
+import {demoApi} from "../../api/login/demo";
 
 export default class Index extends Component {
 
@@ -16,7 +17,10 @@ export default class Index extends Component {
     console.log(Pipe.hidePart('18863302302', 'phone'))
     console.log(CommonUtils.randomString(6, 12))
     console.log(Constant.PHONE_REGEX)
-    console.log('校验结果: ' + Validate.email('6666@qq.com'))
+    console.log('校验结果: ' + Validate.email('123'))
+    demoApi().then(res => {
+      console.log(res.data);
+    })
   }
 
   componentWillUnmount() {
