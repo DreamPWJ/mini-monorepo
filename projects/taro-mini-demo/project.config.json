@@ -30,7 +30,8 @@
     },
     "disableUseStrict": false,
     "useCompilerPlugins": false,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "compileHotReLoad": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.0",

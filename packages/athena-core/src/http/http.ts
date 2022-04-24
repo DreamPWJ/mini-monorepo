@@ -26,11 +26,11 @@ export class Http {
     const requestParams = chain.requestParams
     const {method, data, url} = requestParams
 
-    console.log(`http接口请求参数 ${method || 'GET'} --> ${url} data: `, data)
+    console.log(`Http接口请求参数 ${method || 'GET'} --> ${url} data: `, data)
 
     return chain.proceed(requestParams)
       .then(res => {
-        console.log(`http接口响应数据 <-- ${url} result:`, res)
+        console.log(`Http接口响应数据 <-- ${url} result:`, res.data)
         return res
       })
   }
