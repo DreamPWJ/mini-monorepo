@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import {Text, View} from '@tarojs/components'
 import './index.scss'
+import {Pipe} from "athena-common";
 
 export default class Index extends Component {
 
@@ -8,6 +9,7 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
+    console.log(Pipe.hidePart(18863302302, "phone"));
   }
 
   componentWillUnmount() {
