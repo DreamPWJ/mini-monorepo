@@ -1,0 +1,26 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/athena-core/src"
+    },
+    {
+      "path": "./packages/athena-constants/src"
+    },
+    {
+      "path": "./packages/athena-utils/src"
+    },
+    {
+      "path": "./packages/athena-common/src"
+    },
+    {
+      "path": "./packages/athena-styles/src"
+    },
+    {
+      "path": "./packages/athena-components/src"
+    },
+    {
+      "path": "./projects/operation-base-pages/src"
+    }
+  ]
+}

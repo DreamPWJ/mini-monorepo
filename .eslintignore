@@ -1,0 +1,15 @@
+.vscode/*
+.idea/*
+node_modules
+**/node_modules
+*.css
+*.scss
+*.d.ts
+src/**/__tests__/**/*.(j|t)s?(x)
+src/**/?(*.)(spec|test).(j|t)s?(x)
+umd
+dist
+yarn.lock
+package-lock.json
+**/config.ts
+.eslintrc.js

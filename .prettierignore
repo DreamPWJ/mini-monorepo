@@ -1,0 +1,17 @@
+.vscode/*
+.idea/*
+node_modules
+**/node_modules
+*.d.ts
+src/**/__tests__/**/*.(j|t)s?(x)
+src/**/?(*.)(spec|test).(j|t)s?(x)
+umd
+dist
+build
+public
+**/*.svg
+*.png
+package.json
+yarn.lock
+package-lock.json
+yarn-error.log

@@ -1,0 +1,35 @@
+{
+  "packages": [
+    "packages/*",
+    "projects/*"
+  ],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "bootstrap": {
+      "scope": [],
+      "ignore": [
+        "*-test"
+      ],
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    },
+    "publish": {
+      "ignoreChanges": [
+        "ignored-file",
+        "*.log",
+        "**/*.md"
+      ],
+      "allowBranch": [
+        "master",
+        "prod",
+        "feature-*"
+      ],
+      "registry": "https://registry.npmjs.org/",
+      "conventionalCommits": false,
+      "message": "chore(release): 发布 %s"
+    }
+  }
+}
