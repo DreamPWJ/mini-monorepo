@@ -1,0 +1,24 @@
+{
+  "name": "athena-components",
+  "version": "1.0.0",
+  "description": "通用组件包",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "compile:ts": "tsc --build"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "@tarojs/components": "3.4.7"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0"
+  },
+  "sideEffects": false,
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

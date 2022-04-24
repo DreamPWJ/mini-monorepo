@@ -36,6 +36,11 @@
   "author": "",
   "dependencies": {
     "athena-common": "^1.0.0",
+    "athena-components": "^1.0.0",
+    "athena-constants": "^1.0.0",
+    "athena-core": "^1.0.0",
+    "athena-styles": "^1.0.0",
+    "athena-utils": "^1.0.0",
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.4.7",
     "@tarojs/runtime": "3.4.7",

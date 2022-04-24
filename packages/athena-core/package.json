@@ -1,0 +1,19 @@
+{
+  "name": "athena-core",
+  "version": "1.0.0",
+  "description": "通用核心包",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "compile:ts": "tsc --build"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "dependencies": {
+    "axios": "^0.21.3"
+  }
+}

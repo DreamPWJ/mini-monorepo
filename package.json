@@ -16,7 +16,7 @@
     "bootstrap:all": "lerna bootstrap && npm run build:all",
     "bootstrap": "lerna bootstrap",
     "bootstrap:scope": "lerna bootstrap --scope vr-website --include-dependencies",
-    "build:all": "npm run build:ts",
+    "build:all": "npm run build:ts && npm run gulp",
     "build:ts": "lerna run compile:ts",
     "gulp": "cd scripts && gulp",
     "packages:dev": "tsc -b packages/athena-components --watch",

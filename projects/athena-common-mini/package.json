@@ -1,0 +1,17 @@
+{
+  "name": "athena-common-web",
+  "version": "1.0.0",
+  "description": "Web端业务通用公共包",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "compile:ts": "tsc --build"
+  },
+  "private": false,
+  "dependencies": {
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
