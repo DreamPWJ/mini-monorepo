@@ -8,7 +8,7 @@
 ### 目录结构
 
 - packages: 可复用的基础通用包
-- projects-*: 多端项目业务包
+- projects-*: 多项目业务包
 - templates: 自定义灵活高效的代码生成器
 - scripts: 自定义脚本 管理复杂多项目
 - docs: 项目文档
