@@ -1,6 +1,7 @@
 # IDEs
 .idea
 .vscode
+*.iml
 
 # Below is a copy of https://github.com/github/gitignore/blob/master/Node.gitignore
 
@@ -75,7 +76,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+projects/taro-mini-demo/.env.dev
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)

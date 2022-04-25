@@ -1,6 +1,8 @@
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: '"production"',
+    BASE_URL: '"https://app-api.rzatfc.com"',
+    IS_DEBUG: 'false'
   },
   defineConstants: {},
   mini: {},

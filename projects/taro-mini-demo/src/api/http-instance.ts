@@ -14,8 +14,8 @@ import {Http} from 'athena-core'
  * 通用Http请求传入参数定义
  */
 const httpParams: HttpParams = {
-  baseURL: `${process.env.baseURL}`,
-  isDebug: true,
+  baseURL: `${process.env.BASE_URL}`,
+  isDebug: `${process.env.IS_DEBUG}`,
 }
 
 /**
