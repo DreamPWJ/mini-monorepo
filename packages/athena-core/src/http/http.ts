@@ -10,14 +10,71 @@ import type {HttpParams} from '../types/http-params'
 export class Http {
   // 调式日志标签
   timeLabel = '接口响应总耗时统计'
+  // 基础URL
+  baseURL = ''
 
   /**
    * 初始化 请求和响应拦截器
    */
   init(httpParams: HttpParams) {
-    console.log("Http初始化: " + httpParams.baseURL);
+    console.log("Http初始化: " + httpParams.baseURL)
+    this.baseURL = httpParams.baseURL
     Taro.addInterceptor(this.interceptor)
+    return this;
   }
+
+  /**
+   * 基础请求
+   */
+  baseRequest(params, method = "GET") {
+    let {path, data, headers} = params;
+    // 基础配置
+    const option: any = {
+      method: method, // 请求方式
+      url: this.baseURL + path,  // 配置请求基础地址
+      data: data,   // 传参数据
+      timeout: 60000, // 配置请求超时时间
+      header: {  // 定义公共headers请求头
+        'content-type': "application/json;charset=UTF-8",
+        'Authorization': Taro.getStorageSync('token') || "",
+        ...headers
+      }
+    };
+    return Taro.request(option)
+  }
+
+  /**
+   * GET网络请求
+   */
+  get(path, data = "", headers = {}) {
+    let option = {path, data, headers};
+    return this.baseRequest(option, "GET");
+  }
+
+  /**
+   * POST网络请求
+   */
+  post(path, data = "", headers = {}) {
+    let option = {path, data, headers};
+    return this.baseRequest(option, "POST");
+  }
+
+  /**
+   * PUT网络请求
+   */
+  put(path, data = "", headers = {}) {
+    let option = {path, data, headers};
+    return this.baseRequest(option, "PUT");
+  }
+
+  /**
+   * DELETE网络请求
+   */
+  delete(path, data = "", headers = {}) {
+    let option = {path, data, headers};
+    return this.baseRequest(option, "DELETE");
+  }
+
 
   /**
    * 处理拦截器

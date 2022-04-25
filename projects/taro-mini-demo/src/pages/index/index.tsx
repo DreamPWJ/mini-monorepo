@@ -5,7 +5,7 @@ import {Pipe, Validate} from "athena-common";
 import {CommonUtils} from "athena-utils";
 import {Constant} from "athena-constants";
 import {Demo} from "athena-components";
-import {demoApi} from "../../api/login/demo";
+import {demoApi} from "../../api/demo/demo";
 
 export default class Index extends Component {
 
@@ -19,8 +19,9 @@ export default class Index extends Component {
     console.log(Constant.PHONE_REGEX)
     console.log('校验结果: ' + Validate.email('123'))
     demoApi().then(res => {
-      console.log(res.data);
+
     })
+
   }
 
   componentWillUnmount() {
@@ -36,7 +37,8 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <Text className="primary">Hello Taro!</Text>
-        <Demo text="Taro组件"></Demo>
+        <Demo text="Taro自定义组件"></Demo>
+        {/*<WebView src='http://www.jxybkj.cn:8010/?leaguerId=5871741f86894f8a9ce11ceed3d43ec1#/home' />*/}
       </View>
     )
   }
