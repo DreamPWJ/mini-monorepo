@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -22,7 +23,6 @@
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
-    "dev:h5": "npm run build:h5 -- --watch",
     "dev:rn": "npm run build:rn -- --watch",
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
