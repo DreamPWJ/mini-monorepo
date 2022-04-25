@@ -1,0 +1,20 @@
+{
+  "name": "athena-common",
+  "version": "1.0.0",
+  "description": "通用公共包",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "compile:ts": "tsc --build"
+  },
+  "private": false,
+  "dependencies": {
+    "@types/events": "^3.0.0",
+    "events": "^3.3.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

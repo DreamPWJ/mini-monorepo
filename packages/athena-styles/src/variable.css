@@ -1,0 +1,113 @@
+/* 考虑CSS原生变量定义 -- var */
+
+.primary {
+  color: #1677ff !important;
+}
+
+.primary-bg {
+  background-color: #1677ff !important;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.white-bg {
+  background-color: #fff !important;
+}
+
+.light {
+  color: #f8f8f8 !important;
+}
+
+.light-bg {
+  background-color: #f8f8f8 !important;
+}
+
+.blue {
+  color: #1890ff !important;
+}
+
+.blue-bg {
+  background-color: #1890ff !important;
+}
+
+.green {
+  color: #16c23a !important;
+}
+
+.green-bg {
+  background-color: #16c23a !important;
+}
+
+.orange {
+  color: #f26604 !important;
+}
+
+.orange-bg {
+  background-color: #f26604 !important;
+}
+
+.yellow {
+  color: #ffde37 !important;
+}
+
+.yellow-bg {
+  background-color: #ffde37 !important;
+}
+
+.red {
+  color: #ff3334 !important;
+}
+
+.red-bg {
+  background-color: #ff3334 !important;
+}
+
+.purple {
+  color: #886aea !important;
+}
+
+.purple-bg {
+  background-color: #886aea !important;
+}
+
+.thin-grey {
+  color: #cfcfcf !important;
+}
+
+.thin-grey-bg {
+  background-color: #cfcfcf !important;
+}
+
+.grey {
+  color: #b1b1b1 !important;
+}
+
+.grey-bg {
+  background-color: #b1b1b1 !important;
+}
+
+.dark-grey {
+  color: #585858 !important;
+}
+
+.dark-grey-bg {
+  background-color: #585858 !important;
+}
+
+.thin-dark {
+  color: #353535 !important;
+}
+
+.thin-dark-bg {
+  background-color: #353535 !important;
+}
+
+.dark {
+  color: #000 !important;
+}
+
+.dark-bg {
+  background-color: #000 !important;
+}

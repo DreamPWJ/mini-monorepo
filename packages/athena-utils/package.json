@@ -1,0 +1,19 @@
+{
+  "name": "athena-utils",
+  "version": "1.0.0",
+  "description": "通用工具包",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "compile:ts": "tsc --build"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}
