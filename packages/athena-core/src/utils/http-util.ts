@@ -48,7 +48,11 @@ export function failHandle(data: any) {
  *  去登录
  */
 export function toLogin() {
-  localStorage.removeItem('token')
+  // Taro.clearStorage()
+  Taro.removeStorageSync('token')
+  Taro.reLaunch({
+    url: "/pages/login/login"
+  });
   // window.location.reload()  // 可能导致无限循环
 }
 
