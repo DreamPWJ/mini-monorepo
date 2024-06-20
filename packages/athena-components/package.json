@@ -10,7 +10,7 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "@tarojs/components": "3.4.7"
+    "@tarojs/components": "3.6.32"
   },
   "devDependencies": {
     "@types/react": "^17.0.0"

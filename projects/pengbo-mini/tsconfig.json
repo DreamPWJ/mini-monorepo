@@ -22,7 +22,12 @@
     ],
     "paths": {
       // TS5090 leading './'
-      "@/*": ["./src/*"]
+      "~/*": [
+        "packages/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
   "include": ["./src", "./types", "./config"],
