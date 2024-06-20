@@ -22,7 +22,6 @@
       "node_modules/@types"
     ],
     "paths": {
-      // TS5090 leading './'
       "~/*": [
         "packages/*"
       ],
@@ -31,6 +30,9 @@
       ]
     }
   },
-  "include": ["./src", "./types", "./config"],
+  "include": [
+    "./src",
+    "global.d.ts"
+  ],
   "compileOnSave": false
 }

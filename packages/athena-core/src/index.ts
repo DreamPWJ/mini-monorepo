@@ -1,2 +1,2 @@
 export {Http} from './http/http'
-export type {default as HttpParams} from './types/http-params'
+export type { HttpParams } from './types/http-params'

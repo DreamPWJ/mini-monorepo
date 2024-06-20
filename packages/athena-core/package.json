@@ -2,18 +2,14 @@
   "name": "athena-core",
   "version": "1.0.0",
   "description": "基础通用核心包",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build"
-  },
-  "private": false,
-  "publishConfig": {
-    "access": "public",
-    "directory": "dist"
   },
   "dependencies": {
     "@tarojs/taro": "3.6.32"
   }
 }
+

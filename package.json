@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "pnpm:all": "pnpm run -r compile:ts",
     "gulp": "cd scripts && gulp",
     "packages:dev": "tsc -b packages/athena-components --watch",
     "clean:ts": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo ",

@@ -14,8 +14,8 @@ import { Http } from 'athena-core'
  * 通用Http请求传入参数定义
  */
 const httpParams: HttpParams = {
-  baseURL: `${process.env.BASE_URL}`,
-  isDebug: `${process.env.IS_DEBUG}`
+  baseURL: `${process.env.TARO_APP_BASE_URL}`,
+  isDebug: `${process.env.TARO_APP_IS_DEBUG}`
 }
 
 /**
