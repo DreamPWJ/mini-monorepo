@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "pengbo-mini",
+  "appid": "testAppId",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
