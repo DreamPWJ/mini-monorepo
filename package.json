@@ -2,30 +2,12 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "projects/*"
-    ],
-    "nohoist": [
-      "**/vant",
-      "**/vant/**"
-    ]
-  },
   "scripts": {
-    "build:all": "npm run build:ts && npm run gulp",
-    "bootstrap:all": "lerna bootstrap && npm run build:all",
-    "bootstrap": "lerna bootstrap",
-    "bootstrap:scope": "lerna bootstrap --scope vr-website --include-dependencies",
-    "build:ts": "lerna run compile:ts",
+    "pnpm:all": "pnpm run -r compile:ts",
     "gulp": "cd scripts && gulp",
     "packages:dev": "tsc -b packages/athena-components --watch",
-    "clean:all": "npm run clean:ts & npm run clean:lerna & npm run clean:modules",
     "clean:ts": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo ",
-    "clean:lerna": "lerna clean -y",
-    "clean:modules": "rimraf node_modules && rimraf projects/**/src/.umi && rimraf projects/**/src/.umi-production",
-    "lerna:link": "lerna link --force-local",
-    "lerna:publish": "lerna publish -y"
+    "clean:modules": "rimraf node_modules && rimraf projects/**/src/.umi && rimraf projects/**/src/.umi-production"
   },
   "dependencies": {},
   "devDependencies": {
@@ -48,17 +30,16 @@
     "gulp-sass": "^4.1.0",
     "gulp-typescript": "^5.0.1",
     "husky": "^4.3.6",
-    "lerna": "^4.0.0",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "stylelint": "^14.7.1",
     "stylelint-config-standard": "^25.0.0",
-    "typescript": "^4.2.0",
+    "typescript": "^5.4.5",
     "yargs": "^17.0.1"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=16.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,json,vue,ts,tsx}": [

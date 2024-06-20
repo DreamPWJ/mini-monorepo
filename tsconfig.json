@@ -20,7 +20,7 @@
       "path": "./packages/athena-components/src"
     },
     {
-      "path": "./projects/operation-base-pages/src"
+      "path": "./projects/athena-common-mini/src"
     }
   ]
 }
