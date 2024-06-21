@@ -1,4 +1,3 @@
-/*
 module.exports = {
   // ...
   module: {
@@ -18,4 +17,4 @@ module.exports = {
   }
   // ...
 }
-*/
+
