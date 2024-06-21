@@ -39,7 +39,6 @@
   ],
   "author": "",
   "dependencies": {
-    "athena-test": "workspace:*",
     "@babel/runtime": "^7.21.5",
     "@tarojs/components": "3.6.32",
     "@tarojs/helper": "3.6.32",

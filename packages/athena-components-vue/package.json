@@ -2,18 +2,11 @@
   "name": "athena-components-vue",
   "version": "1.0.0",
   "description": "通用Vue组件包",
-  "main": "../athena-components-vue/src/index.ts",
-  "module": "../athena-components-vue/src/index.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build"
-  },
-  "peerDependencies": {
-    "@tarojs/components": "^3.6.32",
-    "vue": "^3.4.29"
-  },
-  "dependencies": {
-    "@tarojs/taro": "^3.6.32"
   }
 }
 
