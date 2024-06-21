@@ -1,14 +1,19 @@
 <template>
   <view class="index">
     <text>{{ msg }}</text>
+    <DemoVueComponent message="Hello  DemoVueComponent " />
   </view>
 </template>
 
 <script>
 import { ref } from 'vue'
 import './index.css'
+import DemoVueComponent from 'athena-test'
 
 export default {
+  components: {
+    DemoVueComponent
+  },
 
   setup() {
     const msg = ref('Hello world')
