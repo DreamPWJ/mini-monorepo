@@ -1,36 +1,27 @@
-<!-- Counter.vue -->
 <template>
-  <div class="counter">
-    <h2>{{ count }}</h2>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-  </div>
+  <view class="index">
+    <text>{{ msg }}</text>
+  </view>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<script>
+import { ref } from 'vue'
 
-export default defineComponent({
+export default {
   setup() {
-    const count = ref<number>(0)
-
-    const increment = (): void => {
-      count.value++
-    }
-
-    const decrement = (): void => {
-      count.value--
-    }
-
+    const msg = ref('athena-components-vue')
     return {
-      count,
-      increment,
-      decrement
+      msg
     }
+  },
+
+  onLoad() {
+    console.log('athena-components-vue')
   }
-})
+
+}
 </script>
 
 <style scoped>
-/* ... */
+/*每个页面公共css */
 </style>

@@ -2,12 +2,12 @@
   "name": "athena-test",
   "version": "1.0.0",
   "description": "",
-  "main": "./index.ts",
-  "module": "./index.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile:ts": "tsc --build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

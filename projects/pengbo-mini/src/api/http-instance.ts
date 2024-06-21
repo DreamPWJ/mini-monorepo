@@ -15,7 +15,7 @@ import { Http } from 'athena-core'
  */
 const httpParams: HttpParams = {
   baseURL: `${process.env.TARO_APP_BASE_URL}`,
-  isDebug: `${process.env.TARO_APP_IS_DEBUG}`
+  isDebug: true
 }
 
 /**

@@ -2,13 +2,13 @@
   <view class="index">
     <text>{{ msg }}</text>
   </view>
-  <DemoVueComponent />
+  <!--  <DemoVueComponent />-->
 </template>
 
 <script>
 import { ref } from 'vue'
 import './index.scss'
-import { testHello } from 'athena-test'
+import { testHelloMonoRepo } from 'athena-test'
 
 
 export default {
@@ -25,16 +25,16 @@ export default {
 
   onShow() {
     console.log('Taro多包复用示例')
-    testHello()
-    /*
-        demoApi().then(res => {
+    testHelloMonoRepo()
 
-        })
-        console.log(CommonUtils.randomString(6, 12))
-        console.log(Pipe.hidePart('18863302302', 'phone'))
-        console.log(Constant.PHONE_REGEX)
-        console.log('校验结果: ' + Validate.email('123'))
-    */
+    /*  demoApi().then(res => {
+
+     })
+          console.log(CommonUtils.randomString(6, 12))
+       console.log(Pipe.hidePart('18863302302', 'phone'))
+       console.log(Constant.PHONE_REGEX)
+       console.log('校验结果: ' + Validate.email('123'))
+   */
 
   }
 }
