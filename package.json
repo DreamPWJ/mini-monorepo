@@ -2,7 +2,19 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "projects/*",
+      "projects-demo/*"
+    ],
+    "nohoist": [
+      "**/vant",
+      "**/vant/**"
+    ]
+  },
   "scripts": {
+    "pnpm": "pnpm install",
     "gulp": "cd scripts && gulp",
     "packages:dev": "tsc -b packages/athena-components --watch",
     "clean:ts": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo ",

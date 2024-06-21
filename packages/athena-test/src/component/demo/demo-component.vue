@@ -14,11 +14,12 @@ export default ({
 
   // 可以使用所有的 Vue 生命周期方法
   mounted() {
+    console.log(this.message)
   },
 
   // onLoad
   onLoad() {
-    console.log(this.message)
+
   },
 
   // onReady

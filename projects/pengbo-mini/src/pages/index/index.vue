@@ -9,7 +9,7 @@
 <script>
 import { ref } from 'vue'
 import './index.scss'
-import { DemoVueComponent, testHelloMonoRepo } from 'athena-test'
+import { testHelloMonoRepo } from 'athena-test'
 import VueComponentDemo from '@/components/demo/component-demo.vue'
 
 
@@ -23,7 +23,7 @@ export default {
   },
 
   onLoad() {
-    console.log('onLoad')
+    console.log('Index onLoad')
   },
 
   onShow() {
