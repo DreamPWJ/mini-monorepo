@@ -1,17 +1,20 @@
 <template>
   <view class="index">
     <text>{{ msg }}</text>
-    <DemoVueComponent message="Hello  DemoVueComponent" />
+    <VueComponentDemo message="Hello  VueComponentDemo"></VueComponentDemo>
+    <DemoVueComponent message="Hello  DemoVueComponent"></DemoVueComponent>
   </view>
 </template>
 
 <script>
 import { ref } from 'vue'
 import './index.css'
-import DemoVueComponent, { testHelloMonoRepo } from 'athena-test'
+import { DemoVueComponent, testHelloMonoRepo } from 'athena-test'
+import VueComponentDemo from '@/components/demo/component-demo.vue'
 
 export default {
   components: {
+    VueComponentDemo,
     DemoVueComponent
   },
 
