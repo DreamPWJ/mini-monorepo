@@ -1,8 +1,6 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "taro-mini-vue-demo",
   "description": "Vue Demo",
-  "appid": "wxa661b24ffdc4f7e9",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -14,18 +12,23 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "coverView": false,
+    "showShadowRootInWxmlPanel": false,
+    "packNpmRelationList": [],
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "3.4.7",
   "srcMiniprogramRoot": "dist/",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "libVersion": "3.4.7",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "appid": "wxa661b24ffdc4f7e9"
 }
