@@ -14,7 +14,7 @@ export default ({
 
   // 可以使用所有的 Vue 生命周期方法
   mounted() {
-    console.log(this.message)
+
   },
 
   // onLoad
@@ -28,6 +28,7 @@ export default ({
 
   // 对应 onShow
   onShow() {
+    console.log(this.message)
   },
 
   // 对应 onHide
