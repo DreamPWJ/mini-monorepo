@@ -1,5 +1,5 @@
 export function testHelloMonoRepo(msg = 'world') {
-  const str = ` hello ${msg} monorepo!`
+  const str = ` hello ${msg} monorepo function!`
   console.log(str)
   return str
 }

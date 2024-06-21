@@ -2,16 +2,19 @@
   <view class="index">
     <text>{{ msg }}</text>
   </view>
-  <!--  <DemoVueComponent />-->
+  <VueComponentDemo message="Hello  VueComponentDemo " />
+  <!--  <DemoVueComponent message="Hello  DemoVueComponent " />-->
 </template>
 
 <script>
 import { ref } from 'vue'
 import './index.scss'
-import { testHelloMonoRepo } from 'athena-test'
+import { DemoVueComponent, testHelloMonoRepo } from 'athena-test'
+import VueComponentDemo from '@/components/demo/component-demo.vue'
 
 
 export default {
+  components: { VueComponentDemo },
   setup() {
     const msg = ref('Hello world')
     return {

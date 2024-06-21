@@ -20,6 +20,12 @@
       "path": "./packages/athena-components/src"
     },
     {
+      "path": "./packages/athena-components-vue/src"
+    },
+    {
+      "path": "./packages/athena-test/src"
+    },
+    {
       "path": "./projects/athena-common-mini/src"
     }
   ]
