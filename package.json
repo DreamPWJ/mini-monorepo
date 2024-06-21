@@ -38,7 +38,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^37.0.1",
     "gulp": "^4.0.2",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-typescript": "^5.0.1",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
