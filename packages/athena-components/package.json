@@ -1,7 +1,7 @@
 {
   "name": "athena-components",
   "version": "1.0.0",
-  "description": "通用组件包",
+  "description": "通用React组件包",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",

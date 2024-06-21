@@ -2,12 +2,14 @@
   <view class="index">
     <text>{{ msg }}</text>
   </view>
+  <DemoVueComponent />
 </template>
 
 <script>
 import { ref } from 'vue'
 import './index.scss'
 import { testHello } from 'athena-test'
+
 
 export default {
   setup() {

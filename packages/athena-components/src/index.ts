@@ -1,1 +1,1 @@
-export {Demo} from './demo/demo'
+export { DemoReactComponent } from './demo/demo.vue'

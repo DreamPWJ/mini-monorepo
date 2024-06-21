@@ -1,11 +1,11 @@
-import {Component} from 'react'
-import {Text, View} from '@tarojs/components'
+import { Component } from 'react'
+import { Text, View } from '@tarojs/components'
 import './index.scss'
-import {Pipe, Validate} from "athena-common";
-import {CommonUtils} from "athena-utils";
-import {Constant} from "athena-constants";
-import {Demo} from "athena-components";
-import {demoApi} from "../../api/demo/demo";
+import { Pipe, Validate } from 'athena-common'
+import { CommonUtils } from 'athena-utils'
+import { Constant } from 'athena-constants'
+import { DemoReactComponent } from 'athena-components'
+import { demoApi } from '../../api/demo/demo'
 
 export default class Index extends Component {
 
@@ -37,7 +37,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <Text className="primary">Hello Taro!</Text>
-        <Demo text="Taro自定义组件"></Demo>
+        <DemoReactComponent text="Taro自定义组件"></DemoReactComponent>
         {/*<WebView src='http://www.jxybkj.cn:8010/?leaguerId=5871741f86894f8a9ce11ceed3d43ec1#/home' />*/}
       </View>
     )
