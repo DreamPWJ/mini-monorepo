@@ -53,8 +53,6 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "",
-      "pre-commit": ""
     }
   }
 }
