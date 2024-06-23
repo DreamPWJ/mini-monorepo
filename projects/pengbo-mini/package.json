@@ -44,6 +44,7 @@
     "athena-components-vue": "workspace:*",
     "athena-utils": "workspace:*",
     "athena-constants": "workspace:*",
+    "athena-styles": "workspace:*",
     "athena-test": "workspace:*",
     "@babel/runtime": "^7.21.5",
     "@tarojs/components": "3.6.32",
