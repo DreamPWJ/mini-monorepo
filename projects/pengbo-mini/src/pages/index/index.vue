@@ -2,8 +2,8 @@
   <view class="index">
     <text>{{ msg }}</text>
   </view>
-  <VueComponentDemo message="Hello  VueComponentDemo" />
-  <DemoVueComponent message="Hello  DemoVueComponent" />
+  <VueComponentDemo message="Hello Project VueComponentDemo" />
+  <DemoVueComponent message="Hello MonoRepo VueComponentDemo" />
 </template>
 
 <script>

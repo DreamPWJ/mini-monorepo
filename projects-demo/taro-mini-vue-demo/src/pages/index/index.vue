@@ -1,8 +1,8 @@
 <template>
   <view class="index">
     <text>{{ msg }}</text>
-    <VueComponentDemo message="Hello  VueComponentDemo"></VueComponentDemo>
-    <DemoVueComponent message="Hello  DemoVueComponent"></DemoVueComponent>
+    <VueComponentDemo message="Hello Project VueComponentDemo"></VueComponentDemo>
+    <DemoVueComponent message="Hello MonoRepo VueComponentDemo"></DemoVueComponent>
   </view>
 </template>
 
@@ -12,6 +12,7 @@ import './index.css'
 import { DemoVueComponent, testHelloMonoRepo } from 'athena-test'
 import VueComponentDemo from '@/components/demo/component-demo.vue'
 import { CommonUtils } from 'athena-utils'
+import { demoApi } from '@/api/demo/demo'
 
 export default {
   components: {
@@ -39,9 +40,9 @@ export default {
     testMonoRepo() {
       console.log('Taro多包复用示例')
       testHelloMonoRepo()
-      /* demoApi().then(res => {
+      demoApi().then(res => {
 
-            })*/
+      })
 
       console.log(CommonUtils.randomString(6, 12))
       /*   console.log(Pipe.hidePart('18863302302', 'phone'))
