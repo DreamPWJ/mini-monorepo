@@ -40,7 +40,10 @@
   "author": "",
   "dependencies": {
     "athena-core": "workspace:*",
+    "athena-common": "workspace:*",
+    "athena-components-vue": "workspace:*",
     "athena-utils": "workspace:*",
+    "athena-constants": "workspace:*",
     "athena-test": "workspace:*",
     "@babel/runtime": "^7.21.5",
     "@tarojs/components": "3.6.32",

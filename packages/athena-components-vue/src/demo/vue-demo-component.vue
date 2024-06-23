@@ -6,15 +6,15 @@
 
 <script>
 
-export default {
-  name: 'ProjectComponentDemo',
+export default ({
+  name: 'VueDemoComponent',
   props: {
     message: String
   },
 
   // 可以使用所有的 Vue 生命周期方法
   mounted() {
-    console.log(this.message)
+
   },
 
   // onLoad
@@ -24,12 +24,11 @@ export default {
 
   // onReady
   onReady() {
-
   },
 
   // 对应 onShow
   onShow() {
-
+    console.log(this.message)
   },
 
   // 对应 onHide
@@ -40,10 +39,11 @@ export default {
   onPullDownRefresh() {
   },
 
-  setup() {
+  setup(props) {
     // 使用Composition API
+
   }
-}
+})
 </script>
 
 <style scoped>

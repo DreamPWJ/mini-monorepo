@@ -7,7 +7,7 @@
 <script>
 
 export default ({
-  name: 'DemoVueComponent',
+  name: 'TestDemoComponent',
   props: {
     message: String
   },

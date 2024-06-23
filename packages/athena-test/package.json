@@ -1,7 +1,7 @@
 {
   "name": "athena-test",
   "version": "1.0.0",
-  "description": "测试包",
+  "description": "monorepo测试包",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "private": true,

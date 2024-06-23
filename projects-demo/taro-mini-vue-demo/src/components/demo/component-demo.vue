@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  name: 'VueComponentDemo',
+  name: 'ProjectComponentDemo',
   props: {
     message: String
   },

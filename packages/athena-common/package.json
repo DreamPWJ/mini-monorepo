@@ -2,14 +2,14 @@
   "name": "athena-common",
   "version": "1.0.0",
   "description": "通用公共包",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "private": true,
   "keywords": [],
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
-
+    "compile:ts": "tsc --build"
   },
   "dependencies": {
     "@types/events": "^3.0.0",
