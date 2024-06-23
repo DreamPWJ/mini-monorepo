@@ -15,6 +15,7 @@
   },
   "scripts": {
     "pnpm": "pnpm install",
+    "pnpm:ts": "pnpm run -r compile:ts",
     "gulp": "cd scripts && gulp",
     "packages:dev": "tsc -b packages/athena-components --watch",
     "clean:ts": "rimraf packages/**/dist ",

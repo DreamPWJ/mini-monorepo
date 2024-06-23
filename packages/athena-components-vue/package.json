@@ -9,7 +9,7 @@
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
-    "compile:ts": "tsc --build"
+
   }
 }
 

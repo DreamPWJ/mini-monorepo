@@ -2,14 +2,18 @@
   "name": "athena-utils",
   "version": "1.0.0",
   "description": "通用工具包",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "private": true,
   "keywords": [],
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
   },
   "dependencies": {
     "lodash": "^4.17.20"
