@@ -1,6 +1,6 @@
 // npm install --global gulp-cli
 const gulp = require('gulp')
-// const ts = require('gulp-typescript');
+const ts = require('gulp-typescript');
 // const sass = require('gulp-sass');
 
 const { series } = require('gulp')
@@ -27,11 +27,12 @@ function watch() {
   return gulp
     .watch(['../packages/*/src/**/*.tsx', '../packages/*/src/**/*.ts'])
     .on('change', function(file) {
-      console.log('监听文件变化了:' + file.toString())
-      compileTs()
+      console.log('监听文件变化了: ' + file.toString())
+      //compileTs()
     })
 }
-
+// 设置typescript编译配置
+const tsProject = ts.createProject('tsconfig.json');
 // 定义编译TypeScript的任务
 function compileTs() {
   return tsProject.src()
@@ -39,6 +40,6 @@ function compileTs() {
     .js.pipe(gulp.dest('dist')); // 输出目录，根据实际情况调整
 }
 
-exports.copy = copy
+exports.watch = watch
 
 exports.default = series(copy, copyVue, copyStyles)
