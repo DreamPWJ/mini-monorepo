@@ -27,10 +27,10 @@ function watch() {
   return gulp
     .watch(['../packages/*/src/**/*.tsx', '../packages/*/src/**/*.ts'])
     .on('change', function(file) {
-      console.log('监听文件变化了:' + file.tostring())
+      console.log('监听文件变化了:' + file.toString())
     })
 }
 
 exports.copy = copy
 
-exports.default = series(copy, copyVue, copyStyles)
+exports.default = series(copy, copyVue, copyStyles,watch)
