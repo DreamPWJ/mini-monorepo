@@ -1,4 +1,4 @@
-## 基于Pnpm Workspace管理跨端小程序统一的MonoRepo单体式仓库 单仓多包 Taro技术栈
+## 基于Pnpm Workspace管理跨端小程序统一的MonoRepo单体式仓库 单仓多包 Web技术栈
 
 ### 项目代号: athena(雅典娜 智慧女神) 愿景: 使项目更易于复用迭代维护扩展、分离关注点并避免代码重复
 
@@ -19,6 +19,8 @@
 
 - Taro
 - React
+- Vue
+- TypeScript
 - Lerna
 - Vite
 - Pnpm
