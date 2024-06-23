@@ -4,10 +4,11 @@
   "description": "测试包",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
+  "private": true,
+  "keywords": [],
+  "author": "潘维吉",
+  "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  }
 }

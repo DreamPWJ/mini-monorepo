@@ -4,6 +4,9 @@
   "description": "基础通用核心包",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
+  "private": true,
+  "keywords": [],
+  "author": "潘维吉",
   "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build"

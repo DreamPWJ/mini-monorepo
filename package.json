@@ -43,7 +43,7 @@
     "yargs": "^17.7.2"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=16.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,json,vue,ts,tsx}": [

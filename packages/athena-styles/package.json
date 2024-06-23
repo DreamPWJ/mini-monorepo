@@ -1,9 +1,12 @@
 {
   "name": "athena-styles",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "description": "通用样式包",
+  "main": "index.js",
+  "private": true,
+  "keywords": [],
+  "author": "潘维吉",
+  "license": "MIT",
   "publishConfig": {
     "access": "public",
     "directory": "dist"

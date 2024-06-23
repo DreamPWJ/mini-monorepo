@@ -4,6 +4,8 @@
   "description": "通用React组件包",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "keywords": [],
+  "author": "潘维吉",
   "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build"
