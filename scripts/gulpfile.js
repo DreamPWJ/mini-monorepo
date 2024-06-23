@@ -28,9 +28,17 @@ function watch() {
     .watch(['../packages/*/src/**/*.tsx', '../packages/*/src/**/*.ts'])
     .on('change', function(file) {
       console.log('监听文件变化了:' + file.toString())
+      compileTs()
     })
+}
+
+// 定义编译TypeScript的任务
+function compileTs() {
+  return tsProject.src()
+    .pipe(tsProject())
+    .js.pipe(gulp.dest('dist')); // 输出目录，根据实际情况调整
 }
 
 exports.copy = copy
 
-exports.default = series(copy, copyVue, copyStyles,watch)
+exports.default = series(copy, copyVue, copyStyles)

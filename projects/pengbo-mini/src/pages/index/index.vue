@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <text>{{ msg }}</text>
+    <text class="text">{{ msg }}</text>
     <ProjectComponentDemo message="Hello Project VueComponentDemo"></ProjectComponentDemo>
     <VueDemoComponent message="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
   </view>

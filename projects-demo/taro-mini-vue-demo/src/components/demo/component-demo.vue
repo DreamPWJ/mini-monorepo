@@ -1,6 +1,6 @@
 <template>
-  <view class="index">
-    <text>{{ message }}</text>
+  <view>
+    <text class="msg">{{ message }}</text>
   </view>
 </template>
 
@@ -46,6 +46,9 @@ export default {
 }
 </script>
 
-<style scoped>
-/*每个页面公共css */
+<style >
+
+.msg {
+  color: #bd34fe;
+}
 </style>

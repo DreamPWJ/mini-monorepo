@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <text>{{ message }}</text>
+    <text class="project-text">{{ message }}</text>
   </view>
 </template>
 
@@ -46,6 +46,9 @@ export default {
 }
 </script>
 
-<style scoped>
-/*每个页面公共css */
+<style >
+
+.project-text{
+  color: #41d1ff;
+}
 </style>
