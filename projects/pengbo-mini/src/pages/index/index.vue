@@ -8,7 +8,7 @@
 
 <script>
 import { ref } from 'vue'
-import './index.css'
+import './index.scss'
 import { testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/component-demo.vue'
 import { CommonUtils } from 'athena-utils'
@@ -24,7 +24,7 @@ export default {
   },
 
   setup() {
-    const msg = ref('Hello world')
+    const msg = ref('Hello Taro Mini Pnpm MonoRepo')
     return {
       msg
     }

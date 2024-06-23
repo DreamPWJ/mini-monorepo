@@ -24,7 +24,7 @@ export default {
   },
 
   setup() {
-    const msg = ref('Hello world')
+    const msg = ref('Hello Taro Mini Pnpm MonoRepo')
     return {
       msg
     }
