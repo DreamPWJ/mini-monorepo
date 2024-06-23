@@ -15,10 +15,10 @@
   },
   "scripts": {
     "pnpm": "pnpm install",
-    "pnpm:ts": "pnpm run -r compile:ts",
+    "pnpm:ts": "pnpm run -r compile:ts && npm run gulp",
     "gulp": "cd scripts && gulp",
     "packages:dev": "tsc -b packages/athena-components --watch",
-    "clean:ts": "rimraf packages/**/dist ",
+    "clean:ts": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo",
     "clean:modules": "rimraf  node_modules && rimraf projects/**/node_modules && rimraf projects-demo/**/node_modules"
   },
   "dependencies": {},
