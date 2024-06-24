@@ -32,6 +32,8 @@
   },
   "include": [
     "./src",
+    "./types",
+    "./config",
     "global.d.ts",
     "components.d.ts"
   ],

@@ -1,9 +1,9 @@
 <template>
   <view class="pengbo-index">
-    <!-- <nut-button type="primary">NutUI小程序组件库</nut-button>-->
     <text class="msg">{{ msg }}</text>
     <ProjectComponentDemo message="Hello Project VueComponentDemo"></ProjectComponentDemo>
     <VueDemoComponent message="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
+    <nut-button type="primary">NutUI小程序组件库</nut-button>
   </view>
 </template>
 
