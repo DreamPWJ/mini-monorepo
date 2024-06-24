@@ -48,6 +48,7 @@
     "@tarojs/plugin-html": "3.6.32",
     "@tarojs/plugin-platform-alipay": "3.6.32",
     "@tarojs/plugin-platform-h5": "3.6.32",
+    "@tarojs/plugin-platform-harmony-hybrid": "3.6.32",
     "@tarojs/plugin-platform-jd": "3.6.32",
     "@tarojs/plugin-platform-qq": "3.6.32",
     "@tarojs/plugin-platform-swan": "3.6.32",
