@@ -34,7 +34,8 @@
   "include": [
     "./src",
     "./types",
-    "./config"
+    "./config",
+    "components.d.ts"
   ],
   "compileOnSave": false
 }

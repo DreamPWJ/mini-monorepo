@@ -32,7 +32,8 @@
   },
   "include": [
     "./src",
-    "global.d.ts"
+    "global.d.ts",
+    "components.d.ts"
   ],
   "compileOnSave": false
 }

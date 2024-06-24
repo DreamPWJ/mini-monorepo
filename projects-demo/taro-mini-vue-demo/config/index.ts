@@ -2,22 +2,42 @@ import { defineConfig, type UserConfigExport } from '@tarojs/cli'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import devConfig from './dev'
 import prodConfig from './prod'
+import ComponentsPlugin from 'unplugin-vue-components/webpack'
+
+const NutUIResolver = () => {
+  return (name) => {
+    if (name.startsWith('Nut')) {
+      const partialName = name.slice(3)
+      return {
+        name: partialName,
+        from: '@nutui/nutui-taro',
+        sideEffects: `@nutui/nutui-taro/dist/packages/${partialName.toLowerCase()}/style`
+      }
+    }
+  }
+}
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport = {
     projectName: 'taro-mini-vue-demo',
     date: '2024-6-21',
-    designWidth: 750,
+    // 配置 NutUI 375 尺寸
+    designWidth: 375,
     deviceRatio: {
       640: 2.34 / 2,
       750: 1,
-      375: 2,
-      828: 1.81 / 2
+      828: 1.81 / 2,
+      375: 2 / 1
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
+    // 开启 HTML 插件
+    plugins: ['@tarojs/plugin-html'],
+    // 配置全局 Scss 变量
+    sass: {
+      data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+    },
     defineConstants: {},
     copy: {
       patterns: [],
@@ -26,7 +46,7 @@ export default defineConfig(async (merge, { command, mode }) => {
     framework: 'vue3',
     compiler: 'webpack5',
     cache: {
-      enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+      enable: true // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
     },
     mini: {
       postcss: {
@@ -50,6 +70,11 @@ export default defineConfig(async (merge, { command, mode }) => {
       },
       webpackChain(chain) {
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
+        chain.plugin('unplugin-vue-components').use(
+          ComponentsPlugin({
+            resolvers: [NutUIResolver()]
+          })
+        )
       }
     },
     h5: {
@@ -79,6 +104,11 @@ export default defineConfig(async (merge, { command, mode }) => {
       },
       webpackChain(chain) {
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
+        chain.plugin('unplugin-vue-components').use(
+          ComponentsPlugin({
+            resolvers: [NutUIResolver()]
+          })
+        )
       }
     },
     rn: {
