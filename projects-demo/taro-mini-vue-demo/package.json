@@ -6,7 +6,7 @@
   "templateInfo": {
     "name": "default",
     "typescript": true,
-    "css": "None",
+    "css": "Sass",
     "framework": "Vue3"
   },
   "scripts": {

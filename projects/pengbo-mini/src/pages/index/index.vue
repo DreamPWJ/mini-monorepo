@@ -1,6 +1,6 @@
 <template>
-  <view class="index">
-    <text class="text">{{ msg }}</text>
+  <view class="pengbo-index">
+    <text class="msg">{{ msg }}</text>
     <ProjectComponentDemo message="Hello Project VueComponentDemo"></ProjectComponentDemo>
     <VueDemoComponent message="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
   </view>

@@ -1,6 +1,6 @@
 <template>
-  <view class="index">
-    <text class="project-text">{{ message }}</text>
+  <view>
+    <text class="component-msg">{{ message }}</text>
   </view>
 </template>
 
@@ -14,7 +14,7 @@ export default {
 
   // 可以使用所有的 Vue 生命周期方法
   mounted() {
-    console.log(this.message)
+
   },
 
   // onLoad
@@ -24,7 +24,7 @@ export default {
 
   // onReady
   onReady() {
-
+    console.log(this.message)
   },
 
   // 对应 onShow
@@ -48,7 +48,7 @@ export default {
 
 <style >
 
-.project-text{
-  color: #41d1ff;
+.component-msg {
+  color: #bd34fe;
 }
 </style>

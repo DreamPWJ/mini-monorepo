@@ -1,6 +1,6 @@
 <template>
-  <view class="index">
-    <text class="index-msg">{{ msg }}</text>
+  <view class="index-demo">
+    <text class="msg">{{ msg }}</text>
     <ProjectComponentDemo message="Hello Project VueComponentDemo"></ProjectComponentDemo>
     <VueDemoComponent message="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
   </view>
@@ -8,7 +8,7 @@
 
 <script>
 import { ref } from 'vue'
-import './index.css'
+import './index.scss'
 import { testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/component-demo.vue'
 import { CommonUtils } from 'athena-utils'

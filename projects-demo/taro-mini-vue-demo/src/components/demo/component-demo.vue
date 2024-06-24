@@ -1,6 +1,6 @@
 <template>
   <view>
-    <text class="msg">{{ message }}</text>
+    <text class="component-msg">{{ message }}</text>
   </view>
 </template>
 
@@ -48,7 +48,7 @@ export default {
 
 <style >
 
-.msg {
+.component-msg {
   color: #bd34fe;
 }
 </style>
