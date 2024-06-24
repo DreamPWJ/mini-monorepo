@@ -6,6 +6,8 @@
 
 <script>
 
+import './vue-demo-component.css'
+
 export default ({
   name: 'VueDemoComponent',
   props: {
@@ -48,7 +50,4 @@ export default ({
 
 <style>
 
-.monorepo-text{
-  color: green;
-}
 </style>
