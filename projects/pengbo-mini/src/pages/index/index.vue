@@ -10,7 +10,7 @@
 import { ref } from 'vue'
 import './index.scss'
 import { testHelloMonoRepo } from 'athena-test'
-import ProjectComponentDemo from '@/components/demo/component-demo.vue'
+import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
 import { demoApi } from '@/api/demo/demo'
 import { VueDemoComponent } from 'athena-components-vue'
