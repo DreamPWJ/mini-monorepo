@@ -4,11 +4,11 @@
   "description": "PengBo",
   "setting": {
     "urlCheck": false,
-    "es6": true,
-    "enhance": true,
+    "es6": false,
+    "enhance": false,
     "postcss": false,
     "preloadBackgroundData": false,
-    "minified": false,
+    "minified": true,
     "newFeature": false,
     "coverView": true,
     "nodeModules": false,
@@ -51,6 +51,5 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "appid": "wxa661b24ffdc4f7e9",
   "condition": {}
 }

@@ -1,18 +1,19 @@
 <template>
-  <view class="index-demo">
+  <view class="my">
     <text>{{ msg }}</text>
   </view>
 </template>
 
 <script setup lang="ts">
-import './index.scss'
+import './my.scss'
 import { ref } from 'vue'
-import { useDidShow, useLoad } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
+import { useLoad, useDidShow } from '@tarojs/taro'
 
 /**
  * 数据属性定义
  */
-const msg = ref<string>('小程序新页面模版')
+const msg = ref<string>('我的小程序页面')
 
 useLoad(() => {
 

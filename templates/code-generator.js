@@ -7,7 +7,7 @@ const exec = require('child_process').exec;
  * 自定义代码生成器  灵活、高效
  * 执行node code-generator.js 或者IDEA内右键Run执行
  * 可定义不同业务类型的模板
- * EJS高效的嵌入式 JavaScript 模板引擎 可根据参数动态生成差异性内容模板 https://ejs.bootcss.com/
+ * EJS高效的嵌入式 JavaScript 模板引擎 可根据参数动态生成差异性内容模板 https://ejs.co/
  */
 
 // 生成文件目标位置

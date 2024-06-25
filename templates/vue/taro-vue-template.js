@@ -3,7 +3,7 @@ const fs = require('fs')
  * @author 潘维吉
  * @date 2019-07-08
  * Vue3 TypeScript编程风格的模版
- * 模版快速生成脚本, 执行命令  node taro-vue-template.js
+ * 模版快速生成脚本, 执行命令  node taro-vue-template.js 或者IDEA内右键Run执行
  */
 
 /**
@@ -11,7 +11,7 @@ const fs = require('fs')
  */
 const projectPath = '../../projects/pengbo-mini/' // 项目路径 目录名称 用于生成模版到具体项目目录下
 const type = 'page' // 生产类型  page 页面 component 组件 sub-package 子包页面
-let fileName = 'test'  // 文件名称   process.argv[3]
+let fileName = 'my'  // 文件名称   process.argv[3]
 let directoryName //目录名称
 
 if (fileName.startsWith('/')) {
@@ -61,7 +61,7 @@ useDidShow(() => {
  * 函数方法
  */
 const test = (param) => {
-  // Taro.navigateTo({url: "/pages/index/index"})
+  // Taro.navigateTo({ url: '/pages/details/details' })
 }
 
 </script>

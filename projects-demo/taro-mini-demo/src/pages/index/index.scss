@@ -1,0 +1,16 @@
+$color-primary: #007AFF;
+
+.index-demo {
+  margin-top: 64px;
+  .top-demo {
+    view {
+      margin: 24px;
+    }
+  }
+
+  text-align: center;
+
+  .msg {
+    color: $color-primary;
+  }
+}
