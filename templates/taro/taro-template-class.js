@@ -3,8 +3,7 @@ const fs = require('fs');
  * @author 潘维吉
  * @date 2019-07-08
  * 类class编程风格
- * 模版快速生成脚本,执行命令 npm run g  p(page) c(component) sub-p(sub-package-page)  directoryName/fileName
- * packages.json的scripts配置： "g": "node template"
+ * 模版快速生成脚本,执行命令 node  taro-template-class.js
  */
 
 const type = process.argv[2]; // p页面 c组件

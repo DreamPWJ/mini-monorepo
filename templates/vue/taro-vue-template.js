@@ -2,14 +2,15 @@ const fs = require('fs')
 /**
  * @author 潘维吉
  * @date 2019-07-08
- * 函数function编程风格
- * 模版快速生成脚本,执行命令 npm run g  p(page) c(component) sub-p(sub-package-page)  directoryName/fileName
- * packages.json的scripts配置： "g": "node template"
+ * Vue3 TypeScript编程风格的模版
+ * 模版快速生成脚本, 执行命令  node taro-vue-template.js
  */
 
-const type = process.argv[2] // p页面 c组件
-
-let fileName = process.argv[3]
+/**
+ * 定义生成数据
+ */
+const type = 'page' // 生产类型  page 页面 component 组件 sub-package 子包页面
+let fileName = 'test'  // 文件名称   process.argv[3]
 let directoryName //目录名称
 
 if (fileName.startsWith('/')) {
@@ -22,7 +23,7 @@ if (fileName.includes('/')) {
   fileName = fileName.substring(index)
 }
 
-if ((type !== 'p' || type !== 'c' || type !== 'sub-p') && !fileName) {
+if ((type !== 'page' || type !== 'component' || type !== 'sub-package') && !fileName) {
   console.log('命令示例：npm run g  p(page) c(component) sub-p(sub-package-page) directoryName/fileName')
   process.exit(0)
 }
@@ -127,7 +128,7 @@ const scssTemplate = `.${fileName} {
 const successColor = `\x1b[32m ✔ \x1b[0m`
 
 switch (type) {
-  case 'p':
+  case 'page':
     directory = directoryName ? `./src/pages/${directoryName}${fileName}` : `./src/pages/${fileName}`
     if (!fs.existsSync(directory)) {
       fs.mkdirSync(directory, { recursive: true }, (err) => {
@@ -139,7 +140,7 @@ switch (type) {
     fs.writeFileSync(`${fileName}.scss`, scssTemplate)
     console.log(` 页面模版 ${directory} 已创建${successColor}`)
     break
-  case 'c':
+  case 'component':
     directory = directoryName ? `./src/components/${directoryName}${fileName}` : `./src/components/${fileName}`
     if (!fs.existsSync(directory)) {
       fs.mkdirSync(directory, { recursive: true }, (err) => {
@@ -151,7 +152,7 @@ switch (type) {
     fs.writeFileSync(`${fileName}.scss`, scssTemplate)
     console.log(` 组件模版 ${directory} 已创建${successColor}`)
     break
-  case 'sub-p':
+  case 'sub-package':
     directory = directoryName ? `./src/sub-package/pages/${directoryName}${fileName}` : `./src/sub-package/pages/${fileName}`
     if (!fs.existsSync(directory)) {
       fs.mkdirSync(directory, { recursive: true }, (err) => {
