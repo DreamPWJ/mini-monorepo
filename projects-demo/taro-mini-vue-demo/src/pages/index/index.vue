@@ -9,8 +9,8 @@
     <nut-calendar
       v-model:visible="show"
       :default-value="date"
-      start-date="2022-01-11"
-      end-date="2022-11-30"
+      start-date="2024-01-11"
+      end-date="2024-12-30"
       @close="show = false"
       @choose="choose"
     >
