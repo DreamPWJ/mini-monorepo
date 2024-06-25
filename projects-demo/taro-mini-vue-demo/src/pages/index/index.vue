@@ -5,6 +5,7 @@
     <VueDemoComponent message="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
     <nut-button type="primary">NutUI小程序组件库</nut-button>
     <nut-skeleton width="250px" height="15px" animated row="3"> </nut-skeleton>
+    <!--    <IconFont name="add" color="#fa2c19" size="24"/>-->
   </view>
 </template>
 
