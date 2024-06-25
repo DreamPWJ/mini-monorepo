@@ -17,27 +17,24 @@
 
 ### 小程序技术栈
 
-- Taro
+- Taro [文档](https://docs.taro.zone/docs/)
 - React
 - Vue
 - TypeScript
-- Lerna
-- Vite
 - Pnpm
+- Vite
 - Tailwind CSS
 - CSS Variables
+- NutUI [文档](https://nutui.jd.com/taro/vue/4x/#/zh-CN/guide/intro)
 
 #### 安装Pnpm相关依赖
+
 npm i -g pnpm &&  npm i -g gulp
 
-#### 安装编译所有依赖
+#### 安装编译所有依赖 建立link软连接
+
 npm run bootstrap:all
 
-#### 项目根目录初始化
-pnpm init   
-
-#### 初始化依赖 建立link软连接
-pnpm install
-
 #### 在package.json目录下引入monorepo公共依赖
+
 "athena-core": "workspace:*"
