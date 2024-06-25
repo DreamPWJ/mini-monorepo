@@ -1,6 +1,11 @@
 $color-primary: #007AFF;
 
 .index-demo {
+  view {
+    margin-top: 24px;
+  }
+
+  text-align: center;
   .msg {
     color: $color-primary;
   }

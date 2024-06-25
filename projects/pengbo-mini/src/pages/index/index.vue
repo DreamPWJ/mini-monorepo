@@ -3,9 +3,15 @@
     <text class="msg">{{ msg }}</text>
     <ProjectComponentDemo msg="Hello Project VueComponentDemo1"></ProjectComponentDemo>
     <VueDemoComponent msg="Hello MonoRepo VueComponentDemo2"></VueDemoComponent>
-    <IconFont name="add" color="#fa2c19" size="24" />
+    <view>
+      <IconFont name="add" color="#4171ff" size="24" />
+    </view>
+    <view>
     <text>{{ apiData?.msg }}</text>
+    </view>
+    <view>
     <nut-button type="primary">NutUI小程序组件库</nut-button>
+    </view>
     <nut-cell title="日历" :desc="String(date)" @click="show = true" />
     <nut-calendar
       v-model:visible="show"
