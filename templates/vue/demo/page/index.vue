@@ -26,7 +26,7 @@ useDidShow(() => {
  * 函数方法
  */
 const test = (param) => {
-
+  // Taro.navigateTo({url: "/pages/index/index"})
 }
 
 </script>
