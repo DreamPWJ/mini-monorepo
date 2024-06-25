@@ -31,88 +31,44 @@ if ((type !== 'page' || type !== 'component' || type !== 'sub-package') && !file
 /**
  * 页面模版
  */
-const pageTemplate = `import Taro, { useRouter, useState, useEffect, useDidShow } from '@tarojs/taro';
-import { View } from '@tarojs/components';
-import './${fileName}.scss';
+const pageTemplate = `<template>
+  <view class="${fileName}">
+    <text>{{ msg }}</text>
+  </view>
+</template>
+
+<script setup lang="ts">
+import './${fileName}.scss'
+import { ref } from 'vue'
+import { useLoad, useDidShow } from '@tarojs/taro'
 
 /**
- * ${upperCamelCase(fileName)}页面
+ * 数据属性定义
  */
-const ${upperCamelCase(fileName)} = () => {
-  const {params: {id}} = useRouter();
-  const [value, setValue] = useState("");
+const msg = ref<string>('${fileName}小程序新页面模版')
 
-  useEffect(() => {
-    setValue("hooks")
-    console.log(id);
-  }, [])
+useLoad(() => {
 
-  useDidShow(() => {
-  })
+})
 
-  const onHandle = (data) => {
-    console.log(data);
-  }
+useDidShow(() => {
 
-  return (
-    <View className='${fileName}'>
-      <View onClick={() => onHandle(value)}>
-        ${fileName}页面
-      </View>
-    </View>
-  )
+})
+
+/**
+ * 函数方法
+ */
+const test = (param) => {
 
 }
 
-${upperCamelCase(fileName)}.config = {
-    navigationBarTitleText: '${fileName}页面',
-};
-
-export default ${upperCamelCase(fileName)};
+</script>
 `
 
 /**
  * 组件模版
  */
-const componentsTemplate = `import Taro, { useEffect } from '@tarojs/taro';
-import { Button, View } from '@tarojs/components';
-import './${fileName}.scss';
-
-interface IProps {
-  value: string;
-
-  onHandle(data): void;
-}
-
-/**
- * ${upperCamelCase(fileName)}组件
- */
-const ${upperCamelCase(fileName)} = (props: IProps) => {
-
-  useEffect(() => {
-
-  }, [])
-
-  return (
-    <View className='${fileName}'>
-      ${fileName}组件
-      {JSON.stringify(props)}
-      <Button type='primary' onClick={() => {
-        props.onHandle("我是子组件的值")
-      }}>子组件向父组通讯</Button>
-    </View>
-  )
-}
-
-${upperCamelCase(fileName)}.defaultProps = {
-  value: "默认值"
-} as IProps;
-
-${upperCamelCase(fileName)}.options = {
-  addGlobalClass: true
-};
-
-export default ${upperCamelCase(fileName)};
+const componentsTemplate = `
 `
 
 /**
@@ -121,6 +77,14 @@ export default ${upperCamelCase(fileName)};
 const scssTemplate = `.${fileName} {
 
 }`
+
+/**
+ * 小程序配置模版
+ */
+const miniConfigTemplate = `export default definePageConfig({
+  navigationBarTitleText: '${fileName}'
+})
+`
 
 /**
  * 根据路径生成相关模版
@@ -136,8 +100,9 @@ switch (type) {
       }) // mkdir递归自动创建多级路径
     }
     process.chdir(directory) // cd $1
-    fs.writeFileSync(`${fileName}.tsx`, pageTemplate)
+    fs.writeFileSync(`${fileName}.vue`, pageTemplate)
     fs.writeFileSync(`${fileName}.scss`, scssTemplate)
+    fs.writeFileSync(`${fileName}.config.ts`, miniConfigTemplate)
     console.log(` 页面模版 ${directory} 已创建${successColor}`)
     break
   case 'component':
@@ -148,7 +113,7 @@ switch (type) {
       }) // mkdir递归自动创建多级路径
     }
     process.chdir(directory)
-    fs.writeFileSync(`${fileName}.tsx`, componentsTemplate)
+    fs.writeFileSync(`${fileName}.vue`, componentsTemplate)
     fs.writeFileSync(`${fileName}.scss`, scssTemplate)
     console.log(` 组件模版 ${directory} 已创建${successColor}`)
     break
@@ -160,8 +125,9 @@ switch (type) {
       }) // mkdir递归自动创建多级路径
     }
     process.chdir(directory) // cd $1
-    fs.writeFileSync(`${fileName}.tsx`, pageTemplate)
+    fs.writeFileSync(`${fileName}.vue`, pageTemplate)
     fs.writeFileSync(`${fileName}.scss`, scssTemplate)
+    fs.writeFileSync(`${fileName}.config.ts`, miniConfigTemplate)
     console.log(` 分包页面模版 ${directory} 已创建${successColor}
     `)
     break
