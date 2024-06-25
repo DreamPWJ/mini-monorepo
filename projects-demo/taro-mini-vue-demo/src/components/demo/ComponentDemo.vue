@@ -11,7 +11,7 @@ import { ref } from 'vue'
 import { useDidShow } from '@tarojs/taro'
 
 // 使用ref定义响应式数据
-const message = ref<string>('你好，Vue 3的世界！')
+const message = ref<string>('你好，Vue 3组件的世界！')
 
 const { msg, welcomeMessage = '默认欢迎语' } = defineProps({
   msg: String,
