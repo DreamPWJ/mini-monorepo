@@ -8,9 +8,9 @@
 业务工程tsconfig.json中配置
 `"paths": {
     "~/*": [
-    "packages/*"
-    ],
+        "../../packages/*"
+        ],
     "@/*": [
-    "./src/*"
-    ]
+        "./src/*"
+        ]
 }`

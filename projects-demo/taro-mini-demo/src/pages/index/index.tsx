@@ -38,7 +38,7 @@ export default class Index extends Component {
       <View className="index">
         <Text className="primary">Hello Taro!</Text>
         <DemoReactComponent text="Taro自定义组件"></DemoReactComponent>
-        {/*<WebView src='http://www.jxybkj.cn:8010/?leaguerId=5871741f86894f8a9ce11ceed3d43ec1#/home' />*/}
+        {/*<WebView src='' />*/}
       </View>
     )
   }
