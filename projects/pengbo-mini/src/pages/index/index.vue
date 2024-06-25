@@ -1,10 +1,20 @@
 <template>
   <view class="index-demo">
     <text class="msg">{{ msg }}</text>
-    <ProjectComponentDemo msg="Hello Project VueComponentDemo"></ProjectComponentDemo>
-    <VueDemoComponent msg="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
+    <ProjectComponentDemo msg="Hello Project VueComponentDemo1"></ProjectComponentDemo>
+    <VueDemoComponent msg="Hello MonoRepo VueComponentDemo2"></VueDemoComponent>
     <IconFont name="add" color="#fa2c19" size="24" />
     <nut-button type="primary">NutUI小程序组件库</nut-button>
+    <nut-cell title="日历" :desc="String(date)" @click="show = true" />
+    <nut-calendar
+      v-model:visible="show"
+      :default-value="date"
+      start-date="2022-01-11"
+      end-date="2022-11-30"
+      @close="show = false"
+      @choose="choose"
+    >
+    </nut-calendar>
     <nut-skeleton width="250px" height="15px" animated row="3"></nut-skeleton>
   </view>
 </template>
@@ -25,7 +35,9 @@ import { IconFont } from '@nutui/icons-vue-taro'
 /**
  * 数据定义
  */
-const msg = ref('Hello Taro Mini Pnpm MonoRepo')
+const msg = ref<string>('Hello Taro Mini Pnpm MonoRepo')
+const show = ref(false)
+const date = ref('2024-06-01')
 
 useLoad(() => {
   console.log('Index onLoad')
@@ -34,6 +46,10 @@ useLoad(() => {
 useDidShow(() =>
   testMonoRepo()
 )
+
+const choose = (param) => {
+  date.value = param[3]
+}
 
 /**
  * 测试MonoRepo函数
