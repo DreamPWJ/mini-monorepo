@@ -9,6 +9,7 @@ const fs = require('fs')
 /**
  * 定义生成数据
  */
+const projectPath = '../../projects/pengbo-mini/' // 项目路径 目录名称 用于生成模版到具体项目目录下
 const type = 'page' // 生产类型  page 页面 component 组件 sub-package 子包页面
 let fileName = 'test'  // 文件名称   process.argv[3]
 let directoryName //目录名称
@@ -93,7 +94,8 @@ const successColor = `\x1b[32m ✔ \x1b[0m`
 
 switch (type) {
   case 'page':
-    directory = directoryName ? `./src/pages/${directoryName}${fileName}` : `./src/pages/${fileName}`
+    directory = directoryName ? `src/pages/${directoryName}${fileName}` : `src/pages/${fileName}`
+    directory = projectPath + directory
     if (!fs.existsSync(directory)) {
       fs.mkdirSync(directory, { recursive: true }, (err) => {
         if (err) throw err
@@ -106,7 +108,8 @@ switch (type) {
     console.log(` 页面模版 ${directory} 已创建${successColor}`)
     break
   case 'component':
-    directory = directoryName ? `./src/components/${directoryName}${fileName}` : `./src/components/${fileName}`
+    directory = directoryName ? `src/components/${directoryName}${fileName}` : `src/components/${fileName}`
+    directory = projectPath + directory
     if (!fs.existsSync(directory)) {
       fs.mkdirSync(directory, { recursive: true }, (err) => {
         if (err) throw err
@@ -118,7 +121,8 @@ switch (type) {
     console.log(` 组件模版 ${directory} 已创建${successColor}`)
     break
   case 'sub-package':
-    directory = directoryName ? `./src/sub-package/pages/${directoryName}${fileName}` : `./src/sub-package/pages/${fileName}`
+    directory = directoryName ? `src/sub-package/pages/${directoryName}${fileName}` : `src/sub-package/pages/${fileName}`
+    directory = projectPath + directory
     if (!fs.existsSync(directory)) {
       fs.mkdirSync(directory, { recursive: true }, (err) => {
         if (err) throw err
