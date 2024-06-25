@@ -1,17 +1,17 @@
 <template>
   <view class="index-demo">
     <view class="top-demo">
-    <text class="msg">{{ msg }}</text>
-    <ProjectComponentDemo msg="Hello Project VueComponentDemo1"></ProjectComponentDemo>
-    <VueDemoComponent msg="Hello MonoRepo VueComponentDemo2"></VueDemoComponent>
-    <view>
-      <IconFont name="add" color="#4171ff" size="24" />
+      <text class="msg">{{ msg }}</text>
+      <ProjectComponentDemo msg="Hello Project VueComponentDemo1"></ProjectComponentDemo>
+      <VueDemoComponent msg="Hello MonoRepo VueComponentDemo2"></VueDemoComponent>
+      <view>
+        <IconFont name="add" color="#4171ff" size="24" />
+      </view>
+      <view>
+        <text>{{ apiData?.msg }}</text>
+      </view>
     </view>
-    <view>
-      <text>{{ apiData?.msg }}</text>
-    </view>
-    </view>
-    <nut-button type="primary">NutUI小程序组件库</nut-button>
+    <nut-button type="primary" @click="toDetails()">NutUI小程序组件库</nut-button>
     <nut-cell title="日历组件" :desc="String(date)" @click="show = true" />
     <nut-calendar
       v-model:visible="show"
@@ -29,6 +29,7 @@
 <script setup lang="ts">
 import './index.scss'
 import { ref } from 'vue'
+import Taro from '@tarojs/taro'
 import { useDidShow, useLoad } from '@tarojs/taro'
 import { testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
@@ -76,5 +77,13 @@ const testMonoRepo = () => {
   console.log('校验结果: ' + Validate.email('123'))
 
 }
+
+/**
+ * 导航到详情页
+ */
+const toDetails = () => {
+  Taro.navigateTo({ url: '/sub-package/pages/details/details' })
+}
+
 
 </script>
