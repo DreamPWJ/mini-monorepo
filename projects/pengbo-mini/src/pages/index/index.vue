@@ -4,6 +4,7 @@
     <ProjectComponentDemo msg="Hello Project VueComponentDemo1"></ProjectComponentDemo>
     <VueDemoComponent msg="Hello MonoRepo VueComponentDemo2"></VueDemoComponent>
     <IconFont name="add" color="#fa2c19" size="24" />
+    <text>{{ apiData?.msg }}</text>
     <nut-button type="primary">NutUI小程序组件库</nut-button>
     <nut-cell title="日历" :desc="String(date)" @click="show = true" />
     <nut-calendar
@@ -35,6 +36,7 @@ import { IconFont } from '@nutui/icons-vue-taro'
 /**
  * 数据定义
  */
+const apiData = ref()
 const msg = ref<string>('Hello Taro Mini Pnpm MonoRepo')
 const show = ref(false)
 const date = ref('2024-06-01')
@@ -58,7 +60,7 @@ const testMonoRepo = () => {
   console.log('Taro多包复用示例')
   testHelloMonoRepo()
   demoApi().then(res => {
-
+    apiData.value = res.data
   })
 
   console.log(CommonUtils.randomString(6, 12))
