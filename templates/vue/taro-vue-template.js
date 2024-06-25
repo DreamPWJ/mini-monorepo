@@ -41,6 +41,7 @@ const pageTemplate = `<template>
 <script setup lang="ts">
 import './${fileName}.scss'
 import { ref } from 'vue'
+import Taro from '@tarojs/taro'
 import { useLoad, useDidShow } from '@tarojs/taro'
 
 /**

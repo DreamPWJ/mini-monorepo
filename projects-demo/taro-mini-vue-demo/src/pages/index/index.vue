@@ -27,8 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import './index.scss'
+import { ref } from 'vue'
+import { useDidShow, useLoad } from '@tarojs/taro'
 import { testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
@@ -36,7 +37,6 @@ import { demoApi } from '@/api/demo/demo'
 import { VueDemoComponent } from 'athena-components-vue'
 import { Constant } from 'athena-constants'
 import { Pipe, Validate } from 'athena-common'
-import { useDidShow, useLoad } from '@tarojs/taro'
 import { IconFont } from '@nutui/icons-vue-taro'
 
 /**
@@ -63,6 +63,7 @@ const choose = (param) => {
  * 测试MonoRepo函数
  */
 const testMonoRepo = () => {
+  // Taro.navigateTo({url:"/pages/test/test"})
   console.log('Taro多包复用示例')
   testHelloMonoRepo()
   demoApi().then(res => {
