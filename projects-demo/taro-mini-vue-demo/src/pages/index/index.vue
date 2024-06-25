@@ -1,11 +1,11 @@
 <template>
   <view class="index-demo">
     <text class="msg">{{ msg }}</text>
-    <ProjectComponentDemo message="Hello Project VueComponentDemo"></ProjectComponentDemo>
-    <VueDemoComponent message="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
+    <ProjectComponentDemo msg="Hello Project VueComponentDemo"></ProjectComponentDemo>
+    <VueDemoComponent msg="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
+    <IconFont name="add" color="#fa2c19" size="24" />
     <nut-button type="primary">NutUI小程序组件库</nut-button>
     <nut-skeleton width="250px" height="15px" animated row="3"></nut-skeleton>
-    <!--    <IconFont name="add" color="#fa2c19" size="24"/>-->
   </view>
 </template>
 
@@ -20,6 +20,7 @@ import { VueDemoComponent } from 'athena-components-vue'
 import { Constant } from 'athena-constants'
 import { Pipe, Validate } from 'athena-common'
 import { useDidShow, useLoad } from '@tarojs/taro'
+import { IconFont } from '@nutui/icons-vue-taro'
 
 /**
  * 数据定义
@@ -35,7 +36,7 @@ useDidShow(() =>
 )
 
 /**
- * 测试MonoRepo
+ * 测试MonoRepo函数
  */
 const testMonoRepo = () => {
   console.log('Taro多包复用示例')

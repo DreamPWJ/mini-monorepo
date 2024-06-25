@@ -9,7 +9,13 @@
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
-
+  },
+  "peerDependencies": {
+    "vue": ">=3",
+    "@tarojs/components": "3.6.32"
+  },
+  "dependencies": {
+    "@tarojs/taro": "^3.6.32"
   }
 }
 

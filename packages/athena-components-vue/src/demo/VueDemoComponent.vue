@@ -1,51 +1,36 @@
 <template>
-  <view >
-    <text class="monorepo-text" >{{ message }}</text>
+  <view>
+    <text class="monorepo-text">{{ msg }}</text>
+    <!--    <button @click="changeMessage">传出消息</button>-->
   </view>
 </template>
 
-<script>
-
+<script setup>
 import './vue-demo-component.css'
 
-export default ({
-  name: 'VueDemoComponent',
-  props: {
-    message: String
-  },
+import { ref } from 'vue'
+import { useDidShow } from '@tarojs/taro'
 
-  // 可以使用所有的 Vue 生命周期方法
-  mounted() {
+// 使用ref定义响应式数据
+const message = ref('你好，Vue 3的世界！')
 
-  },
-
-  // onLoad
-  onLoad() {
-
-  },
-
-  // onReady
-  onReady() {
-  },
-
-  // 对应 onShow
-  onShow() {
-    console.log(this.message)
-  },
-
-  // 对应 onHide
-  onHide() {
-  },
-
-  // 对应 onPullDownRefresh
-  onPullDownRefresh() {
-  },
-
-  setup(props) {
-    // 使用Composition API
-
+const { msg, welcomeMessage = '默认欢迎语' } = defineProps({
+  msg: String,
+  welcomeMessage: {
+    type: String,
+    default: '默认欢迎语'
   }
 })
+
+useDidShow(() =>
+  console.log(message.value)
+)
+
+// 方法也直接定义，自动暴露给模板
+const changeMessage = () => {
+  message.value = '消息已被Vue3改变！'
+}
+
 </script>
 
 <style>
