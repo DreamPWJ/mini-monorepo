@@ -4,11 +4,15 @@
   "description": "通用常量包",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": true,
+  "private": false,
   "keywords": [],
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
   }
 }
