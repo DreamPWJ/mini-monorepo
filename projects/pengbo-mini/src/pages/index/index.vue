@@ -1,4 +1,5 @@
 <template>
+  <!--  <nut-navbar title="Title" @click-title="Taro.navigateBack()" safe-area-inset-top></nut-navbar>-->
   <view class="index-demo">
     <view class="top-demo">
       <text class="msg">{{ msg }}</text>
@@ -29,8 +30,7 @@
 <script setup lang="ts">
 import './index.scss'
 import { ref } from 'vue'
-import Taro from '@tarojs/taro'
-import { useDidShow, useLoad } from '@tarojs/taro'
+import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 import { testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
