@@ -33,7 +33,7 @@ export default defineConfig(async (merge, { command, mode }) => {
     framework: 'vue3',
     compiler: {
       type: 'webpack5',
-      prebundle: { enable: false }
+      prebundle: { enable: false, force: true }
     },
     sass: {
       data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
