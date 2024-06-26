@@ -1,14 +1,14 @@
 <template>
   <view class="details">
-    <text>{{ msg }}</text>
+    <nut-button type="primary">{{ msg }}</nut-button>
   </view>
 </template>
 
 <script setup lang="ts">
 import './details.scss'
 import { ref } from 'vue'
-import Taro from '@tarojs/taro'
-import { useLoad, useDidShow } from '@tarojs/taro'
+import { useDidShow, useLoad } from '@tarojs/taro'
+import { demoApi } from '@/api/demo/demo'
 
 /**
  * 数据属性定义
@@ -20,7 +20,9 @@ useLoad(() => {
 })
 
 useDidShow(() => {
+  demoApi().then(res => {
 
+  })
 })
 
 /**

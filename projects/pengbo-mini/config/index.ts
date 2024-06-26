@@ -42,6 +42,7 @@ export default defineConfig(async (merge, { command, mode }) => {
       enable: true // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
     },
     mini: {
+      hot: true,
       optimizeMainPackage: {
         enable: true
       },

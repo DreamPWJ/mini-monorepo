@@ -20,7 +20,7 @@
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
+    "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
@@ -53,5 +53,6 @@
     "tabSize": 2
   },
   "condition": {},
-  "appid": "wxa661b24ffdc4f7e9"
+  "appid": "wxa661b24ffdc4f7e9",
+  "simulatorPluginLibVersion": {}
 }
