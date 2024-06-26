@@ -43,7 +43,7 @@ export default defineConfig(async (merge, { command, mode }) => {
     },
     mini: {
       optimizeMainPackage: {
-        enable: true
+        enable: false
       },
       postcss: {
         pxtransform: {

@@ -4,7 +4,7 @@
   "description": "通用常量包",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": false,
+  "private": true,
   "keywords": [],
   "author": "潘维吉",
   "license": "MIT",
