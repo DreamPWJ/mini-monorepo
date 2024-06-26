@@ -10,7 +10,7 @@ const fs = require('fs')
  * 定义生成数据
  */
 const projectPath = '../../projects/pengbo-mini/' // 项目路径 目录名称 用于生成模版到具体项目目录下
-const type = 'page' // 生产类型  page 页面 component 组件 sub-package 子包页面
+const type = 'page' // 生成页面类型  page 页面 component 组件 sub-package 子包页面
 let fileName = 'my'  // 文件名称   process.argv[3]
 let directoryName //目录名称
 

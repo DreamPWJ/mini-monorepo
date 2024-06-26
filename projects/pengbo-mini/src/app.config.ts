@@ -7,15 +7,16 @@ export default defineAppConfig({
     {
       root: 'sub-package',
       pages: [
-        'pages/details/details',
+        'pages/details/details'
       ]
     }
   ],
+  lazyCodeLoading: 'requiredComponents',
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#4171ff',
+    navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'white'
+    navigationBarTextStyle: 'black'
   },
   tabBar: {
     color: '#666',
@@ -23,7 +24,7 @@ export default defineAppConfig({
     backgroundColor: '#f5f5f5',
     borderStyle: 'white',
     list: [
-     {
+      {
         pagePath: 'pages/index/index',
         text: '首页',
         iconPath: 'assets/images/tabbar/home.png',
@@ -35,6 +36,6 @@ export default defineAppConfig({
         iconPath: 'assets/images/tabbar/my.png',
         selectedIconPath: 'assets/images/tabbar/my_active.png'
       }
-      ]
-    }
+    ]
+  }
 })

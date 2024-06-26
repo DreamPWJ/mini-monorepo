@@ -11,11 +11,12 @@ export default defineAppConfig({
       ]
     }
   ],
+  lazyCodeLoading: 'requiredComponents',
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#4171ff',
+    navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'white'
+    navigationBarTextStyle: 'black'
   },
   tabBar: {
     color: '#666',
