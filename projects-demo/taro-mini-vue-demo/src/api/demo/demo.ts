@@ -9,3 +9,9 @@ export function demoApi() {
   return http.get(`${basePath}/base`)
 }
 
+/**
+ * 微信支付创建订单
+ */
+export function createPay() {
+  return http.get(`${basePath}/base`)
+}

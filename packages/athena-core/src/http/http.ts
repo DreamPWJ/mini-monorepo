@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
-import type {HttpParams} from '../types/http-params'
-import {failHandle, httpErrorMsg, toLogin} from "../utils/http-util";
+import type { HttpParams } from '../types/http-params'
+import { failHandle, httpErrorMsg, toLogin } from '../utils/http-util'
 
 /**
  * @author 潘维吉
@@ -12,7 +12,7 @@ export class Http {
   // 调式日志标签
   timeLabel = '接口响应总耗时统计'
   // API服务基础地址
-  baseURL = ''
+  httpURL = ''
   // 是否开启调试 是打印日志等
   isDebug = true
   // headers参数
@@ -22,9 +22,9 @@ export class Http {
    * 初始化 请求和响应拦截器
    */
   init(httpParams: HttpParams) {
-    console.log("Http初始化: " + httpParams.baseURL)
+    console.log('Http初始化: httpURL=' + httpParams.httpURL)
     // 初始化全局动态参数
-    this.baseURL = httpParams.baseURL
+    this.httpURL = httpParams.httpURL
     this.isDebug = httpParams.isDebug
     this.headers = httpParams.headers
     // 添加HTTP请求拦截器
@@ -50,7 +50,7 @@ export class Http {
     // 基础配置
     const option: any = {
       method: method, // 请求方式
-      url: this.baseURL + path,  // 配置请求基础地址
+      url: this.httpURL + path,  // 配置请求基础地址
       data: data,   // 传参数据
       timeout: 60000, // 配置请求超时时间
       header: {  // 定义公共headers请求头

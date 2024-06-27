@@ -7,7 +7,7 @@ export interface HttpParams {
   /**
    * API服务基础地址
    */
-  baseURL: string;
+  httpURL: string;
   /**
    * 是否开启调试 是打印日志等
    */
