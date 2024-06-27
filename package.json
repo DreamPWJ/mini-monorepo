@@ -20,9 +20,9 @@
     "gulp": "cd scripts && gulp",
     "gulp:watch": "cd scripts && gulp watch",
     "packages:dev": "tsc -b packages/athena-components --watch",
-    "clean:all": "npm run clean:modules && npm run clean:modules",
-    "clean:ts": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo",
-    "clean:modules": "rimraf  node_modules && rimraf projects/**/node_modules && rimraf projects-demo/**/node_modules"
+    "clean:all": "npm run clean:modules && npm run clean:ts",
+    "clean:modules": "rimraf node_modules && rimraf projects/**/node_modules && rimraf projects-demo/**/node_modules",
+    "clean:ts": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo && rimraf projects/**/dist && rimraf projects-demo/**/dist"
   },
   "dependencies": {},
   "devDependencies": {
