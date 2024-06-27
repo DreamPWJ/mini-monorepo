@@ -76,6 +76,11 @@ export class Http {
     // 请求处理拦截器
     if (method !== 'GET') {
       // 加载动画
+      Taro.showToast({
+        title: '加载中...',
+        icon: 'loading',
+        duration: 2000
+      })
     }
     if (JSON.parse(String(this.isDebug))) {
       // 打印出请求体
@@ -92,6 +97,9 @@ export class Http {
     // 响应处理拦截器
     return chain.proceed(requestParams)
       .then(res => {
+        if (method !== 'GET') {
+          Taro.hideToast()
+        }
         if (JSON.parse(String(this.isDebug))) {
           console.log(
             `%c ${url} 接口响应数据`,
@@ -104,7 +112,7 @@ export class Http {
         }
 
         // 业务失败处理
-        failHandle(data)
+        failHandle(res.data)
 
         // http响应状态码
         const status = res.statusCode
