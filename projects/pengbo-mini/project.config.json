@@ -6,6 +6,7 @@
     "urlCheck": false,
     "es6": true,
     "enhance": true,
+    "swc": true,
     "postcss": false,
     "bigPackageSizeSupport": true,
     "preloadBackgroundData": false,
