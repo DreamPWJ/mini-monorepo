@@ -22,15 +22,14 @@
       @choose="choose"
     >
     </nut-calendar>
-    <nut-skeleton width="250px" height="15px" animated row="3"></nut-skeleton>
+    <!--    <nut-skeleton width="250px" height="15px" animated row="3"></nut-skeleton> -->
   </view>
 </template>
 
 <script setup lang="ts">
 import './index.scss'
 import { ref } from 'vue'
-import Taro from '@tarojs/taro'
-import { useDidShow, useLoad } from '@tarojs/taro'
+import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 import { testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
