@@ -9,6 +9,7 @@ import 'athena-styles/animate.min.css'
 import './my.scss'
 import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
+import { createPay } from '@/api/demo/demo'
 
 /**
  * 数据属性定义
@@ -29,7 +30,8 @@ useDidShow(() => {
 const test = (param) => {
   console.log(param)
   //Taro.navigateTo({ url: '/pages/details/details' })
-
+  createPay().then(res => {
+  })
   // https://docs.taro.zone/docs/apis/payment/requestPayment
   Taro.requestPayment({
     timeStamp: '',

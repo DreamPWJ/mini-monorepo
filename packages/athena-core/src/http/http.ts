@@ -29,14 +29,14 @@ export class Http {
     this.headers = httpParams.headers
     // 添加HTTP请求拦截器
     Taro.addInterceptor(this.interceptor)
-    return this;
+    return this
   }
 
   /**
    * 基础请求
    */
-  baseRequest(params, method = "GET") {
-    let {path, data, headers} = params;
+  baseRequest(params, method = 'GET') {
+    let { path, data, headers } = params
     // 给所有请求添加自定义header 登录获取token 未登录情况默认用基础token鉴权验证 token值不可泄露
     const userTokenKey = 'token'
     const baseTokenKey = 'base_token'
@@ -46,7 +46,10 @@ export class Http {
     } else if (!!Taro.getStorageSync(baseTokenKey)) {
       token = Taro.getStorageSync(baseTokenKey)
     }
-
+    // 适配同一个前端访问多个服务器地址情况 如果path配置服务地址 使用单独配置的地址
+    if (path.indexOf('http://') > -1 || path.indexOf('https://') > -1) {
+      this.httpURL = ''
+    }
     // 基础配置
     const option: any = {
       method: method, // 请求方式
@@ -55,11 +58,11 @@ export class Http {
       timeout: 60000, // 配置请求超时时间
       header: {  // 定义公共headers请求头
         ...this.headers, // 全局header
-        'content-type': "application/json;charset=UTF-8",
-        'Authorization': `Bearer ${token}` || "", // token授权
-        ...headers, // 具体请求header
+        'content-type': 'application/json;charset=UTF-8',
+        'Authorization': `Bearer ${token}` || '', // token授权
+        ...headers // 具体请求header
       }
-    };
+    }
     return Taro.request(option)
   }
 
@@ -68,7 +71,7 @@ export class Http {
    */
   interceptor = (chain) => {
     const requestParams = chain.requestParams
-    const {method, data, url} = requestParams
+    const { method, data, url } = requestParams
 
     // 请求处理拦截器
     if (method !== 'GET') {
@@ -145,33 +148,33 @@ export class Http {
   /**
    * GET网络请求
    */
-  get(path, data = "", headers = {}) {
-    let option = {path, data, headers};
-    return this.baseRequest(option, "GET");
+  get(path, data = '', headers = {}) {
+    let option = { path, data, headers }
+    return this.baseRequest(option, 'GET')
   }
 
   /**
    * POST网络请求
    */
-  post(path, data = "", headers = {}) {
-    let option = {path, data, headers};
-    return this.baseRequest(option, "POST");
+  post(path, data = '', headers = {}) {
+    let option = { path, data, headers }
+    return this.baseRequest(option, 'POST')
   }
 
   /**
    * PUT网络请求
    */
-  put(path, data = "", headers = {}) {
-    let option = {path, data, headers};
-    return this.baseRequest(option, "PUT");
+  put(path, data = '', headers = {}) {
+    let option = { path, data, headers }
+    return this.baseRequest(option, 'PUT')
   }
 
   /**
    * DELETE网络请求
    */
-  delete(path, data = "", headers = {}) {
-    let option = {path, data, headers};
-    return this.baseRequest(option, "DELETE");
+  delete(path, data = '', headers = {}) {
+    let option = { path, data, headers }
+    return this.baseRequest(option, 'DELETE')
   }
 
 }
