@@ -8,7 +8,9 @@
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
-    "compile:ts": "tsc --build"
+    "compile:ts": "tsc --build",
+    "clean:modules": "rimraf node_modules",
+    "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
     "react": ">=16",

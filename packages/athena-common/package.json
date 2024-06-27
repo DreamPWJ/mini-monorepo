@@ -9,7 +9,9 @@
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
-    "compile:ts": "tsc --build"
+    "compile:ts": "tsc --build",
+    "clean:modules": "rimraf node_modules",
+    "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
   "dependencies": {
     "@types/events": "^3.0.0",
