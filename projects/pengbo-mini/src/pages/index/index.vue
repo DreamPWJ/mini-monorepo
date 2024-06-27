@@ -9,7 +9,7 @@
         <IconFont name="add" color="#4171ff" size="24" />
       </view>
       <view>
-        <text>{{ apiData?.msg }}</text>
+        <text class="green">{{ apiData?.msg }}</text>
       </view>
     </view>
     <nut-button type="primary" @click="toDetails()">NutUI小程序组件库</nut-button>

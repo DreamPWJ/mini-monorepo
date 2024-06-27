@@ -2,15 +2,6 @@
 
 ### 业务模块通用样式引入方式
 
-@import '~athena-styles/dist/variables.css';
-@import '~athena-styles/dist/base.css';
+#### js或ts中按需引入方式
 
-业务工程tsconfig.json中配置
-`"paths": {
-    "~/*": [
-        "../../packages/*"
-        ],
-    "@/*": [
-        "./src/*"
-        ]
-}`
+import 'athena-styles/variable.css'

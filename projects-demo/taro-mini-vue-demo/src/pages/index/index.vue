@@ -1,4 +1,5 @@
 <template>
+  <!--  <nut-navbar title="Title" @click-title="Taro.navigateBack()" safe-area-inset-top></nut-navbar>-->
   <view class="index-demo">
     <view class="top-demo">
       <text class="msg">{{ msg }}</text>
@@ -8,7 +9,7 @@
         <IconFont name="add" color="#4171ff" size="24" />
       </view>
       <view>
-        <text>{{ apiData?.msg }}</text>
+        <text class="green">{{ apiData?.msg }}</text>
       </view>
     </view>
     <nut-button type="primary" @click="toDetails()">NutUI小程序组件库</nut-button>
