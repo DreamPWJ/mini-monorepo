@@ -148,7 +148,7 @@ export class Http {
   /**
    * GET网络请求
    */
-  get(path, data = '', headers = {}) {
+  get(path, data = null, headers = {}) {
     let option = { path, data, headers }
     return this.baseRequest(option, 'GET')
   }
@@ -156,7 +156,7 @@ export class Http {
   /**
    * POST网络请求
    */
-  post(path, data = '', headers = {}) {
+  post(path, data = null, headers = {}) {
     let option = { path, data, headers }
     return this.baseRequest(option, 'POST')
   }
@@ -164,7 +164,7 @@ export class Http {
   /**
    * PUT网络请求
    */
-  put(path, data = '', headers = {}) {
+  put(path, data = null, headers = {}) {
     let option = { path, data, headers }
     return this.baseRequest(option, 'PUT')
   }
@@ -172,7 +172,7 @@ export class Http {
   /**
    * DELETE网络请求
    */
-  delete(path, data = '', headers = {}) {
+  delete(path, data = null, headers = {}) {
     let option = { path, data, headers }
     return this.baseRequest(option, 'DELETE')
   }
