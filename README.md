@@ -38,3 +38,5 @@ npm run bootstrap:all
 #### 在package.json目录下引入monorepo公共依赖
 
 "athena-core": "workspace:*"
+
+#### 小程序开发工具中开启JS转成ES5提高兼容性 、开启SWC提高编译速度、 开启热重载提高开发体验等
