@@ -1,10 +1,11 @@
 <template>
   <view class="my">
-    <nut-button type="primary">{{ msg }}</nut-button>
+    <nut-button class="animated fadeInUp" type="primary">{{ msg }}</nut-button>
   </view>
 </template>
 
 <script setup lang="ts">
+import 'athena-styles/animate.min.css'
 import './my.scss'
 import { ref } from 'vue'
 import { useDidShow, useLoad } from '@tarojs/taro'
