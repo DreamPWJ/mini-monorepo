@@ -41,8 +41,7 @@ const pageTemplate = `<template>
 <script setup lang="ts">
 import './${fileName}.scss'
 import { ref } from 'vue'
-import Taro from '@tarojs/taro'
-import { useLoad, useDidShow } from '@tarojs/taro'
+import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 
 /**
  * 数据属性定义
