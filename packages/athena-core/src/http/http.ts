@@ -71,7 +71,8 @@ export class Http {
   }
 
   /**
-   * 处理拦截器  http响应数据规范 { code: 200, data: {}, msg: 'success' }
+   * 处理拦截器
+   * http响应数据规范 { code: 200, data: {}, msg: 'success' }
    */
   interceptor = (chain) => {
     const requestParams = chain.requestParams

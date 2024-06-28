@@ -20,7 +20,7 @@ export function httpErrorMsg(status: number, msg: string) {
       })
     }
   } catch (e) {
-    console.error('错误处理: Message全局提示失败')
+    console.error('Http错误处理: Message全局提示失败')
   }
 }
 
