@@ -13,6 +13,10 @@ export interface HttpParams {
    */
   isDebug: boolean;
   /**
+   * 是否添加请求loading加载提示
+   */
+  isLoading: boolean;
+  /**
    * headers参数
    */
   headers: any;

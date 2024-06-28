@@ -9,23 +9,27 @@ import { failHandle, httpErrorMsg, toLogin } from '../utils/http-util'
  * 基于Taro做跨端网络请求实现: https://taro-docs.jd.com/taro/docs/apis/network/request/
  */
 export class Http {
-  // 调式日志标签
-  timeLabel = '接口响应总耗时统计'
+
   // API服务基础地址
   httpURL = ''
   // 是否开启调试 是打印日志等
   isDebug = true
+  // 是否添加请求loading加载提示
+  isLoading = true
   // headers参数
   headers = {}
+  // 调式日志标签
+  timeLabel = '接口响应总耗时统计'
 
   /**
    * 初始化 请求和响应拦截器
    */
   init(httpParams: HttpParams) {
-    console.log('Http初始化: httpURL=' + httpParams.httpURL)
+    console.log('Http全局初始化: httpURL=' + httpParams.httpURL)
     // 初始化全局动态参数
     this.httpURL = httpParams.httpURL
     this.isDebug = httpParams.isDebug
+    this.isLoading = httpParams.isLoading === undefined ? true : httpParams.isLoading
     this.headers = httpParams.headers
     // 添加HTTP请求拦截器
     Taro.addInterceptor(this.interceptor)
@@ -74,7 +78,7 @@ export class Http {
     const { method, data, url } = requestParams
 
     // 请求处理拦截器
-    if (method !== 'GET') {
+    if (this.isLoading && method !== 'GET') {
       // 加载动画
       Taro.showLoading()
     }
@@ -93,7 +97,7 @@ export class Http {
     // 响应处理拦截器
     return chain.proceed(requestParams)
       .then(res => {
-        if (method !== 'GET') {
+        if (this.isLoading && method !== 'GET') {
           Taro.hideToast()
         }
         if (JSON.parse(String(this.isDebug))) {
