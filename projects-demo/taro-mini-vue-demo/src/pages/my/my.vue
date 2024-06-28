@@ -1,5 +1,5 @@
 <template>
-  <view class="my text-center">
+  <view class="my flex justify-content-center align-items-center">
     <nut-button class="animated fadeInUp green-bg white" @click="test('weixin-pay')">{{ msg }}</nut-button>
   </view>
 </template>
