@@ -9,7 +9,8 @@ import 'athena-styles/animate.min.css'
 import './my.scss'
 import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
-import { createPay } from '@/api/demo/demo'
+import { CommonUtils } from 'athena-utils'
+import { createPay, weiXinLogin } from '@/api/demo/demo'
 
 /**
  * 数据属性定义
@@ -30,20 +31,28 @@ useDidShow(() => {
 const test = (param) => {
   console.log(param)
   //Taro.navigateTo({ url: '/pages/details/details' })
-  createPay().then(res => {
-  })
-  // https://docs.taro.zone/docs/apis/payment/requestPayment
-  Taro.requestPayment({
-    timeStamp: '',
-    nonceStr: '',
-    package: '', // 统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
-    signType: 'MD5',
-    paySign: '',
-    success: function(res) {
-    },
-    fail: function(res) {
+  weiXinLogin().then(res => {
+    let payData = {
+      'openId': res.data.data.openid, 'total': 1,
+      'outTradeNo': CommonUtils.randomString(10, 10), 'description': '澎泊云新版支付测试'
     }
+    createPay(payData).then(res => {
+      let result = res.data.data
+      // https://docs.taro.zone/docs/apis/payment/requestPayment
+      Taro.requestPayment({
+        timeStamp: result.timeStamp,
+        nonceStr: result.nonceStr,
+        package: result.packageValue,
+        signType: result.signType,
+        paySign: result.paySign,
+        success: function(res) {
+        },
+        fail: function(res) {
+        }
+      })
+    })
   })
+
 }
 
 </script>

@@ -11,9 +11,28 @@ export function demoApi() {
 }
 
 /**
+ * 微信登录
+ */
+export async function weiXinLogin() {
+  Taro.setStorageSync('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk0ODA2MjcsInN1YiI6IntcInVzZXJJZFwiOjF9IiwiaXNzIjoicGVuZ2JvLXBhcmstYXBwIn0.ygIW3PVks6_a7br13UnmfOl4wnPjBVii_xYcYOcsR1M')
+  let code = ''
+  await Taro.login({
+    success: function(res) {
+      if (res.code) {
+        code = res.code
+      } else {
+        console.log('登录失败！' + res.errMsg)
+      }
+    }
+  })
+  console.log(code)
+  return http.post(`http://127.0.0.1:8080/weixin/login`, { 'code': code }) // http://192.168.1.128:8180
+}
+
+/**
  * 微信支付创建订单
  */
-export function createPay() {
+export function createPay(data) {
   Taro.setStorageSync('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk0ODA2MjcsInN1YiI6IntcInVzZXJJZFwiOjF9IiwiaXNzIjoicGVuZ2JvLXBhcmstYXBwIn0.ygIW3PVks6_a7br13UnmfOl4wnPjBVii_xYcYOcsR1M')
-  return http.post(`http://192.168.1.128:8180/weixin/pay/order`)
+  return http.post(`http://127.0.0.1:8080/weixin/pay/order`, data) // http://192.168.1.128:8180
 }
