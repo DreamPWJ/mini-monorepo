@@ -10,7 +10,7 @@
     "framework": "Vue3"
   },
   "scripts": {
-    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:weapp": "pnpm run -r compile:ts && npm run build:weapp -- --watch",
     "pnpm:reInstall": "rimraf node_modules && rimraf dist && rimraf .swc && pnpm install",
     "clean:modules": "rimraf node_modules && rimraf dist",
     "dev:h5": "npm run build:h5 -- --watch",
