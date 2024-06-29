@@ -31,7 +31,7 @@
 import './index.scss'
 import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
-import { testHelloMonoRepo } from 'athena-test'
+import { testHelloJSMonoRepo, testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
 import { demoApi } from '@/api/demo/demo'
@@ -67,6 +67,7 @@ const testMonoRepo = () => {
   // Taro.navigateTo({ url: '/pages/details/details' })
   console.log('Taro多包复用示例')
   testHelloMonoRepo()
+  testHelloJSMonoRepo()
   demoApi().then(res => {
     apiData.value = res.data
   })
