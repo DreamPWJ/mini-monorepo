@@ -24,16 +24,15 @@
     "clean:modules": "pnpm run -r clean:modules",
     "clean:ts": "pnpm run -r clean:ts"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@types/node": "^20.14.7",
-    "@typescript-eslint/eslint-plugin": "^7.13.1",
-    "@typescript-eslint/parser": "^7.13.1",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
     "danger": "^12.3.3",
     "dotenv-cli": "^7.4.2",
-    "eslint": "^9.5.0 ",
+    "eslint": "^9.6.0",
     "gulp": "^5.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-typescript": "^5.0.1",
@@ -41,9 +40,9 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
-    "stylelint": "^16.6.1 ",
+    "stylelint": "^16.6.1",
     "stylelint-config-standard": "^36.0.1",
-    "typescript": "^5.5.0",
+    "typescript": "^5.5.2",
     "yargs": "^17.7.2"
   },
   "engines": {
@@ -61,7 +60,6 @@
     ]
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   }
 }
