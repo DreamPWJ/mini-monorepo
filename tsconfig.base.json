@@ -70,9 +70,6 @@
     "rootDir": "./",
     /* Base directory to resolve non-absolute module names. */
     "paths": {
-      "~/*": [
-        "packages/*"
-      ],
       "@/*": [
         "./src/*"
       ]

@@ -13,7 +13,7 @@
       </view>
     </view>
     <nut-button type="primary" @click="toDetails()">NutUI小程序组件库</nut-button>
-    <nut-cell title="日历组件" :desc="String(date)" @click="show = true" />
+    <nut-cell title="选择日历组件" :desc="String(date)" @click="show = true" />
     <nut-calendar
       v-model:visible="show"
       :default-value="date"
