@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+
+import 'athena-styles/base.css'
 import 'athena-styles/variable.css'
 import './app.scss'
 
