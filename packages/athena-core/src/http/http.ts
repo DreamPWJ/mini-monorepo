@@ -81,7 +81,11 @@ export class Http {
     // 请求处理拦截器
     if (this.isLoading && method !== 'GET') {
       // 加载动画
-      Taro.showLoading()
+      Taro.showToast({
+        title: '',
+        icon: 'loading',
+        duration: 10000
+      })
     }
     if (JSON.parse(String(this.isDebug))) {
       // 打印出请求体
