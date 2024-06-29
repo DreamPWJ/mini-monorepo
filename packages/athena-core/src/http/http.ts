@@ -18,7 +18,7 @@ export class Http {
   isLoading = true
   // headers参数
   headers = {}
-  // 调式日志标签
+  // API性能调式日志标签
   timeLabel = '接口响应总耗时统计'
 
   /**

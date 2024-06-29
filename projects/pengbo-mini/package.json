@@ -66,6 +66,7 @@
     "athena-styles": "workspace:*",
     "athena-test": "workspace:*",
     "athena-utils": "workspace:*",
+    "athena-common-mini": "workspace:*",
     "vue": "^3.2.4"
   },
   "devDependencies": {

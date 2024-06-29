@@ -1,7 +1,7 @@
 {
-  "name": "athena-common-web",
+  "name": "athena-common-mini",
   "version": "1.0.0",
-  "description": "Web端业务通用公共包",
+  "description": "小程序业务通用公共包",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "private": false,
@@ -14,6 +14,7 @@
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
   "dependencies": {
+    "@tarojs/taro": "^3.6.32"
   },
   "publishConfig": {
     "access": "public",
