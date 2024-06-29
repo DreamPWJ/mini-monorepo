@@ -42,8 +42,8 @@
   "author": "",
   "dependencies": {
     "@babel/runtime": "^7.21.5",
-    "@nutui/nutui-taro": "^4.3.0",
     "@nutui/icons-vue-taro": "^0.0.9",
+    "@nutui/nutui-taro": "^4.3.0",
     "@tarojs/components": "3.6.32",
     "@tarojs/helper": "3.6.32",
     "@tarojs/plugin-framework-vue3": "3.6.32",
@@ -60,13 +60,14 @@
     "@tarojs/shared": "3.6.32",
     "@tarojs/taro": "3.6.32",
     "athena-common": "workspace:*",
+    "athena-common-mini": "workspace:*",
     "athena-components-vue": "workspace:*",
     "athena-constants": "workspace:*",
     "athena-core": "workspace:*",
     "athena-styles": "workspace:*",
     "athena-test": "workspace:*",
     "athena-utils": "workspace:*",
-    "athena-common-mini": "workspace:*",
+    "pinia": "^2.1.7",
     "vue": "^3.2.4"
   },
   "devDependencies": {
