@@ -25,7 +25,8 @@ export class Http {
    * 初始化 请求和响应拦截器
    */
   init(httpParams: HttpParams) {
-    console.log('Http全局初始化: httpURL=' + httpParams.httpURL)
+    // 统一基建代码根据Taro.getEnv()环境判断 适配不同端不同的代码
+    console.log(Taro.getEnv() + '环境Http全局初始化: httpURL=' + httpParams.httpURL)
     // 初始化全局动态参数
     this.httpURL = httpParams.httpURL
     this.isDebug = httpParams.isDebug
