@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "compile:ts": "tsc --build",
+    "watch:ts": "tsc --watch",
     "clean:modules": "rimraf node_modules",
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },

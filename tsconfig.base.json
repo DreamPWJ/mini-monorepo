@@ -30,7 +30,7 @@
     "composite": true,
     /* Enable project compilation */
     // "tsBuildInfoFile": "./",                     /* Specify file to store incremental compilation information */
-    // "removeComments": true,                      /* Do not emit comments to output. */
+   "removeComments": true,                          /* Do not emit comments to output. */
     // "noEmit": true,                              /* Do not emit outputs. */
     "importHelpers": true,
     /* Import emit helpers from 'tslib'. */

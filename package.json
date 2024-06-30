@@ -17,6 +17,7 @@
     "bootstrap:all": "pnpm install && npm run build:all",
     "build:all": "pnpm run -r compile:ts && npm run gulp",
     "build:ts": "pnpm run -r compile:ts",
+    "watch:ts": "pnpm run -r watch:ts",
     "gulp": "cd scripts && gulp",
     "gulp:watch": "cd scripts && gulp watch",
     "packages:dev": "tsc -b packages/athena-components --watch",
