@@ -1,5 +1,5 @@
 <template>
-  <view class="my">
+  <view class="my flex justify-content-center align-items-center">
     <nut-button class="animated fadeInUp" type="primary">{{ msg }}</nut-button>
   </view>
 </template>
