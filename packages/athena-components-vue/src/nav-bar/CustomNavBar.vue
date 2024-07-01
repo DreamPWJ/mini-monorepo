@@ -1,6 +1,6 @@
 <template>
   <div class="custom-navbar" :style="{height: pxTransform(height), background: background}">
-    <div :style="{ paddingTop: pxTransform(statusBarHeight) }">
+    <div class="navbar" :style="{ paddingTop: pxTransform(statusBarHeight) }">
       <view class="left" @click="handleLeftClick">
         <!-- 左侧内容，如返回按钮 -->
         <text v-if="showBack">返回</text>
@@ -19,11 +19,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import Taro, { getEnv, getWindowInfo, pxTransform, useDidShow } from '@tarojs/taro'
 
-let height = ref(0)
-let statusBarHeight = ref(0)
 
 const props = defineProps({
   title: {
@@ -36,7 +33,7 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: '#ffffff'
+    default: '#ff0066'
   },
   color: {
     type: String,
@@ -46,17 +43,20 @@ const props = defineProps({
 
 const emit = defineEmits(['leftClick', 'rightClick'])
 
+// 动态计算navbar状态栏信息
+const env = getEnv()
+const windowInfo = env === 'WEB' ? { statusBarHeight: 0 } : getWindowInfo()
+const statusBarHeight = windowInfo.statusBarHeight || 0
+const navBarHeight = 150
+/** 安全区高度 + navbar高度 */
+const height = statusBarHeight + navBarHeight
+const rect = Taro.getMenuButtonBoundingClientRect()
+console.log(windowInfo)
+console.log(rect)
+
+
 useDidShow(() => {
 
-  // 动态计算navbar状态栏信息
-  const env = getEnv()
-  const windowInfo = env === 'WEB' ? { statusBarHeight: 0 } : getWindowInfo()
-  statusBarHeight.value = windowInfo.statusBarHeight || 0
-  const navBarHeight = 44
-  /** 安全区高度 + navbar高度 */
-  height.value = statusBarHeight + navBarHeight
-  console.log(statusBarHeight + navBarHeight)
-  console.log(windowInfo)
 })
 
 const handleLeftClick = () => {
@@ -71,14 +71,17 @@ const handleRightClick = () => {
 
 <style lang="scss">
 .custom-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
+  .navbar {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  .title {
-    // font-weight: bolder;
+    .title {
+      // font-weight: bolder;
+    }
   }
+
 }
 
 
