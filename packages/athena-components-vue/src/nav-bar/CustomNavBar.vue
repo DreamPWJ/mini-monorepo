@@ -36,7 +36,8 @@ const props = defineProps({
 const emit = defineEmits(['leftClick', 'rightClick'])
 
 const handleLeftClick = () => {
-  emit('leftClick')
+  Taro.navigateBack()
+  //emit('leftClick')
 }
 
 const handleRightClick = () => {

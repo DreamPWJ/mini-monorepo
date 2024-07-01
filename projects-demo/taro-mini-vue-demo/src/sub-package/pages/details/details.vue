@@ -1,4 +1,5 @@
 <template>
+  <CustomNavBar :title="'详情'" />
   <view class="details flex justify-content-center align-items-center">
     <nut-button type="primary">{{ msg }}</nut-button>
   </view>
@@ -9,6 +10,7 @@ import './details.scss'
 import { ref } from 'vue'
 import { useDidShow, useLoad } from '@tarojs/taro'
 import { demoApi } from '@/api/demo/demo'
+import { CustomNavBar } from 'athena-components-vue'
 
 /**
  * 数据属性定义
