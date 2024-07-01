@@ -1,6 +1,6 @@
 <template>
   <div class="custom-navbar" :style="{height: pxTransform(height), background: background}">
-    <div class="navbar" :style="{ paddingTop: pxTransform(statusBarHeight) }">
+    <div class="navbar" :style="{ paddingTop: pxTransform(statusBarHeight)}">
       <view class="left" @click="handleLeftClick">
         <!-- 左侧内容，如返回按钮 -->
         <text v-if="showBack">返回</text>
@@ -47,12 +47,10 @@ const emit = defineEmits(['leftClick', 'rightClick'])
 const env = getEnv()
 const windowInfo = env === 'WEB' ? { statusBarHeight: 0 } : getWindowInfo()
 const statusBarHeight = windowInfo.statusBarHeight || 0
-const navBarHeight = 120
+const navBarHeight = 125
 /** 安全区高度 + navbar高度 */
 const height = statusBarHeight + navBarHeight
 const rect = Taro.getMenuButtonBoundingClientRect()
-console.log(windowInfo)
-console.log(rect)
 
 
 useDidShow(() => {
