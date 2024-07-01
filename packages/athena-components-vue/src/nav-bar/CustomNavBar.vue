@@ -1,14 +1,14 @@
 <template>
-  <div class="navbar" :style="{color:'blue'}">
+  <div class="navbar" :style="{background: background}">
     <view class="left" @click="handleLeftClick">
       <!-- 左侧内容，如返回按钮 -->
       <text v-if="showBack">返回</text>
     </view>
-    <view class="title">
+    <div class="title" :style="{color: color}">
       <!-- 标题内容 -->
       <slot name="title">{{ title }}</slot>
       <!--<text>{{ systemInfo?.statusBarHeight }}</text>-->
-    </view>
+    </div>
     <view class="right" @click="handleRightClick">
       <!-- 右侧内容，如更多按钮 -->
       <slot name="right"></slot>
@@ -30,6 +30,14 @@ const props = defineProps({
   showBack: {
     type: Boolean,
     default: true
+  },
+  background: {
+    type: String,
+    default: '#fff'
+  },
+  color: {
+    type: String,
+    default: '#000'
   }
 })
 
@@ -63,7 +71,7 @@ const handleRightClick = () => {
 }
 </script>
 
-<style>
+<style lang="scss">
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -71,11 +79,12 @@ const handleRightClick = () => {
   height: calc(220px + 44px); /* 考虑到状态栏高度 */
   padding: 0 15px;
   background-color: #ffffff;
+
+  .title {
+    // font-weight: bolder;
+  }
 }
 
-.title {
-  font-weight: bolder;
-}
 
 /* 根据需要添加其他样式 */
 </style>
