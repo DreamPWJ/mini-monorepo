@@ -47,7 +47,7 @@ const emit = defineEmits(['leftClick', 'rightClick'])
 const env = getEnv()
 const windowInfo = env === 'WEB' ? { statusBarHeight: 0 } : getWindowInfo()
 const statusBarHeight = windowInfo.statusBarHeight || 0
-const navBarHeight = 150
+const navBarHeight = 120
 /** 安全区高度 + navbar高度 */
 const height = statusBarHeight + navBarHeight
 const rect = Taro.getMenuButtonBoundingClientRect()
@@ -71,6 +71,8 @@ const handleRightClick = () => {
 
 <style lang="scss">
 .custom-navbar {
+  padding-bottom: 30px;
+
   .navbar {
     height: 100%;
     display: flex;
@@ -78,7 +80,7 @@ const handleRightClick = () => {
     align-items: center;
 
     .title {
-      // font-weight: bolder;
+      font-weight: bolder;
     }
   }
 
