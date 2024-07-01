@@ -1,26 +1,29 @@
 <template>
-  <div class="navbar" :style="{background: background}">
-    <view class="left" @click="handleLeftClick">
-      <!-- 左侧内容，如返回按钮 -->
-      <text v-if="showBack">返回</text>
-    </view>
-    <div class="title" :style="{color: color}">
-      <!-- 标题内容 -->
-      <slot name="title">{{ title }}</slot>
-      <!--<text>{{ systemInfo?.statusBarHeight }}</text>-->
+  <div class="custom-navbar" :style="{height: pxTransform(height), background: background}">
+    <div :style="{ paddingTop: pxTransform(statusBarHeight) }">
+      <view class="left" @click="handleLeftClick">
+        <!-- 左侧内容，如返回按钮 -->
+        <text v-if="showBack">返回</text>
+      </view>
+      <div class="title" :style="{color: color}">
+        <!-- 标题内容 -->
+        <slot name="title">{{ title }}</slot>
+        <!--<text>{{ systemInfo?.statusBarHeight }}</text>-->
+      </div>
+      <view class="right" @click="handleRightClick">
+        <!-- 右侧内容，如更多按钮 -->
+        <slot name="right"></slot>
+      </view>
     </div>
-    <view class="right" @click="handleRightClick">
-      <!-- 右侧内容，如更多按钮 -->
-      <slot name="right"></slot>
-    </view>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import Taro, { useDidShow } from '@tarojs/taro'
+import Taro, { getEnv, getWindowInfo, pxTransform, useDidShow } from '@tarojs/taro'
 
-const systemInfo = ref(Taro.getSystemInfoSync())
+let height = ref(0)
+let statusBarHeight = ref(0)
 
 const props = defineProps({
   title: {
@@ -33,11 +36,11 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: '#fff'
+    default: '#ffffff'
   },
   color: {
     type: String,
-    default: '#000'
+    default: '#000000'
   }
 })
 
@@ -46,19 +49,14 @@ const emit = defineEmits(['leftClick', 'rightClick'])
 useDidShow(() => {
 
   // 动态计算navbar状态栏信息
-  const rect = wx.getMenuButtonBoundingClientRect()
-  /*  wx.getSystemInfo({
-      success: (res) => {
-        const isAndroid = res.platform === 'android'
-        const isDevtools = res.platform === 'devtools'
-        this.setData({
-          ios: !isAndroid,
-          innerPaddingRight: `padding-right: ${res.windowWidth - rect.left}px`,
-          leftWidth: `width: ${res.windowWidth - rect.left}px`,
-          safeAreaTop: isDevtools || isAndroid ? `height: calc(var(--height) + ${res.safeArea.top}px); padding-top: ${res.safeArea.top}px` : ``
-        })
-      }
-    })*/
+  const env = getEnv()
+  const windowInfo = env === 'WEB' ? { statusBarHeight: 0 } : getWindowInfo()
+  statusBarHeight.value = windowInfo.statusBarHeight || 0
+  const navBarHeight = 44
+  /** 安全区高度 + navbar高度 */
+  height.value = statusBarHeight + navBarHeight
+  console.log(statusBarHeight + navBarHeight)
+  console.log(windowInfo)
 })
 
 const handleLeftClick = () => {
@@ -72,13 +70,11 @@ const handleRightClick = () => {
 </script>
 
 <style lang="scss">
-.navbar {
+.custom-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: calc(220px + 44px); /* 考虑到状态栏高度 */
   padding: 0 15px;
-  background-color: #ffffff;
 
   .title {
     // font-weight: bolder;
