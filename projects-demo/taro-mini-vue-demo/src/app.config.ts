@@ -11,7 +11,6 @@ export default defineAppConfig({
       ]
     }
   ],
-  lazyCodeLoading: 'requiredComponents',
   renderer: 'skyline',
   rendererOptions: {
     'skyline': {
@@ -21,6 +20,7 @@ export default defineAppConfig({
     }
   },
   componentFramework: 'glass-easel',
+  lazyCodeLoading: 'requiredComponents',
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',

@@ -1,7 +1,7 @@
 <template>
   <view>
     <text class="monorepo-text">{{ msg }}</text>
-    <!--    <button @click="changeMessage">传出消息</button>-->
+    <!-- <button @click="changeMessage">传出消息</button>-->
   </view>
 </template>
 

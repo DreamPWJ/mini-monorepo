@@ -55,5 +55,9 @@ const handleRightClick = () => {
   background-color: #ffffff;
 }
 
+.title {
+  font-weight: bolder;
+}
+
 /* 根据需要添加其他样式 */
 </style>
