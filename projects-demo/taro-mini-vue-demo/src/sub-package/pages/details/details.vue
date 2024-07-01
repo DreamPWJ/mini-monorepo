@@ -1,6 +1,6 @@
 <template>
-  <view class="details">
-    <text>{{ msg }}</text>
+  <view class="details flex justify-content-center align-items-center">
+    <nut-button type="primary">{{ msg }}</nut-button>
   </view>
 </template>
 
@@ -8,6 +8,7 @@
 import './details.scss'
 import { ref } from 'vue'
 import { useDidShow, useLoad } from '@tarojs/taro'
+import { demoApi } from '@/api/demo/demo'
 
 /**
  * 数据属性定义
@@ -15,7 +16,7 @@ import { useDidShow, useLoad } from '@tarojs/taro'
 const msg = ref<string>('分包小程序页面')
 
 useLoad(() => {
-
+  getData(666)
 })
 
 useDidShow(() => {
@@ -25,8 +26,11 @@ useDidShow(() => {
 /**
  * 函数方法
  */
-const test = (param) => {
+const getData = (param) => {
   // Taro.navigateTo({ url: '/pages/details/details' })
+  demoApi().then(res => {
+
+  })
 }
 
 </script>

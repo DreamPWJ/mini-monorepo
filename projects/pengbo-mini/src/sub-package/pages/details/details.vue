@@ -16,20 +16,21 @@ import { demoApi } from '@/api/demo/demo'
 const msg = ref<string>('分包小程序页面')
 
 useLoad(() => {
-
+  getData(666)
 })
 
 useDidShow(() => {
-  demoApi().then(res => {
 
-  })
 })
 
 /**
  * 函数方法
  */
-const test = (param) => {
+const getData = (param) => {
   // Taro.navigateTo({ url: '/pages/details/details' })
+  demoApi().then(res => {
+
+  })
 }
 
 </script>
