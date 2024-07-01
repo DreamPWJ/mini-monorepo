@@ -1,0 +1,13 @@
+{
+  "name": "athena-uniapp",
+  "version": "1.0.0",
+  "description": "Uni-APP框架通用包",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "private": true,
+  "keywords": [],
+  "author": "潘维吉",
+  "license": "MIT",
+  "scripts": {
+  }
+}

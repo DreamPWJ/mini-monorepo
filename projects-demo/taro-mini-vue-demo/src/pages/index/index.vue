@@ -1,5 +1,5 @@
 <template>
-  <!--  <nut-navbar title="Title" @click-title="Taro.navigateBack()" safe-area-inset-top></nut-navbar>-->
+  <CustomNavBar :title="'首页'" />
   <view class="index-demo">
     <view class="top-demo">
       <text class="msg">{{ msg }}</text>
@@ -35,7 +35,7 @@ import { testHelloJSMonoRepo, testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
 import { demoApi } from '@/api/demo/demo'
-import { VueDemoComponent } from 'athena-components-vue'
+import { CustomNavBar, VueDemoComponent } from 'athena-components-vue'
 import { Constant } from 'athena-constants'
 import { Pipe, Validate } from 'athena-common'
 import { IconFont } from '@nutui/icons-vue-taro'

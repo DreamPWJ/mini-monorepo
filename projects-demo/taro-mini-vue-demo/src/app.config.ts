@@ -12,11 +12,21 @@ export default defineAppConfig({
     }
   ],
   lazyCodeLoading: 'requiredComponents',
+  renderer: 'skyline',
+  rendererOptions: {
+    'skyline': {
+      'defaultDisplayBlock': true,
+      'defaultContentBox': true,
+      'disableABTest': true
+    }
+  },
+  componentFramework: 'glass-easel',
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    navigationBarTextStyle: 'black',
+    navigationStyle: 'custom'
   },
   tabBar: {
     color: '#666',
