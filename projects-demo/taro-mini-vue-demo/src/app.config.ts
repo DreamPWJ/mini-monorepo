@@ -11,22 +11,22 @@ export default defineAppConfig({
       ]
     }
   ],
-  renderer: 'skyline',
-  rendererOptions: {
-    'skyline': {
-      'defaultDisplayBlock': true,
-      'defaultContentBox': true,
-      'disableABTest': true
-    }
-  },
-  componentFramework: 'glass-easel',
+  // renderer: 'skyline',
+  // rendererOptions: {
+  //   'skyline': {
+  //     'defaultDisplayBlock': true,
+  //     'defaultContentBox': true,
+  //     'disableABTest': true
+  //   }
+  // },
+  //componentFramework: 'glass-easel',
   lazyCodeLoading: 'requiredComponents',
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black',
-    navigationStyle: 'custom'
+    //navigationStyle: 'custom'
   },
   tabBar: {
     color: '#666',

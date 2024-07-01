@@ -1,5 +1,5 @@
 <template>
-  <view class="navbar">
+  <div class="navbar" :style="{color:'blue'}">
     <view class="left" @click="handleLeftClick">
       <!-- 左侧内容，如返回按钮 -->
       <text v-if="showBack">返回</text>
@@ -13,12 +13,12 @@
       <!-- 右侧内容，如更多按钮 -->
       <slot name="right"></slot>
     </view>
-  </view>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import Taro from '@tarojs/taro'
+import Taro, { useDidShow } from '@tarojs/taro'
 
 const systemInfo = ref(Taro.getSystemInfoSync())
 
@@ -34,6 +34,24 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['leftClick', 'rightClick'])
+
+useDidShow(() => {
+
+  // 动态计算navbar状态栏信息
+  const rect = wx.getMenuButtonBoundingClientRect()
+  /*  wx.getSystemInfo({
+      success: (res) => {
+        const isAndroid = res.platform === 'android'
+        const isDevtools = res.platform === 'devtools'
+        this.setData({
+          ios: !isAndroid,
+          innerPaddingRight: `padding-right: ${res.windowWidth - rect.left}px`,
+          leftWidth: `width: ${res.windowWidth - rect.left}px`,
+          safeAreaTop: isDevtools || isAndroid ? `height: calc(var(--height) + ${res.safeArea.top}px); padding-top: ${res.safeArea.top}px` : ``
+        })
+      }
+    })*/
+})
 
 const handleLeftClick = () => {
   Taro.navigateBack()

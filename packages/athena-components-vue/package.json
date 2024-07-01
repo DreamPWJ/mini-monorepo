@@ -12,7 +12,8 @@
   },
   "peerDependencies": {
     "vue": ">=3",
-    "@tarojs/components": "3.6.32"
+    "@tarojs/components": "^3.6.32",
+    "@nutui/nutui-taro": "^4.3.0"
   },
   "dependencies": {
     "@tarojs/taro": "^3.6.32"
