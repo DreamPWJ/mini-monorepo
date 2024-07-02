@@ -33,11 +33,11 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: '#ff0066'
+    default: '#1677ff'
   },
   color: {
     type: String,
-    default: '#000000'
+    default: '#ffffff'
   }
 })
 
