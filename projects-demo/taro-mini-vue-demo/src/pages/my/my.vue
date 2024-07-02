@@ -35,7 +35,7 @@ const test = (param) => {
   //Taro.navigateTo({ url: '/pages/details/details' })
   weiXinLogin().then(res => {
     let payData = {
-      'openId': res.data.data.openid, 'total': 1,
+      'openId': res.data.data.userInfo.openId, 'total': 1,
       'outTradeNo': CommonUtils.randomString(10, 10), 'description': '澎泊云新版支付测试'
     }
     createPay(payData).then(res => {

@@ -26,7 +26,7 @@ export async function weiXinLogin() {
     }
   })
   console.log(code)
-  return http.post(`http://192.168.1.128:8180/weixin/login`, { 'code': code }) // http://192.168.1.128:8180
+  return http.post(`http://127.0.0.1:8080/weixin/login`, { 'code': code }) // http://192.168.1.128:8180
 }
 
 /**
