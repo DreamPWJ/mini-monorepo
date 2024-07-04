@@ -1,7 +1,10 @@
 <template>
   <CustomNavBar :title="'我的'" :showBack=false />
   <view class="my flex justify-content-center align-items-center">
-    <nut-button class="animated fadeInUp green-bg white" @click="test('weixin-pay')">{{ msg }}</nut-button>
+    <nut-space>
+      <nut-button class="animated fadeInUp green-bg white" @click="test('weixin-pay')">{{ msg }}</nut-button>
+      <nut-button type="primary" openType="getPhoneNumber" @getphonenumber="getPhoneNumber">获取手机号</nut-button>
+    </nut-space>
   </view>
 </template>
 
@@ -11,7 +14,7 @@ import './my.scss'
 import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 import { CommonUtils } from 'athena-utils'
-import { createPay, weiXinLogin } from '@/api/demo/demo'
+import { createPay, getPhone, weiXinLogin } from '@/api/demo/demo'
 import { CustomNavBar } from 'athena-components-vue'
 
 /**
@@ -55,6 +58,11 @@ const test = (param) => {
     })
   })
 
+}
+
+const getPhoneNumber = (e) => {
+  console.log(e.detail)
+  getPhone({ 'code': e.detail.code })
 }
 
 </script>
