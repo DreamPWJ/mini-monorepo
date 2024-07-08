@@ -34,7 +34,7 @@ import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 import { testHelloJSMonoRepo, testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
-import { demoApi } from '@/api/demo/demo'
+import { demoApi, demoHttpApi } from '@/api/demo/demo'
 import { CustomNavBar, VueDemoComponent } from 'athena-components-vue'
 import { Constant } from 'athena-constants'
 import { Pipe, Validate } from 'athena-common'
@@ -70,6 +70,10 @@ const testMonoRepo = () => {
   testHelloJSMonoRepo()
   demoApi().then(res => {
     apiData.value = res.data
+  })
+
+  demoHttpApi().then(res => {
+
   })
 
   console.log(CommonUtils.randomString(6, 12))

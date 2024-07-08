@@ -51,14 +51,15 @@ export class Http {
     } else if (!!Taro.getStorageSync(baseTokenKey)) {
       token = Taro.getStorageSync(baseTokenKey)
     }
+    let httpURL = this.httpURL  // 防止变量全局污染
     // 适配同一个前端访问多个服务器地址情况 如果path配置服务地址 使用单独配置的地址
     if (path.indexOf('http://') > -1 || path.indexOf('https://') > -1) {
-      this.httpURL = ''
+      httpURL = ''
     }
     // 基础配置
     const option: any = {
       method: method, // 请求方式
-      url: this.httpURL + path,  // 配置请求基础地址
+      url: httpURL + path,  // 配置请求基础地址
       data: data,   // 传参数据
       timeout: 60000, // 配置请求超时时间
       header: {  // 定义公共headers请求头
@@ -85,7 +86,7 @@ export class Http {
       Taro.showToast({
         title: '',
         icon: 'loading',
-        duration: 10000
+        duration: 5000
       })
     }
     if (JSON.parse(String(this.isDebug))) {
