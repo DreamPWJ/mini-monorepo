@@ -9,6 +9,7 @@
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
+    "clean:modules": "rimraf node_modules"
   },
   "peerDependencies": {
     "vue": ">=3",

@@ -7,6 +7,9 @@
   "keywords": [],
   "author": "潘维吉",
   "license": "MIT",
+  "scripts": {
+    "clean:modules": "rimraf dist"
+  },
   "publishConfig": {
     "access": "public",
     "directory": "dist"

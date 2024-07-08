@@ -11,11 +11,6 @@ function copy() {
     .pipe(gulp.dest('../packages/athena-components/dist'))
 }
 
-function copyVue() {
-  return gulp
-    .src('../packages/athena-components-vue/src/**/*.css')
-    .pipe(gulp.dest('../packages/athena-components-vue/dist'))
-}
 
 function copyStyles() {
   return gulp
@@ -23,23 +18,4 @@ function copyStyles() {
     .pipe(gulp.dest('../packages/athena-styles/dist'))
 }
 
-function watch() {
-  return gulp
-    .watch(['../packages/*/src/**/*.tsx', '../packages/*/src/**/*.ts'])
-    .on('change', function(file) {
-      console.log('监听文件变化了: ' + file.toString())
-      //compileTs()
-    })
-}
-// 设置typescript编译配置
-const tsProject = ts.createProject('tsconfig.json');
-// 定义编译TypeScript的任务
-function compileTs() {
-  return tsProject.src()
-    .pipe(tsProject())
-    .js.pipe(gulp.dest('dist')); // 输出目录，根据实际情况调整
-}
-
-exports.watch = watch
-
-exports.default = series(copy, copyVue, copyStyles)
+exports.default = series(copy, copyStyles)
