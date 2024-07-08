@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 import type { HttpParams } from '../types/http-params'
 import { failHandle, httpErrorMsg, toLogin } from '../utils/http-util'
+import { Constant } from 'athena-constants'
 
 /**
  * @author 潘维吉
@@ -41,10 +42,10 @@ export class Http {
    * 基础请求
    */
   baseRequest(params, method = 'GET') {
-    let { path, data, headers } = params
+    let { path, data, headers, isLoading } = params
     // 给所有请求添加自定义header 登录获取token 未登录情况默认用基础token鉴权验证 token值不可泄露
-    const userTokenKey = 'token'
-    const baseTokenKey = 'base_token'
+    const userTokenKey = Constant.TOKEN_KEY
+    const baseTokenKey = Constant.BASE_TOKEN_KEY
     let token
     if (!!Taro.getStorageSync(userTokenKey)) {
       token = Taro.getStorageSync(userTokenKey)
@@ -67,7 +68,8 @@ export class Http {
         'content-type': 'application/json;charset=UTF-8',
         'Authorization': `Bearer ${token}` || '', // token授权
         ...headers // 具体请求header
-      }
+      },
+      isLoading: isLoading === undefined ? this.isLoading : isLoading
     }
     return Taro.request(option)
   }
@@ -78,10 +80,10 @@ export class Http {
    */
   interceptor = (chain) => {
     const requestParams = chain.requestParams
-    const { method, data, url } = requestParams
+    const { data, url, isLoading } = requestParams
 
     // 请求处理拦截器
-    if (this.isLoading && method !== 'GET') {
+    if (isLoading) {
       // 加载动画
       Taro.showToast({
         title: '',
@@ -104,7 +106,7 @@ export class Http {
     // 响应处理拦截器
     return chain.proceed(requestParams)
       .then(res => {
-        if (this.isLoading && method !== 'GET') {
+        if (isLoading) {
           Taro.hideToast()
         }
         if (JSON.parse(String(this.isDebug))) {
@@ -163,32 +165,32 @@ export class Http {
   /**
    * GET网络请求
    */
-  get(path, data: any = null, headers = {}) {
-    let option = { path, data, headers }
+  get(path, data: any = null, headers = {}, isLoading: boolean = false) {
+    let option = { path, data, headers, isLoading }
     return this.baseRequest(option, 'GET')
   }
 
   /**
    * POST网络请求
    */
-  post(path, data: any = null, headers = {}) {
-    let option = { path, data, headers }
+  post(path, data: any = null, headers = {}, isLoading) {
+    let option = { path, data, headers, isLoading }
     return this.baseRequest(option, 'POST')
   }
 
   /**
    * PUT网络请求
    */
-  put(path, data: any = null, headers = {}) {
-    let option = { path, data, headers }
+  put(path, data: any = null, headers = {}, isLoading) {
+    let option = { path, data, headers, isLoading }
     return this.baseRequest(option, 'PUT')
   }
 
   /**
    * DELETE网络请求
    */
-  delete(path, data: any = null, headers = {}) {
-    let option = { path, data, headers }
+  delete(path, data: any = null, headers = {}, isLoading) {
+    let option = { path, data, headers, isLoading }
     return this.baseRequest(option, 'DELETE')
   }
 
