@@ -9,7 +9,7 @@
     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "module": "ES6",
     "lib": [
-      "es2019",
+      "esnext",
       "dom"
     ],
     /* Specify library files to be included in the compilation. */
@@ -70,6 +70,10 @@
     "rootDir": "./",
     /* Base directory to resolve non-absolute module names. */
     "paths": {
+      // import自动提示导入关键配置
+      "*": [
+        "packages/*"
+      ],
       "@/*": [
         "./src/*"
       ]

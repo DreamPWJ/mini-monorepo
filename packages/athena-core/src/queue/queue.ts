@@ -1,7 +1,8 @@
 /**
- * 管理异步任务队列。
+ * 管理异步消息任务队列
  */
 export class TaskQueue {
+
   private static queueList: number[] = [] // 保存任务 ID 的数组
   private static queueMap: Map<number, () => void> = new Map() // 保存任务的映射表
   private static queueId: number = 0 // 当前任务 ID

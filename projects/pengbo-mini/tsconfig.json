@@ -21,6 +21,10 @@
       "node_modules/@types"
     ],
     "paths": {
+      // import自动提示导入关键配置
+      "*": [
+        "../../packages/*"
+      ],
       "@/*": [
         "./src/*"
       ]

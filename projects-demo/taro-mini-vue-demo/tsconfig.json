@@ -21,7 +21,10 @@
       "node_modules/@types"
     ],
     "paths": {
-      // TS5090 leading './'
+      // import自动提示导入关键配置
+      "*": [
+        "../../packages/*"
+      ],
       "@/*": [
         "./src/*"
       ]
