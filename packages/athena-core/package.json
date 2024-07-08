@@ -19,7 +19,9 @@
     "directory": "dist"
   },
   "dependencies": {
-    "athena-constants": "workspace:*",
+    "athena-constants": "workspace:*"
+  },
+  "devDependencies": {
     "@tarojs/taro": "^3.6.32"
   }
 }

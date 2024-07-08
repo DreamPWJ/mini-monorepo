@@ -21,7 +21,7 @@
     "gulp": "cd scripts && gulp",
     "gulp:watch": "cd scripts && gulp watch",
     "packages:dev": "tsc -b packages/athena-components --watch",
-    "clean:all": "npm run clean:modules && npm run clean:ts",
+    "clean:all": "npm run clean:ts && npm run clean:modules",
     "clean:modules": "rimraf node_modules && pnpm run -r clean:modules",
     "clean:ts": "pnpm run -r clean:ts"
   },

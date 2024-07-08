@@ -14,10 +14,8 @@
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "@tarojs/components": "3.6.32"
-  },
-  "devDependencies": {
+    "react": ">=18",
+    "@tarojs/components": "^3.6.32",
     "@types/react": "^17.0.0"
   },
   "sideEffects": false,
