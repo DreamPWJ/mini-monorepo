@@ -7,7 +7,7 @@ import { Constant } from 'athena-constants'
  * @author 潘维吉
  * @description 核心通用http请求配置和拦截器
  * token授权、调试日志、输入输出数据处理、错误异常处理等
- * 基于Taro做跨端网络请求实现: https://taro-docs.jd.com/taro/docs/apis/network/request/
+ * 基于Taro做跨端网络请求实现:  https://taro-docs.jd.com/docs/apis/network/request/
  */
 export class Http {
 
