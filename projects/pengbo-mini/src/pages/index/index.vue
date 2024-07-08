@@ -67,6 +67,8 @@ const testMonoRepo = () => {
   // Taro.navigateTo({ url: '/pages/details/details' })
   console.log('Taro多包复用示例')
   testHelloMonoRepo()
+
+
   demoApi().then(res => {
     apiData.value = res.data
   })
