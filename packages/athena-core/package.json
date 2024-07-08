@@ -21,7 +21,7 @@
   "dependencies": {
     "athena-constants": "workspace:*"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "@tarojs/taro": "^3.6.32"
   }
 }
