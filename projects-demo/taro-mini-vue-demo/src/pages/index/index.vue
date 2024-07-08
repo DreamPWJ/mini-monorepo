@@ -36,9 +36,9 @@ import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
 import { demoApi } from '@/api/demo/demo'
 import { CustomNavBar, VueDemoComponent } from 'athena-components-vue'
-import { Constant } from 'athena-constants'
 import { Pipe, Validate } from 'athena-common'
 import { IconFont } from '@nutui/icons-vue-taro'
+import { Constant } from '@athena-constants'
 
 /**
  * 数据定义
@@ -74,7 +74,7 @@ const testMonoRepo = () => {
 
   console.log(CommonUtils.randomString(6, 12))
   console.log(Pipe.hidePart('18863302302', 'phone'))
-  console.log(Constant.PHONE_REGEX)
+  console.log(Constant.TOKEN_KEY)
   console.log('校验结果: ' + Validate.email('123'))
 
 }
@@ -85,6 +85,5 @@ const testMonoRepo = () => {
 const toDetails = () => {
   Taro.navigateTo({ url: '/sub-package/pages/details/details' })
 }
-
 
 </script>
