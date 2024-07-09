@@ -39,4 +39,9 @@ npm run bootstrap:all
 
 "athena-core": "workspace:*"
 
+#### 基础通用包和业务包实时调试
+
+- 执行根目录封装的命令 npm run watch:ts
+- 根据文件监听变化实时响应联调结果 tsc --watch 单独开启服务
+
 #### 小程序开发工具中开启JS转成ES5提高兼容性 、开启SWC提高编译速度、 开启热重载提高开发体验等

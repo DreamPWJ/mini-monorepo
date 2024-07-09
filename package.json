@@ -2,17 +2,6 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "projects/*",
-      "projects-demo/*"
-    ],
-    "nohoist": [
-      "**/vant",
-      "**/vant/**"
-    ]
-  },
   "scripts": {
     "bootstrap:all": "pnpm install && npm run build:all",
     "build:all": "pnpm run -r compile:ts && npm run gulp",
@@ -21,8 +10,8 @@
     "gulp": "cd scripts && gulp",
     "gulp:watch": "cd scripts && gulp watch",
     "packages:dev": "tsc -b packages/athena-components --watch",
-    "clean:all": "npm run clean:ts && npm run clean:modules",
-    "clean:modules": "rimraf node_modules && pnpm run -r clean:modules",
+    "clean:all": "npm run clean:ts &&  pnpm run -r clean:modules",
+    "clean:modules": "rimraf node_modules",
     "clean:ts": "pnpm run -r clean:ts"
   },
   "devDependencies": {
