@@ -15,7 +15,7 @@
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
-    "@tarojs/taro": "^3.6.32"
+    "@tarojs/taro": "^3.6.33"
   },
   "publishConfig": {
     "access": "public",
