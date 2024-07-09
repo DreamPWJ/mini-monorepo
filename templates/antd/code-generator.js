@@ -24,7 +24,7 @@ const bizPageType = "table";  // 业务页面类型  1. table表格  2. form表�
 
 const fileName = "table-list";  // 文件名称  不含后缀   文件命名符合 kebabCase方式 如foo-bar 、 foo-bar.test-utils
 
-exec(` node core/code-template.js ${generateLocation} ${author} ${pageType} ${pageStyle} ${bizPageType} ${fileName} `,
+exec(` node antd/antd-template.js ${generateLocation} ${author} ${pageType} ${pageStyle} ${bizPageType} ${fileName} `,
   (error, stdout, stderr) => {
     if (error) {
       console.error(`代码生成执行异常: ${error}`);

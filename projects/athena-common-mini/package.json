@@ -14,7 +14,7 @@
     "clean:modules": "rimraf node_modules",
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@tarojs/taro": "^3.6.32"
   },
   "publishConfig": {

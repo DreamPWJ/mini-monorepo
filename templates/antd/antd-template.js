@@ -4,7 +4,7 @@ const fs = require('fs');
  * @author 潘维吉
  * @date 2021-10-26
  * 代码模版快速生成脚本
- * 模版快速生成脚本,执行命令  node  code-template.js
+ * 模版快速生成脚本,执行命令  node  antd-template.js
  */
 
 // 传入的动态参数
