@@ -1,7 +1,5 @@
 // npm install --global gulp-cli
 const gulp = require('gulp')
-const ts = require('gulp-typescript');
-// const sass = require('gulp-sass');
 
 const { series } = require('gulp')
 
@@ -10,7 +8,6 @@ function copy() {
     .src('../packages/athena-components/src/**/*.css')
     .pipe(gulp.dest('../packages/athena-components/dist'))
 }
-
 
 function copyStyles() {
   return gulp

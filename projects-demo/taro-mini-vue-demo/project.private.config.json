@@ -3,6 +3,7 @@
   "projectname": "taro-mini-vue-demo",
   "setting": {
     "compileHotReLoad": true,
-    "skylineRenderEnable": true
-  }
+    "skylineRenderEnable": false
+  },
+  "libVersion": "3.4.9"
 }
