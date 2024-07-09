@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
+  "description": "MonoRepo单仓多包架构根目录",
   "scripts": {
     "bootstrap:all": "pnpm install && npm run build:all",
     "watch:ts": "pnpm run -r watch:ts",
