@@ -4,13 +4,12 @@
   "version": "1.0.0",
   "scripts": {
     "bootstrap:all": "pnpm install && npm run build:all",
+    "watch:ts": "pnpm run -r watch:ts",
+    "clean:all": "npm run clean:ts && pnpm run -r clean:modules && rimraf node_modules",
     "build:all": "pnpm run -r compile:ts && npm run gulp",
     "build:ts": "pnpm run -r compile:ts",
-    "watch:ts": "pnpm run -r watch:ts",
     "gulp": "cd scripts && gulp",
-    "gulp:watch": "cd scripts && gulp watch",
     "packages:dev": "tsc -b packages/athena-components --watch",
-    "clean:all": "npm run clean:ts &&  pnpm run -r clean:modules",
     "clean:modules": "rimraf node_modules",
     "clean:ts": "pnpm run -r clean:ts"
   },
