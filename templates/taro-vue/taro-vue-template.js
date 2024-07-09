@@ -1,4 +1,6 @@
 const fs = require('fs')
+const exec = require('child_process').exec
+
 /**
  * @author 潘维吉
  * @date 2019-07-08
@@ -106,6 +108,7 @@ switch (type) {
     fs.writeFileSync(`${fileName}.scss`, scssTemplate)
     fs.writeFileSync(`${fileName}.config.ts`, miniConfigTemplate)
     console.log(` 页面模版 ${directory} 已创建${successColor}`)
+    // gitAdd(directory)
     break
   case 'component':
     directory = directoryName ? `src/components/${directoryName}${fileName}` : `src/components/${fileName}`
@@ -155,6 +158,13 @@ function upperCamelCase(str) {
     })
   }
   return string
+}
+
+/**
+ *  自动加入Git仓库管理
+ */
+function gitAdd(generateLocation) {
+  exec(`cd ${generateLocation}/ && git add .`)
 }
 
 process.exit(0)
