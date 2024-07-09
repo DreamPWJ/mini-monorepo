@@ -12,7 +12,7 @@
   "scripts": {
     "dev:weapp": "pnpm run -r compile:ts && npm run build:weapp -- --watch",
     "pnpm:reInstall": "rimraf node_modules && rimraf dist && rimraf .swc && pnpm install",
-    "clean:modules": "rimraf node_modules && rimraf dist",
+    "clean:modules": "rimraf node_modules && rimraf dist && rimraf .swc",
     "dev:h5": "npm run build:h5 -- --watch",
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
