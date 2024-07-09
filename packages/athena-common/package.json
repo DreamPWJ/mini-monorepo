@@ -14,8 +14,11 @@
     "clean:modules": "rimraf node_modules",
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
-  "dependencies": {
-    "@types/events": "^3.0.0",
-    "events": "^3.3.0"
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "peerDependencies": {
+    "@tarojs/taro": "^3.6.32"
   }
 }

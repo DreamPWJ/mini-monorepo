@@ -4,7 +4,6 @@
 
 /**
  * APP全局常量和方法
- * 业务逻辑相关的 （可含公共的http请求）
  */
 
 export class Global {
