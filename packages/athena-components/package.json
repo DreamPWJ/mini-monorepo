@@ -15,7 +15,9 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "@tarojs/components": "^3.6.33",
+    "@tarojs/components": "^3.6.33"
+  },
+  "devDependencies": {
     "@types/react": "^17.0.0"
   },
   "sideEffects": false,
