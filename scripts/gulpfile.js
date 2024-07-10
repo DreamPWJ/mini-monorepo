@@ -15,4 +15,4 @@ function copyStyles() {
     .pipe(gulp.dest('../packages/athena-styles/dist'))
 }
 
-exports.default = series(copy, copyStyles)
+exports.default = series(copy)
