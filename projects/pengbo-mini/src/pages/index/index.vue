@@ -32,13 +32,13 @@
 import './index.scss'
 import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
-import { testHelloMonoRepo } from 'athena-test'
+import { testHelloMonoRepo } from '@athena/test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
-import { CommonUtils } from 'athena-utils'
+import { CommonUtils } from '@athena/utils'
 import { demoApi } from '@/api/demo/demo'
-import { VueDemoComponent } from 'athena-components-vue'
-import { Constant } from 'athena-constants'
-import { Pipe, Validate } from 'athena-common'
+import { VueDemoComponent } from '@athena/components-vue'
+import { Constant } from '@athena/constants'
+import { Pipe, Validate } from '@athena/common'
 import { IconFont } from '@nutui/icons-vue-taro'
 
 /**

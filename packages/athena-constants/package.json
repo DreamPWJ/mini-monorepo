@@ -1,5 +1,5 @@
 {
-  "name": "athena-constants",
+  "name": "@athena/constants",
   "version": "1.0.0",
   "description": "通用常量包",
   "main": "dist/index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "athena-common-mini",
+  "name": "@athena/common-mini",
   "version": "1.0.0",
   "description": "小程序业务通用公共包",
   "main": "dist/index.js",

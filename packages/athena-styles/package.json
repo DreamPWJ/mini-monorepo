@@ -1,5 +1,5 @@
 {
-  "name": "athena-styles",
+  "name": "@athena/styles",
   "version": "1.0.0",
   "description": "通用样式包",
   "main": "index.js",

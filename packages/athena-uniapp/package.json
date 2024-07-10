@@ -1,5 +1,5 @@
 {
-  "name": "athena-uniapp",
+  "name": "@athena/uniapp",
   "version": "1.0.0",
   "description": "Uni-APP框架通用包",
   "main": "./src/index.ts",

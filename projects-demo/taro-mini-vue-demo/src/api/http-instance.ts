@@ -7,8 +7,8 @@
  * 服务可创建的单一、共享的实例，并且把它注入到任何请求注入它的类中
  * 服务使代码更加模块化、可复用，而且高效
  */
-import type { HttpParams } from 'athena-core'
-import { Http } from 'athena-core'
+import type { HttpParams } from '@athena/core'
+import { Http } from '@athena/core'
 
 /**
  * 通用Http请求传入参数定义

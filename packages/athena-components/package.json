@@ -1,5 +1,5 @@
 {
-  "name": "athena-components",
+  "name": "@athena/components",
   "version": "1.0.0",
   "description": "通用React组件包",
   "main": "dist/index.js",

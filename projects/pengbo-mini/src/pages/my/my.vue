@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import 'athena-styles/animate.min.css'
+import '@athena/styles/animate.min.css'
 import './my.scss'
 import { ref } from 'vue'
 import { useDidShow, useLoad } from '@tarojs/taro'

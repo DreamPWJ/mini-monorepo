@@ -1,5 +1,5 @@
 {
-  "name": "athena-common",
+  "name": "@athena/common",
   "version": "1.0.0",
   "description": "通用公共包",
   "main": "dist/index.js",

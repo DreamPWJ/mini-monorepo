@@ -1,5 +1,5 @@
 {
-  "name": "athena-utils",
+  "name": "@athena/utils",
   "version": "1.0.0",
   "description": "通用工具包",
   "main": "dist/index.js",

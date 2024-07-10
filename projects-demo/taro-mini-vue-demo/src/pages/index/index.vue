@@ -32,14 +32,14 @@
 import './index.scss'
 import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
-import { testHelloJSMonoRepo, testHelloMonoRepo } from 'athena-test'
+import { testHelloJSMonoRepo, testHelloMonoRepo } from '@athena/test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
-import { CommonUtils } from 'athena-utils'
+import { CommonUtils } from '@athena/utils'
 import { demoApi } from '@/api/demo/demo'
-import { CustomNavBar, VueDemoComponent } from 'athena-components-vue'
-import { Pipe, Validate } from 'athena-common'
+import { CustomNavBar, VueDemoComponent } from '@athena/components-vue'
+import { Pipe, Validate } from '@athena/common'
 import { IconFont } from '@nutui/icons-vue-taro'
-import { Constant } from '@athena-constants'
+import { Constant } from '@athena/constants'
 
 /**
  * 数据定义

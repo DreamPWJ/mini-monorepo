@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import 'athena-styles/base.css'
-import 'athena-styles/variable.css'
+import '@athena/styles/base.css'
+import '@athena/styles/variable.css'
 import './app.scss'
 
 const App = createApp({

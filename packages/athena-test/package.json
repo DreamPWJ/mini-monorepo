@@ -1,5 +1,5 @@
 {
-  "name": "athena-test",
+  "name": "@athena/test",
   "version": "1.0.0",
   "description": "monorepo测试包",
   "main": "./src/index.ts",
