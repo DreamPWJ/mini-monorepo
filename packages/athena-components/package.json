@@ -4,6 +4,8 @@
   "description": "通用React组件包",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "private": false,
+  "sideEffects": false,
   "keywords": [],
   "author": "潘维吉",
   "license": "MIT",
@@ -15,13 +17,9 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "@tarojs/components": "^3.6.33"
-  },
-  "devDependencies": {
+    "@tarojs/components": "^3.6.33",
     "@types/react": "^17.0.0"
   },
-  "sideEffects": false,
-  "private": false,
   "publishConfig": {
     "access": "public",
     "directory": "dist"

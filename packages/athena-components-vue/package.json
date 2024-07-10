@@ -5,16 +5,18 @@
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "private": true,
+  "sideEffects": true,
   "keywords": [],
   "author": "潘维吉",
   "license": "MIT",
   "scripts": {
     "clean:modules": "rimraf node_modules"
   },
-  "sideEffects": true,
+  "dependencies": {
+    "@tarojs/taro": "^3.6.33"
+  },
   "peerDependencies": {
     "vue": ">=3",
-    "@tarojs/taro": "^3.6.33",
     "@tarojs/components": "^3.6.33",
     "@nutui/nutui-taro": "^4.3.0"
   }
