@@ -2,11 +2,11 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
-  "description": "MonoRepo单仓多包架构根目录",
+  "description": "MonoRepo单仓多包代码架构根目录",
   "scripts": {
     "bootstrap:all": "pnpm install && npm run build:all",
     "watch:ts": "pnpm run -r watch:ts",
-    "clean:all": "npm run clean:ts && pnpm run -r clean:modules && rimraf node_modules",
+    "clean:all": "npm run clean:ts && pnpm run -r clean:modules && rimraf node_modules && rimraf pnpm-lock.yaml",
     "build:all": "pnpm run -r compile:ts && npm run gulp",
     "build:ts": "pnpm run -r compile:ts",
     "gulp": "cd scripts && gulp",
