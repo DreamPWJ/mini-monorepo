@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import type { HttpParams } from '../types/http-params'
 import { failHandle, httpErrorMsg, toLogin } from '../utils/http-util'
-import { Constant } from '@athena/constants'
+import { Constant } from 'athena-constants'
 
 /**
  * @author 潘维吉

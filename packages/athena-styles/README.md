@@ -4,4 +4,4 @@
 
 #### js或ts中按需引入方式
 
-import '@athena/styles/variable.css'
+import 'athena-styles/variable.css'

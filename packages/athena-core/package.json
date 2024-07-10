@@ -1,5 +1,5 @@
 {
-  "name": "@athena/core",
+  "name": "athena-core",
   "version": "1.0.0",
   "description": "基础通用核心包",
   "main": "dist/index.js",
@@ -19,7 +19,7 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@athena/constants": "workspace:*"
+    "athena-constants": "workspace:*"
   },
   "peerDependencies": {
     "@tarojs/taro": "^3.6.33"

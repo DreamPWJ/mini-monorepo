@@ -10,7 +10,7 @@ import './details.scss'
 import { ref } from 'vue'
 import { useDidShow, useLoad } from '@tarojs/taro'
 import { demoApi } from '@/api/demo/demo'
-import { CustomNavBar } from '@athena/components-vue'
+import { CustomNavBar } from 'athena-components-vue'
 
 /**
  * 数据属性定义

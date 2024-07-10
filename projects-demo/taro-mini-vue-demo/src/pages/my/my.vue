@@ -9,13 +9,13 @@
 </template>
 
 <script setup lang="ts">
-import '@athena/styles/animate.min.css'
+import 'athena-styles/animate.min.css'
 import './my.scss'
 import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
-import { CommonUtils } from '@athena/utils'
+import { CommonUtils } from 'athena-utils'
 import { createPay, getPhone, weiXinLogin } from '@/api/demo/demo'
-import { CustomNavBar } from '@athena/components-vue'
+import { CustomNavBar } from 'athena-components-vue'
 
 /**
  * 数据属性定义

@@ -37,7 +37,7 @@ npm run bootstrap:all
 
 #### 在package.json目录下引入monorepo公共依赖
 
-"@athena/core": "workspace:*"
+"athena-core": "workspace:*"
 
 #### 基础通用包和业务包实时调试
 
