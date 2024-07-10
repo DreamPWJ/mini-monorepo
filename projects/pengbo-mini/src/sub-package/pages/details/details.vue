@@ -1,5 +1,5 @@
 <template>
-  <view class="details">
+  <view class="details flex justify-content-center align-items-center">
     <nut-button type="primary">{{ msg }}</nut-button>
   </view>
 </template>
