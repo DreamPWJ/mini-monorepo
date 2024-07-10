@@ -1,5 +1,5 @@
 <template>
-  <CustomNavBar :title="'首页'" :showBack=false />
+  <!--  <CustomNavBar :title="'首页'" :showBack=false />-->
   <view class="index-demo">
     <view class="top-demo">
       <text class="msg">{{ msg }}</text>
@@ -36,7 +36,7 @@ import { testHelloJSMonoRepo, testHelloMonoRepo } from 'athena-test'
 import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
 import { CommonUtils } from 'athena-utils'
 import { demoApi } from '@/api/demo/demo'
-import { CustomNavBar, VueDemoComponent } from 'athena-components-vue'
+import { VueDemoComponent } from 'athena-components-vue'
 import { Pipe, Validate } from 'athena-common'
 import { IconFont } from '@nutui/icons-vue-taro'
 import { Constant } from '@athena-constants'

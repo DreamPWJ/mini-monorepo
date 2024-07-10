@@ -1,5 +1,5 @@
 <template>
-  <CustomNavBar :title="'我的'" :showBack=false />
+  <!--  <CustomNavBar :title="'我的'" :showBack=false />-->
   <view class="my flex justify-content-center align-items-center">
     <nut-space>
       <nut-button class="animated fadeInUp green-bg white" @click="test('weixin-pay')">{{ msg }}</nut-button>
@@ -15,7 +15,6 @@ import { ref } from 'vue'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 import { CommonUtils } from 'athena-utils'
 import { createPay, getPhone, weiXinLogin } from '@/api/demo/demo'
-import { CustomNavBar } from 'athena-components-vue'
 
 /**
  * 数据属性定义
