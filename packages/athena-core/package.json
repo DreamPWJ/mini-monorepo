@@ -19,9 +19,7 @@
     "directory": "dist"
   },
   "dependencies": {
-    "athena-constants": "workspace:*"
-  },
-  "peerDependencies": {
+    "athena-constants": "workspace:*",
     "@tarojs/taro": "^3.6.33"
   }
 }
