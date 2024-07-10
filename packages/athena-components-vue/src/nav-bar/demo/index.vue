@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import "./index.scss";
+import './index.css'
 
-import { getRole } from "@/utils";
+import { getRole } from '@/utils'
 
 const _navbarStore = navbarStore();
 const _tabBarStore = tabBarStore();
