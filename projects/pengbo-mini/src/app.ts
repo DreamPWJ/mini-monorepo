@@ -21,6 +21,7 @@ const App = createApp({
       this.loginWithCode()
     })
   },
+
   methods: {
     loginWithCode() {
       Taro.showLoading({
