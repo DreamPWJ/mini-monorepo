@@ -67,7 +67,6 @@ const choose = (param) => {
 const testMonoRepo = () => {
   // Taro.navigateTo({ url: '/pages/details/details' })
 
-
   console.log('Taro多包复用示例')
   testHelloMonoRepo()
   testHelloJSMonoRepo()

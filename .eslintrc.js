@@ -5,8 +5,8 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react-hooks', 'unicorn'],
   rules: {
     'import/extensions': 'off',
-    '@typescript-eslint/no-unused-vars': 'warn', // to error
-    'prettier/prettier': 'warn', // to error
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'prettier/prettier': 'warn',
     'no-useless-constructor': 'off',
     'prefer-template': 'off',
     'react-hooks/rules-of-hooks': 'warn', // 检查 Hook 的规则
