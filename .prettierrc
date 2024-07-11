@@ -3,5 +3,6 @@
   "arrowParens": "always",
   "singleQuote": true,
   "semi": false,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "embeddedLanguageFormatting": "auto"
 }
