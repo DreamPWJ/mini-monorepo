@@ -70,7 +70,7 @@ export class Http {
         'Authorization': `Bearer ${token}` || '', // token授权
         ...headers // 具体请求header
       },
-      isLoading: isLoading === undefined ? this.isLoading : isLoading
+      isLoading: isLoading === undefined || isLoading === null ? this.isLoading : isLoading
     }
     return Taro.request(option)
   }
@@ -174,7 +174,7 @@ export class Http {
   /**
    * POST网络请求
    */
-  post(path, data: any = null, headers = {}, isLoading) {
+  post(path, data: any = null, headers = {}, isLoading = null) {
     let option = { path, data, headers, isLoading }
     return this.baseRequest(option, 'POST')
   }
@@ -182,7 +182,7 @@ export class Http {
   /**
    * PUT网络请求
    */
-  put(path, data: any = null, headers = {}, isLoading) {
+  put(path, data: any = null, headers = {}, isLoading = null) {
     let option = { path, data, headers, isLoading }
     return this.baseRequest(option, 'PUT')
   }
@@ -190,7 +190,7 @@ export class Http {
   /**
    * DELETE网络请求
    */
-  delete(path, data: any = null, headers = {}, isLoading) {
+  delete(path, data: any = null, headers = {}, isLoading = null) {
     let option = { path, data, headers, isLoading }
     return this.baseRequest(option, 'DELETE')
   }

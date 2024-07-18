@@ -50,5 +50,4 @@ export function createPay(data) {
 export function getPhone(data) {
   Taro.setStorageSync('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk0ODA2MjcsInN1YiI6IntcInVzZXJJZFwiOjF9IiwiaXNzIjoicGVuZ2JvLXBhcmstYXBwIn0.ygIW3PVks6_a7br13UnmfOl4wnPjBVii_xYcYOcsR1M')
   return http.post(`http://127.0.0.1:8080/weixin/phone`, data) // http://192.168.1.128:8180
-
 }
