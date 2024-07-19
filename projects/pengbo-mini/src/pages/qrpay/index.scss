@@ -78,6 +78,7 @@
  
   .pay-bottom {
     position: fixed;
+    z-index: 999;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -129,5 +130,17 @@
     font-family: PingFang SC, PingFang SC;
     font-size: 18px;
     margin-top: 10px;
+  }
+
+
+  .skeleton-picture {
+    display: flex;
+    justify-content: space-between;
+  }
+  .skeleton-picture .item {
+    width: 47%;
+  }
+  .skeleton {
+    margin: 40px;
   }
 }
