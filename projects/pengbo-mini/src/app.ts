@@ -5,12 +5,12 @@ import 'athena-styles/variable.css'
 import './app.scss'
 import Taro from '@tarojs/taro'
 import { enqueue } from 'athena-common'
-import { login } from '@/api/demo/demo'
+import { login, test } from '@/api/demo/demo'
 
 // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 const App = createApp({
 
-  async mounted() {
+  async mounted2() {
     console.log('App mounted.')
 
     Taro.setStorageSync('base_token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjA0MDMwMTQsInN1YiI6IntcInVzZXJJZFwiOi0xfSIsImlzcyI6InBlbmdiby1wYXJrLWFwcCJ9.4CPG_ZZTcNo1E0H6pucfCNwc1HldNa-JwiKJREmj4rI')
@@ -32,6 +32,7 @@ const App = createApp({
         success: (res) => {
 
           if (res.code) {
+         
             login(res.code).then(res => {
               console.log(res)
               if (res.data.code == 200) {
@@ -46,6 +47,7 @@ const App = createApp({
               Taro.hideLoading()
               this.reLoginTip(this)
             })
+            test()
           } else {
             // 登录失败
             Taro.hideLoading()

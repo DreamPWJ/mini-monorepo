@@ -20,5 +20,8 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
+  },
+  "dependencies": {
+    "@tarojs/taro": "^3.6.33"
   }
 }

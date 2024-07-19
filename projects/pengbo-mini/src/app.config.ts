@@ -1,7 +1,8 @@
 export default defineAppConfig({
   pages: [
     'pages/index/index',
-    'pages/my/my'
+    'pages/my/my',
+    'pages/qrpay/index'
   ],
   subPackages: [
     {

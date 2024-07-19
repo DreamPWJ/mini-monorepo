@@ -1,0 +1,93 @@
+
+.qrpay {
+  margin: 0 20px;
+  .card {
+    background-color: white;
+    border-radius: 32px;
+    box-shadow: 0px 8px 100px 0px rgba(182, 197, 205, 0.3);
+  }
+  .header {
+    justify-content: space-around;
+    padding: 55px 0;
+  }
+  .count {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 44px;
+    color: #000;
+    font-family: PingFang SC, PingFang SC;
+  }
+  .count-tip {
+    font-size: 24px;
+    color: #9496A5;
+    font-family: PingFang SC, PingFang SC;
+  }
+  .item {
+    height: 100px;
+    align-items: center;
+  
+  }
+  .item-title {
+
+    font-size: 28px;
+    color: #9496A5;
+    font-family: PingFang SC, PingFang SC;
+  }
+  .item-value {
+    font-size: 28px;
+    color: #000;
+    flex: 1;
+    text-align: right;
+    font-family: PingFang SC, PingFang SC;
+  }
+  .cate-title {
+    margin-left: 25px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 28px;
+    color: #171B2E;
+    font-family: PingFang SC, PingFang SC;
+  }
+  .line {
+    background-color: #EFF0F9;
+  }
+ 
+  .pay-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 44px;
+  }
+  .pay-content {
+    margin: 0 20px;
+    background-color: #323232;
+    border-radius: 55px;
+  }
+  .pay-btn {
+    border-top-right-radius: 55px;
+    border-bottom-right-radius: 55px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: 110px;
+    width: 220px;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  .pay-price-container {
+    margin-left: 40px;
+    .pay-price {
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      font-family: PingFang SC, PingFang SC;
+    }
+    .pay-price-tip {
+      color: #9496A5;
+      font-size: 25px;
+      font-family: PingFang SC, PingFang SC;
+    }
+  }
+}
