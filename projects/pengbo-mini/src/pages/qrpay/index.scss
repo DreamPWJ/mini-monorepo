@@ -1,14 +1,35 @@
 
 .qrpay {
-  margin: 0 20px;
+
+  position: relative;
+  .bg {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0; 
+  }
+  .content {
+    position: absolute;
+    width:100%;
+    top: 0;
+    left: 0;
+    z-index: 200;
+
+    .content-margin {
+      margin: 340px 30px 0px 30px; 
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0px 8px 100px 0px rgba(182, 197, 205, 0.7);
+    }
+  }
   .card {
     background-color: white;
     border-radius: 32px;
-    box-shadow: 0px 8px 100px 0px rgba(182, 197, 205, 0.3);
+  
   }
   .header {
     justify-content: space-around;
-    padding: 55px 0;
+    padding: 65px 0;
   }
   .count {
     font-weight: bold;
@@ -23,8 +44,9 @@
     font-family: PingFang SC, PingFang SC;
   }
   .item {
-    height: 100px;
+    height: 96px;
     align-items: center;
+    margin: 0 10px;
   
   }
   .item-title {
@@ -41,11 +63,13 @@
     font-family: PingFang SC, PingFang SC;
   }
   .cate-title {
-    margin-left: 25px;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    padding-left: 25px;
+    height: 64px;
+    line-height: 64px;
+
     font-size: 28px;
     color: #171B2E;
+    background-color: #f8f8f8;
     font-family: PingFang SC, PingFang SC;
   }
   .line {
@@ -62,7 +86,7 @@
     margin-bottom: 44px;
   }
   .pay-content {
-    margin: 0 20px;
+    margin: 0 30px;
     background-color: #323232;
     border-radius: 55px;
   }
@@ -89,5 +113,21 @@
       font-size: 25px;
       font-family: PingFang SC, PingFang SC;
     }
+  }
+  .divider {
+    background-image: linear-gradient(to right, #d7d7d8 50%, transparent 50%);
+    background-size: 26px 1px;
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    height: 1px;
+    margin: 10px 20px;
+  }
+  .bottom-tips {
+    width: 100%;
+    text-align: center;
+    color: #9496A5;
+    font-family: PingFang SC, PingFang SC;
+    font-size: 18px;
+    margin-top: 10px;
   }
 }
