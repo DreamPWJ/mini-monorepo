@@ -1,93 +1,74 @@
 <template>
-  <!--  <nut-navbar title="Title" @click-title="Taro.navigateBack()" safe-area-inset-top></nut-navbar>-->
-  <view class="index-demo">
-    <view class="top-demo">
-      <text class="msg">{{ msg }}</text>
-      <ProjectComponentDemo msg="Hello Project VueComponentDemo1"></ProjectComponentDemo>
-      <VueDemoComponent msg="Hello MonoRepo VueComponentDemo2"></VueDemoComponent>
-      <view>
-        <IconFont name="add" color="#4171ff" size="24" />
-      </view>
-      <view>
-        <text class="green">{{ apiData?.msg }}</text>
-      </view>
-    </view>
-    <nut-button type="primary" @click="toDetails()">NutUI小程序组件库</nut-button>
-    <nut-cell title="选择日历组件" :desc="String(date)" @click="show = true" />
-    <nut-calendar
-      v-model:visible="show"
-      :default-value="date"
-      start-date="2024-01-11"
-      end-date="2024-12-30"
-      @close="show = false"
-      @choose="choose"
-    >
-    </nut-calendar>
-    <!--    <nut-skeleton width="250px" height="15px" animated row="3"></nut-skeleton> -->
-    <image src="../../assets/images/default-avatar.png"></image>
-    <div class="card"></div>
-  </view>
+  <div class='flex flex-row ad-bg fade-in fade-in-show'
+    style='background-color: #fff;align-items: center;justify-content: center;'>
+    <div class="flex flex-column">
+      <div class="ad-info">
+
+        <div class="ad-name">澎泊云</div>
+        <div class="ad-name-en">PENGBO CLOUD</div>
+        <div class="detail">
+          通过汲取2017年以来运营路内外停车的经验，深耕智慧停车行业场景，以解决停车运营痛点为基础，打造出包括智慧停车管理平台、智慧停车运营平台、车位管控设备、停车诱导系统等在内的智慧停车系列生态产品。
+        </div>
+        <div class="top20"></div>
+        <div class="detail">
+          2022年推出颠覆性路外封闭停车场管理平台“澎泊”，实现停车场云上管理，停车运营永远在线。
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 </template>
 
-<script setup lang="ts">
-import './index.scss'
-import { ref } from 'vue'
-import Taro, { useDidShow, useLoad } from '@tarojs/taro'
-import { testHelloMonoRepo } from 'athena-test'
-import ProjectComponentDemo from '@/components/demo/ComponentDemo.vue'
-import { CommonUtils } from 'athena-utils'
-import { demoApi } from '@/api/demo/demo'
-import { VueDemoComponent } from 'athena-components-vue'
-import { Constant } from 'athena-constants'
-import { Pipe, Validate } from 'athena-common'
-import { IconFont } from '@nutui/icons-vue-taro'
+ 
 
-/**
- * 数据定义
- */
-const apiData = ref()
-const msg = ref<string>('Hello Taro Mini Pnpm MonoRepo')
-const show = ref(false)
-const date = ref('2024-06-01')
-
-useLoad(() => {
-  console.log('Index onLoad')
-})
-
-useDidShow(() =>
-  testMonoRepo()
-)
-
-const choose = (param) => {
-  date.value = param[3]
+<style  >
+.ad-name {
+  color: #333;
+  font-size: 72px;
+  font-weight: bold;
 }
 
-/**
- * 测试MonoRepo函数
- */
-const testMonoRepo = () => {
-  // Taro.navigateTo({ url: '/pages/details/details' })
-  console.log('Taro多包复用示例')
-  testHelloMonoRepo()
-
-
-  demoApi().then(res => {
-    apiData.value = res.data
-  })
-
-  console.log(CommonUtils.randomString(6, 12))
-  console.log(Pipe.hidePart('18863302302', 'phone'))
-  console.log(Constant.PHONE_REGEX)
-  console.log('校验结果: ' + Validate.email('123'))
-
+.ad-name-en {
+  color: #333;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
-/**
- * 导航到详情页
- */
-const toDetails = () => {
-  Taro.navigateTo({ url: '/sub-package/pages/details/details' })
+.detail {
+  color: #666;
+  font-size: 34px;
+  text-indent: 35px;
 }
 
+.num {
+  color: #0a55e0;
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0;
+}
 
-</script>
+.top20 {
+  height: 20px;
+}
+
+.ad-bg {
+  background-image: url('https://pengbocloud.com/img/ad_bg.cbeaf74f.png');
+  overflow: auto;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+}
+
+.ad-info {
+  max-width: 600px;
+  backdrop-filter: blur(52px);
+  -webkit-backdrop-filter: blur(52px);
+  padding: 80px 25px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 120px;
+}
+</style>
