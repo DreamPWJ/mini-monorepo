@@ -24,8 +24,7 @@
     >
     </nut-calendar>
     <!--    <nut-skeleton width="250px" height="15px" animated row="3"></nut-skeleton> -->
-    <image src="../../assets/images/default-avatar.png"></image>
-    <div class="card"></div>
+    <image src="@/assets/images/default-avatar.png"></image>
   </view>
 </template>
 
