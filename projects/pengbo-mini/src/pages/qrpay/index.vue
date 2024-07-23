@@ -206,6 +206,9 @@ const pay = () => {
           icon: 'error',
           duration: 2000
         })
+        Taro.redirectTo({
+          url: '/pages/qrpay-result/index'
+        })
       },
       complete: () => {
         payLoading.value = false

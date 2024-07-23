@@ -14,12 +14,12 @@ const App = createApp({
     console.log('App mounted.')
 
     Taro.setStorageSync('base_token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjA0MDMwMTQsInN1YiI6IntcInVzZXJJZFwiOi0xfSIsImlzcyI6InBlbmdiby1wYXJrLWFwcCJ9.4CPG_ZZTcNo1E0H6pucfCNwc1HldNa-JwiKJREmj4rI')
-    // Taro.setStorageSync('token', null)
-    // enqueue(next => {
+    Taro.setStorageSync('token', null)
+    enqueue(next => {
 
-    //   this.next = next
-    //   this.loginWithCode()
-    // })
+      this.next = next
+      this.loginWithCode()
+    })
   },
 
   methods: {
