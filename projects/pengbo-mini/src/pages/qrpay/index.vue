@@ -152,22 +152,55 @@ const infoData = reactive({})
 const parkInfo = reactive({})
 const orderFeeVisible = ref(false)
 
-onMounted(() => {
+
+
+onMounted((options) => {
+
+
   enqueue((next) => {
     next()
 
     loading.value = true
-    orderInfo('awg9ipo3').then(res => {
+
+
+    const q = (Taro.getCurrentInstance().router.params || {}).q
+    const urlParams = decodeURIComponent(q)
+    const data = parseUrlParams(urlParams)
+
+    if (!data.code) {
+      Taro.showToast({
+        title: '请扫描正确的二维码！',
+        icon: 'error',
+        duration: 2000
+      })
+
+      return
+    }
+
+    orderInfo(data.code).then(res => {
       if (res.data.code == 200) {
         const data = res.data
         Object.assign(parkInfo, data.data.parkInfo)
         Object.assign(infoData, data.data.orderInfo)
         loading.value = false
       }
-     
+
     })
   })
 })
+
+
+const parseUrlParams = (url) => {
+  const params = {};
+  const regex = /[?&]([^=&#]+)=([^&#]*)/g;
+  let match;
+
+  while ((match = regex.exec(url)) !== null) {
+    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+  }
+
+  return params;
+}
 
 const chooseCoupon = () => {
 }
@@ -184,7 +217,7 @@ const pay = () => {
     // 优惠券ID
     couponId: '',
     // 1微信 支付宝
-    userAgent: 1,
+    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1: 0,
   }).then((res) => {
     const data = res.data.data
     Taro.requestOrderPayment({
@@ -193,7 +226,7 @@ const pay = () => {
       package: data.packageValue,
       signType: data.signType,
       paySign: data.paySign,
-      success: (payRes) => { 
+      success: (payRes) => {
         Taro.redirectTo({
           url: '/pages/qrpay-result/index'
         })

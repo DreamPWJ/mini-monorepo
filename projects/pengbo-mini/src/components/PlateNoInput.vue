@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ plateNo }}
     <div class="flex flex-row plateNoInput">
 
       <template v-for="(item, index) in plateNo" :key="index">

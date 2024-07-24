@@ -4,7 +4,7 @@ const basePath = `/qr-pay`
 
  
 export function orderPay (data) {
-  return http.post(`${basePath}/pay/createJSAPIOrderPay`, data)
+  return http.post(`${basePath}/order/pay`, data)
 }
 
 export function orderInfo (gateCode) {

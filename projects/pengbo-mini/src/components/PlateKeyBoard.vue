@@ -50,12 +50,12 @@ const keys = computed(() => {
 })
 
 const changeType = (e) => {
-  //Taro.vibrateShort()
+  Taro.vibrateShort()
   type.value = e == 0 ? 1 : 0
 
 }
 const onClick = (obj) => {
-  //Taro.vibrateShort()
+  Taro.vibrateShort()
   if (obj == -1) {
     emits('onDel')
     return
