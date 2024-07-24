@@ -1,12 +1,12 @@
 <template>
-  <view>
+  <view class="component-demo">
     <text class="component-msg">{{ msg }}</text>
     <!--    <button class="primary-btn" @click="changeMessage">点击我改变消息</button>-->
   </view>
 </template>
 
 <script setup lang="ts">
-
+import './index.scss'
 import { ref } from 'vue'
 import { useDidShow } from '@tarojs/taro'
 
@@ -32,9 +32,7 @@ const changeMessage = (): void => {
 
 </script>
 
-<style>
+<!--<style  lang="scss">
 
-.component-msg {
-  color: #bd34fe;
-}
-</style>
+
+</style>-->
