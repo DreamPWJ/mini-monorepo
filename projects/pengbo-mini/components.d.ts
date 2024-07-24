@@ -11,5 +11,7 @@ declare module 'vue' {
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutDialog: typeof import('@nutui/nutui-taro')['Dialog']
     NutSkeleton: typeof import('@nutui/nutui-taro')['Skeleton']
+    PlateKeyBoard: typeof import('./src/components/PlateKeyBoard.vue')['default']
+    PlateNoInput: typeof import('./src/components/PlateNoInput.vue')['default']
   }
 }

@@ -158,24 +158,18 @@ onMounted(() => {
 
     loading.value = true
     orderInfo('awg9ipo3').then(res => {
-      const data = res.data
-      Object.assign(parkInfo, data.data.parkInfo)
-      Object.assign(infoData, data.data.orderInfo)
-      loading.value = false
+      if (res.data.code == 200) {
+        const data = res.data
+        Object.assign(parkInfo, data.data.parkInfo)
+        Object.assign(infoData, data.data.orderInfo)
+        loading.value = false
+      }
+     
     })
   })
 })
 
 const chooseCoupon = () => {
-  Taro.showActionSheet({
-    itemList: ['A', 'B', 'C'],
-    success: function (res) {
-      console.log(res.tapIndex)
-    },
-    fail: function (res) {
-      console.log(res.errMsg)
-    }
-  })
 }
 
 const payFeeInfoClick = () => {
@@ -199,15 +193,16 @@ const pay = () => {
       package: data.packageValue,
       signType: data.signType,
       paySign: data.paySign,
-      success: (payRes) => { },
+      success: (payRes) => { 
+        Taro.redirectTo({
+          url: '/pages/qrpay-result/index'
+        })
+      },
       fail: (e) => {
         Taro.showToast({
           title: '支付取消',
           icon: 'error',
           duration: 2000
-        })
-        Taro.redirectTo({
-          url: '/pages/qrpay-result/index'
         })
       },
       complete: () => {

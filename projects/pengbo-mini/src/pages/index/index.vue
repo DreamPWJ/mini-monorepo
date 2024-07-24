@@ -22,9 +22,9 @@
  <script setup>
 import Taro from '@tarojs/taro'
 const toPay = () => {
-  Taro.navigateTo({
-    url: '/pages/qrpay/index'
-  })
+  // Taro.navigateTo({
+  //   url: '/pages/qrpay/index'
+  // })
 }
 
 </script>
