@@ -3,5 +3,18 @@
   "projectname": "pengbo-mini",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/inner-qrpay/index",
+          "pathName": "pages/inner-qrpay/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

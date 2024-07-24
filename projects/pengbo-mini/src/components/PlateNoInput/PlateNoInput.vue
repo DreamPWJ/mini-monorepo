@@ -12,7 +12,7 @@
         </template>
         <template v-else>
           <div class="add">+</div>
-          <div>新能源</div>
+          <div style="color: #000;">新能源</div>
         </template>
       </div>
     </div>
@@ -23,7 +23,8 @@
 </template>
 
 <script setup>
-import PlateKeyBoard from './PlateKeyBoard.vue';
+import PlateKeyBoard from '@/components/PlateKeyBoard/PlateKeyBoard.vue';
+import './index.scss'
 
 import { ref, computed } from 'vue'
 const showKeyboard = ref(false)
@@ -91,38 +92,4 @@ const onKeyChange = (value) => {
 
 </script>
 
-<style lang="scss">
-.plateNoInput {
-  .item {
-    height: 100px;
-    width: 70px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    margin: 0 5px;
-  }
-  .energy-text{
-    font-size: 36px;
-  }
-
-  .add {
-    font-size: 32px;
-    color: #9eb689;
-    font-weight: bold;
-  }
-
-  .new-energy {
-    background-color: #edf9e8;
-    font-size: 18px;
-  }
-
-  .item-select {
-    border: 2px solid var(--nut-primary-color);
-  }
-}
-</style>
+ 

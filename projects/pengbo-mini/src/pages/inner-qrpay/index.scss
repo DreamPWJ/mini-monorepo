@@ -1,0 +1,35 @@
+.inner-qrpay {
+  padding: 0 20px;
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin:40px 0px 20px 0px;
+
+  }
+  .btn {
+    margin-top: 50px;
+  }
+  .item {
+    height: 64px;
+    width: 200px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 12px;
+  }
+  .plate-type {
+    margin: 0 20px;
+  }
+
+  .item-select {
+    border: 2px solid var(--nut-primary-color);
+    color: var(--nut-primary-color);
+  }
+  .btn {
+      
+    margin-top: 60px;
+  }
+}

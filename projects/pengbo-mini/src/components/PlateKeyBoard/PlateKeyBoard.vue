@@ -16,6 +16,7 @@
 <script setup>
 import Taro from '@tarojs/taro'
 import { ref, computed } from 'vue'
+import './index.scss'
 
 defineProps({
   show: {
@@ -67,37 +68,4 @@ const onClick = (obj) => {
 
 </script>
 
-<style lang="scss">
-.platekeyboard {
-  background-color: #e6e7e9;
-  position: fixed;
-  width: 100%;
-  bottom: 44px;
-
-  left: 0;
-
-  .content {
-    margin: 20px 10px;
-  }
-
-  .item {
-    flex: 1;
-    margin: 4px 2px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    padding: 26px 0;
-    flex-shrink: 0;
-    border-radius: 2px;
-    background-color: white;
-    box-shadow: 0px 3px 0 0 #939798;
-    border-radius: 4px;
-    flex-shrink: 0;
-    color: #000;
-    font-size: 28px;
-  }
-
-  .item:active {
-    background-color: #858688;
-  }
-}</style>
+ 
