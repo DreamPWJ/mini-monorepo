@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-column inner-qrpay">
+  <div class="flex flex-column inner-qrpay" @click="hideKeyboard">
     <div class="title">车牌号码</div>
     <div style="align-self: center;">
-      <PlateNoInput />
+      <PlateNoInput ref="plateNoInputRef" />
     </div>
     <div class="title">车牌类型</div>
 
@@ -19,8 +19,15 @@
   </div>
 </template>
 <script setup>
+import { ref } from 'vue'
 import './index.scss' 
 import PlateNoInput from '@/components/PlateNoInput/PlateNoInput.vue' 
+
+const plateNoInputRef = ref(null)
+
+const hideKeyboard = () => {
+  plateNoInputRef.value?.hideKeyboard()
+}
 </script>
 
  

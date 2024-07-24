@@ -3,11 +3,11 @@
     <div class="content">
       <div class="flex flex-column" v-for="(item, index) in keys" :key="index">
         <div class="flex flex-row">
-          <div class="item text" v-if="index == 3" @click="changeType(type)">{{ type == 0 ? 'ABC' : '省份' }}</div>
+          <div class="item text" v-if="index == 3" @click.stop="changeType(type)">{{ type == 0 ? 'ABC' : '省份' }}</div>
           <template v-for="(obj, index) in item">
-            <div class="item" @click="onClick(obj)">{{ obj }}</div>
+            <div class="item" @click.stop="onClick(obj)">{{ obj }}</div>
           </template>
-          <div class="item text" v-if="index == 3" @click="onClick(-1)">删除</div>
+          <div class="item text" v-if="index == 3" @click.stop="onClick(-1)">删除</div>
         </div>
       </div>
     </div>

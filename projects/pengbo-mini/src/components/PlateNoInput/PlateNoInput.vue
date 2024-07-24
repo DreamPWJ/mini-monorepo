@@ -3,12 +3,12 @@
     <div class="flex flex-row plateNoInput">
 
       <template v-for="(item, index) in plateNo" :key="index">
-        <div class="item" @click="onInput(index)"
+        <div class="item" @click.stop="onInput(index)"
           :class="{ 'item-select': (lastIndex < 0 ? 0 : lastIndex) == index && showKeyboard }">{{ item }}</div>
       </template>
-      <div class="item new-energy" @click="newEnergyInput" :class="{ 'item-select': showKeyboardNewEnergy}">
+      <div class="item new-energy" @click.stop="newEnergyInput" :class="{ 'item-select': showKeyboardNewEnergy }">
         <template v-if="newEnergyCode.length > 0">
-          <div  class="energy-text">{{ newEnergyCode }}</div>
+          <div class="energy-text">{{ newEnergyCode }}</div>
         </template>
         <template v-else>
           <div class="add">+</div>
@@ -77,7 +77,7 @@ const onKeyChange = (value) => {
 
   if (index > plateNo.value.length - 1) {
     index = lastIndex.value
-   
+
   }
   plateNo.value[index] = value
 
@@ -88,7 +88,12 @@ const onKeyChange = (value) => {
 
 }
 
+const hideKeyboard = () => {
+  showKeyboardNewEnergy.value = false
+  showKeyboard.value = false
+}
 
+defineExpose({ hideKeyboard })
 
 </script>
 
