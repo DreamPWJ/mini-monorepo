@@ -148,16 +148,36 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 44px;
+    .qrpay_info {
+      width: 29px;
+      height: 28px;
+      margin-left: 30px;
+      margin-right: 10px;
+    }
+    .price {
+      flex: 1;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 40px;
+    }
+    .price-tip {
+      color: white;
+      font-size: 30px;
+    }
   }
   .pay-content {
     margin: 0 30px;
- 
+    background-color: var(--nut-primary-color);
     border-radius: 55px;
   }
   .pay-btn {
-    border-radius: 50px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
     height: 100px;
-    width: 100%;
+    width: 220px;
     font-size: 36px;
     font-weight: bold;
   }
@@ -168,6 +188,14 @@
     font-family: PingFang SC, PingFang SC;
     font-size: 18px;
     margin-top: 10px;
+  }
+
+  .item {
+    height: 44px;
+    .item-title {
+      flex: 1;
+      text-align: left;
+    }
   }
 
  

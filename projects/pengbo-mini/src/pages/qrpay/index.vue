@@ -3,15 +3,15 @@
 
 
     <div class="banner">
-      <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg"/>
+      <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
 
       <div class="content flex flex-column">
-        <div class="park-name">{{parkInfo.parkName}}</div>
+        <div class="park-name">{{ parkInfo.parkName }}</div>
         <div class="order-number">订单号：{{ infoData.orderNo }}</div>
         <div class="flex flex-row">
           <div class="flex flex-row position">
-            <image src="@/assets/images/qrpay_position.png" class="qrpay_position"/>
-            <div class="position-text">{{parkInfo.gateName}}</div>
+            <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
+            <div class="position-text">{{ parkInfo.gateName }}</div>
           </div>
         </div>
 
@@ -20,33 +20,33 @@
     </div>
 
     <div class="fee-body">
-   
+
       <div class="plate-info">
-           <!-- 车牌信息 -->
+        <!-- 车牌信息 -->
         <div class="flex flex-row" style="align-items: center;">
-          <image src="@/assets/images/qrpay_car.png" class="qrpay_car"/>
-          <div class="plate-no">{{infoData.plateNo}}</div>
-          <div class="plate-no-type">（{{infoData.plateTypeText}}）</div>
+          <image src="@/assets/images/qrpay_car.png" class="qrpay_car" />
+          <div class="plate-no">{{ infoData.plateNo }}</div>
+          <div class="plate-no-type">（{{ infoData.plateTypeText }}）</div>
         </div>
 
-        <div class="park-duration">停车时长:46分钟</div>
+        <div class="park-duration">停车时长: {{ infoData.parkDurationText }}</div>
         <!-- 停车时长+停车金额 -->
         <div class="flex flex-row header">
-          <div class="flex flex-column align-items-center"  style="flex-shrink: 0;width: 49%;">
-            <div class="count">2024-02-07 00:46:00</div>
+          <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;" @click="previewImage(infoData.enterPictureUrl)">
+            <div class="count">{{ infoData.enterTime }}</div>
             <div class="flex flex-row" style="align-items: center;">
               <div class="count-tip">进场时间</div>
-              <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
+              <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
 
             </div>
           </div>
-          <div style="align-self: center" class="line" ></div>
+          <div style="align-self: center" class="line"></div>
 
-          <div class="flex flex-column align-items-center" @click="payFeeInfoClick" style="flex-shrink: 0;width: 49%;">
-            <div class="count">-</div>
+          <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;" @click="previewImage(infoData.exitPictureUrl)">
+            <div class="count">{{ infoData.exitTime }}</div>
             <div class="flex flex-row" style="align-items: center;">
               <div class="count-tip">出场时间</div>
-              <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
+              <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
 
             </div>
           </div>
@@ -56,7 +56,7 @@
           <div class="text" style="flex: 1;">优惠券</div>
           <div class="flex flex-row align-items-baseline">
             <div class="text">请选择</div>
-          <image src="@/assets/images/qrpay_right.png" class="qrpay_right"/>
+            <image src="@/assets/images/qrpay_right.png" class="qrpay_right" />
           </div>
         </div>
       </div>
@@ -64,9 +64,17 @@
 
     <!-- 底部的订单区域 -->
     <div class="pay-bottom" v-if="!loading">
-      <div class="pay-content flex flex-row">
-
-        <nut-button type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
+      <div class="pay-content flex flex-row align-items-center">
+        <div class="flex flex-row align-items-center" style="flex: 1" @click="payFeeInfoClick">
+          <image src="@/assets/images/qrpay_info.png" class="qrpay_info" />
+          <div class="price-tip">
+            停车金额(元):
+          </div>
+          <div class="price">
+            {{ infoData.needPay }}
+          </div>
+        </div>
+        <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
       </div>
 
       <div class="bottom-tips">24小时客服电话：{{ parkInfo.operationPhone }}</div>
@@ -81,7 +89,6 @@
 
             <div class="item-value">￥{{ infoData[item.key] }}</div>
           </div>
-          <div v-if="index < infos.length - 1" style="height: 0.5px" class="line"></div>
         </div>
       </div>
     </nut-dialog>
