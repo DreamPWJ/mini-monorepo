@@ -5,5 +5,18 @@
     "compileHotReLoad": true,
     "skylineRenderEnable": false
   },
-  "libVersion": "3.4.9"
+  "libVersion": "3.4.9",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "sub-package/pages/details/details",
+          "pathName": "sub-package/pages/details/details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

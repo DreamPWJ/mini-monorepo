@@ -23,10 +23,11 @@
 </template>
 
 <script setup>
-import PlateKeyBoard from '@/components/PlateKeyBoard/PlateKeyBoard.vue';
+import PlateKeyBoard from '@/components/PlateKeyBoard/PlateKeyBoard.vue'
 import './index.scss'
 
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
+
 const showKeyboard = ref(false)
 const showKeyboardNewEnergy = ref(false)
 const plateNo = ref(['', '', '', '', '', '', ''])
@@ -97,7 +98,7 @@ const hideKeyboard = () => {
   showKeyboard.value = false
 }
 
-const onValueChange = () => { 
+const onValueChange = () => {
   emits('onChange', getValue())
 }
 
@@ -123,4 +124,3 @@ defineExpose({ hideKeyboard, setValue, getValue })
 
 </script>
 
- 
