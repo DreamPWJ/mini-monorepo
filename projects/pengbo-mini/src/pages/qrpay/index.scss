@@ -79,6 +79,10 @@
         height: 30px;
         margin-right: 20px;
       }
+      .park-duration {
+        font-size: 28px;
+        margin-top: 10px;
+      }
     }
     .cate-title {
       font-size: 32px;
@@ -93,7 +97,7 @@
       padding: 0 29px;
       align-items: center;
       .text {
-        color: #9496A5;
+        color: #797e7a;
         font-size: 30px;
       }
     }
@@ -102,26 +106,37 @@
 
   .header {
     justify-content: space-around;
-    padding: 80px 0;
+    padding: 50px 0;
+    background-color: #EEF4F0;
+    border-radius: 16px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
-  .count {
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 48px;
+  .count { 
+    font-size: 26px;
     color: #000;
+    margin-bottom: 10px;
     font-family: PingFang SC, PingFang SC;
   }
   .count-tip {
     font-size: 24px;
-    color: #9496A5;
+    color: #797e7a; 
     font-family: PingFang SC, PingFang SC;
+  }
+  .qrpay_img {
+    width: 23px;
+    height: 20px;
+    margin-left: 10px;
   }
   .icon {
     font-size: 24px;
+    color: #797e7a; 
   }
  
   .line {
-    background-color: #EFF0F9;
+    background-color: #acb1ad;
+    height: 60px;
+    width: 0.5px; 
   }
  
   .pay-bottom {

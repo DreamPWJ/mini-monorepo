@@ -28,25 +28,25 @@
           <div class="plate-no">{{infoData.plateNo}}</div>
           <div class="plate-no-type">（{{infoData.plateTypeText}}）</div>
         </div>
+
+        <div class="park-duration">停车时长:46分钟</div>
         <!-- 停车时长+停车金额 -->
         <div class="flex flex-row header">
-          <div class="flex flex-column align-items-center">
-            <div class="count">{{ infoData.parkDurationText }}</div>
+          <div class="flex flex-column align-items-center"  style="flex-shrink: 0;width: 49%;">
+            <div class="count">2024-02-07 00:46:00</div>
             <div class="flex flex-row" style="align-items: center;">
-              <div class="count-tip">停车时长</div>
-              <IconFont name="tips" style="color: #9496a5" class="icon">
-              </IconFont>
+              <div class="count-tip">进场时间</div>
+              <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
 
             </div>
           </div>
-          <div style="height: 30px; width: 1px; align-self: center" class="line"></div>
+          <div style="align-self: center" class="line" ></div>
 
-          <div class="flex flex-column align-items-center" @click="payFeeInfoClick">
-            <div class="count">{{ infoData.needPay }}元</div>
+          <div class="flex flex-column align-items-center" @click="payFeeInfoClick" style="flex-shrink: 0;width: 49%;">
+            <div class="count">-</div>
             <div class="flex flex-row" style="align-items: center;">
-              <div class="count-tip">停车金额</div>
-              <IconFont name="tips" style="color: #9496a5" class="icon">
-              </IconFont>
+              <div class="count-tip">出场时间</div>
+              <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
 
             </div>
           </div>
@@ -111,12 +111,12 @@ const infos = ref([
   {
     title: '进场时间',
     key: 'enterTime',
-    icon: 'tips',
+    icon: 'image',
   },
   {
     title: '出场时间',
     key: 'exitTime',
-    icon: 'tips',
+    icon: 'image',
   },
 ])
 
