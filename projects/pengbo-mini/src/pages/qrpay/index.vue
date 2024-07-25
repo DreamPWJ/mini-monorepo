@@ -1,84 +1,94 @@
 <template>
   <div class="qrpay">
+    <template v-if="!loading">
+      <!-- 停车场信息 -->
+      <div class="banner">
+        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
 
-
-    <div class="banner">
-      <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
-
-      <div class="content flex flex-column">
-        <div class="park-name">{{ parkInfo.parkName }}</div>
-        <div class="order-number">订单号：{{ infoData.orderNo }}</div>
-        <div class="flex flex-row">
-          <div class="flex flex-row position">
-            <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
-            <div class="position-text">{{ parkInfo.gateName }}</div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="fee-body">
-
-      <div class="plate-info">
-        <!-- 车牌信息 -->
-        <div class="flex flex-row" style="align-items: center;">
-          <image src="@/assets/images/qrpay_car.png" class="qrpay_car" />
-          <div class="plate-no">{{ infoData.plateNo }}</div>
-          <div class="plate-no-type">（{{ infoData.plateTypeText }}）</div>
-        </div>
-
-        <div class="park-duration">停车时长: {{ infoData.parkDurationText }}</div>
-        <!-- 停车时长+停车金额 -->
-        <div class="flex flex-row header">
-          <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;" @click="previewImage(infoData.enterPictureUrl)">
-            <div class="count">{{ infoData.enterTime }}</div>
-            <div class="flex flex-row" style="align-items: center;">
-              <div class="count-tip">进场时间</div>
-              <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
-
+        <div class="content flex flex-column">
+          <div class="park-name">{{ parkInfo.parkName }}</div>
+          <div class="order-number">订单号：{{ infoData.orderNo }}</div>
+          <div class="flex flex-row">
+            <div class="flex flex-row position">
+              <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
+              <div class="position-text">{{ parkInfo.gateName }}</div>
             </div>
           </div>
-          <div style="align-self: center" class="line"></div>
 
-          <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;" @click="previewImage(infoData.exitPictureUrl)">
-            <div class="count">{{ infoData.exitTime }}</div>
-            <div class="flex flex-row" style="align-items: center;">
-              <div class="count-tip">出场时间</div>
-              <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
+        </div>
 
+      </div>
+
+      <div class="fee-body">
+
+        <div class="plate-info">
+          <!-- 车牌信息 -->
+          <div class="flex flex-row" style="align-items: center;">
+            <image src="@/assets/images/qrpay_car.png" class="qrpay_car" />
+            <div class="plate-no">{{ infoData.plateNo }}</div>
+            <div class="plate-no-type">（{{ infoData.plateTypeText }}）</div>
+          </div>
+
+          <div class="park-duration">停车时长: {{ infoData.parkDurationText }}</div>
+          <!-- 停车时长+停车金额 -->
+          <div class="flex flex-row header">
+            <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
+              @click="previewImage(infoData.enterPictureUrl)">
+              <div class="count">{{ infoData.enterTime }}</div>
+              <div class="flex flex-row" style="align-items: center;">
+                <div class="count-tip">进场时间</div>
+                <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
+
+              </div>
+            </div>
+            <div style="align-self: center" class="line"></div>
+
+            <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
+              @click="previewImage(infoData.exitPictureUrl)">
+              <div class="count">{{ infoData.exitTime }}</div>
+              <div class="flex flex-row" style="align-items: center;">
+                <div class="count-tip">出场时间</div>
+                <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
+
+              </div>
+            </div>
+          </div>
+          <div class="cate-title">优惠</div>
+          <div class="flex flex-row cate-item">
+            <div class="text" style="flex: 1;">优惠券</div>
+            <div class="flex flex-row align-items-baseline">
+              <div class="text">请选择</div>
+              <image src="@/assets/images/qrpay_right.png" class="qrpay_right" />
             </div>
           </div>
         </div>
-        <div class="cate-title">优惠</div>
-        <div class="flex flex-row cate-item">
-          <div class="text" style="flex: 1;">优惠券</div>
-          <div class="flex flex-row align-items-baseline">
-            <div class="text">请选择</div>
-            <image src="@/assets/images/qrpay_right.png" class="qrpay_right" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 底部的订单区域 -->
-    <div class="pay-bottom" v-if="!loading">
-      <div class="pay-content flex flex-row align-items-center">
-        <div class="flex flex-row align-items-center" style="flex: 1" @click="payFeeInfoClick">
-          <image src="@/assets/images/qrpay_info.png" class="qrpay_info" />
-          <div class="price-tip">
-            停车金额(元):
-          </div>
-          <div class="price">
-            {{ infoData.needPay }}
-          </div>
-        </div>
-        <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
       </div>
 
-      <div class="bottom-tips">24小时客服电话：{{ parkInfo.operationPhone }}</div>
-    </div>
+      <!-- 底部的订单区域 -->
+      <div class="pay-bottom">
+        <div class="pay-content flex flex-row align-items-center">
+          <div class="flex flex-row align-items-center" style="flex: 1" @click="payFeeInfoClick">
+            <image src="@/assets/images/qrpay_info.png" class="qrpay_info" />
+            <div class="price-tip">
+              停车金额(元):
+            </div>
+            <div class="price">
+              {{ infoData.needPay }}
+            </div>
+          </div>
+          <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
+        </div>
+
+        <div class="bottom-tips">24小时客服电话：{{ parkInfo.operationPhone }}</div>
+      </div>
+    </template>
+
+
+    <nut-empty :description="erroMsg" image="error" v-if="erroMsg.length > 0" class="empty">
+
+      <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
+    </nut-empty>
+
 
     <!-- 订单金额详情 弹窗 -->
     <nut-dialog no-cancel-btn title="金额详情" v-model:visible="orderFeeVisible">
@@ -105,27 +115,6 @@ import { orderPay, orderInfo } from '@/api/pay'
 
 const loading = ref(true)
 const payLoading = ref(false)
-const infos = ref([
-  {
-    title: '车牌号',
-    key: 'plateNo',
-    subKey: 'plateTypeText'
-  },
-  {
-    title: '订单号',
-    key: 'orderNo',
-  },
-  {
-    title: '进场时间',
-    key: 'enterTime',
-    icon: 'image',
-  },
-  {
-    title: '出场时间',
-    key: 'exitTime',
-    icon: 'image',
-  },
-])
 
 const payFeeInfos = ref([
   {
@@ -144,9 +133,9 @@ const payFeeInfos = ref([
 ])
 
 const infoData = reactive({})
-
 const parkInfo = reactive({})
 const orderFeeVisible = ref(false)
+const erroMsg = ref('')
 
 
 
@@ -160,30 +149,45 @@ onMounted((options) => {
 
 
     const q = (Taro.getCurrentInstance().router.params || {}).q
-    const urlParams = decodeURIComponent(q)
-    const data = parseUrlParams(urlParams)
+    const url = decodeURIComponent(q)
 
-    // if (!data.code) {
-    //   Taro.showToast({
-    //     title: '请扫描正确的二维码！',
-    //     icon: 'error',
-    //     duration: 2000
-    //   })
+    getData(url)
 
-    //   return
-    // }
-
-    orderInfo(data.code || 'awg9ipo3').then(res => {
-      if (res.data.code == 200) {
-        const data = res.data
-        Object.assign(parkInfo, data.data.parkInfo)
-        Object.assign(infoData, data.data.orderInfo)
-        loading.value = false
-      }
-
-    })
   })
 })
+
+const getData = (url) => {
+
+  const data = parseUrlParams(url)
+ 
+
+  if (!data.code) {
+    erroMsg.value = '请扫描正确的二维码！'
+    return
+  }
+
+  orderInfo(data.code).then(res => {
+    if (res.data.code == 200) {
+      const data = res.data
+      Object.assign(parkInfo, data.data.parkInfo)
+      Object.assign(infoData, data.data.orderInfo)
+      loading.value = false
+    } else {
+      erroMsg.value = '当前出口未检测到车辆！'
+    }
+
+  })
+}
+
+// 重新扫码，这里可以让后台重新识别一下
+const scanQRCode = () => {
+  Taro.scanCode({
+    success: (res) => {
+       erroMsg.value = ''
+       getData(res.result)
+    }
+  })
+}
 
 
 const parseUrlParams = (url) => {

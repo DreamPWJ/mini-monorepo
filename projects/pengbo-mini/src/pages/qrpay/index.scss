@@ -1,6 +1,8 @@
 
 .qrpay {
   position: relative;
+  display: flex;
+  flex-direction: column;
   .banner {
     position: relative;
     height: 500px; 
@@ -198,5 +200,11 @@
     }
   }
 
+  .empty {
+    margin-top: 400px;
+  }
  
+  .scanQRCode {
+    margin-top: 30px;
+  }
 }
