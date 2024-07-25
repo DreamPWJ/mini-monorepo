@@ -220,6 +220,10 @@ const pay = () => {
     userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1 : 0,
   }).then((res) => {
     const data = res.data.data
+    if (res.data.code != 200) {
+      payLoading.value = false
+      return
+    }
     Taro.requestOrderPayment({
       timeStamp: data.timeStamp,
       nonceStr: data.nonceStr,
