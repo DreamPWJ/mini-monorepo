@@ -3,13 +3,15 @@
 
 
     <div class="banner">
+      <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg"/>
 
       <div class="content flex flex-column">
-        <div class="park-name">动岚停车场</div>
-        <div class="order-number">订单号：17P8G9L6K4B3Q2N1R5X5</div>
+        <div class="park-name">{{parkInfo.parkName}}</div>
+        <div class="order-number">订单号：{{ infoData.orderNo }}</div>
         <div class="flex flex-row">
           <div class="flex flex-row position">
-            <div class="position-text">东出口</div>
+            <image src="@/assets/images/qrpay_position.png" class="qrpay_position"/>
+            <div class="position-text">{{parkInfo.gateName}}</div>
           </div>
         </div>
 
@@ -21,9 +23,10 @@
    
       <div class="plate-info">
            <!-- 车牌信息 -->
-        <div class="flex flex-row" style="align-items: baseline;">
-          <div class="plate-no">鲁L·B1582</div>
-          <div class="plate-no-type">（蓝牌）</div>
+        <div class="flex flex-row" style="align-items: center;">
+          <image src="@/assets/images/qrpay_car.png" class="qrpay_car"/>
+          <div class="plate-no">{{infoData.plateNo}}</div>
+          <div class="plate-no-type">（{{infoData.plateTypeText}}）</div>
         </div>
         <!-- 停车时长+停车金额 -->
         <div class="flex flex-row header">
@@ -31,7 +34,7 @@
             <div class="count">{{ infoData.parkDurationText }}</div>
             <div class="flex flex-row" style="align-items: center;">
               <div class="count-tip">停车时长</div>
-              <IconFont name="tips" style="color: #9496a5">
+              <IconFont name="tips" style="color: #9496a5" class="icon">
               </IconFont>
 
             </div>
@@ -42,7 +45,7 @@
             <div class="count">{{ infoData.needPay }}元</div>
             <div class="flex flex-row" style="align-items: center;">
               <div class="count-tip">停车金额</div>
-              <IconFont name="tips" style="color: #9496a5">
+              <IconFont name="tips" style="color: #9496a5" class="icon">
               </IconFont>
 
             </div>
@@ -51,7 +54,10 @@
         <div class="cate-title">优惠</div>
         <div class="flex flex-row cate-item">
           <div class="text" style="flex: 1;">优惠券</div>
-          <div class="text">请选择</div>
+          <div class="flex flex-row align-items-baseline">
+            <div class="text">请选择</div>
+          <image src="@/assets/images/qrpay_right.png" class="qrpay_right"/>
+          </div>
         </div>
       </div>
     </div>
