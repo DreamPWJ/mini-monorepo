@@ -9,9 +9,10 @@ declare module 'vue' {
   export interface GlobalComponents {
     ComponentDemo: typeof import('./src/components/demo/ComponentDemo.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
-    NutCalendar: typeof import('@nutui/nutui-taro')['Calendar']
-    NutCell: typeof import('@nutui/nutui-taro')['Cell']
     NutDialog: typeof import('@nutui/nutui-taro')['Dialog']
+    NutEmpty: typeof import('@nutui/nutui-taro')['Empty']
     NutSkeleton: typeof import('@nutui/nutui-taro')['Skeleton']
+    PlateKeyBoard: typeof import('./src/components/PlateKeyBoard/PlateKeyBoard.vue')['default']
+    PlateNoInput: typeof import('./src/components/PlateNoInput/PlateNoInput.vue')['default']
   }
 }

@@ -1,79 +1,144 @@
 
 .qrpay {
-
   position: relative;
-  .bg {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0; 
-  }
-  .content {
-    position: absolute;
-    width:100%;
-    top: 0;
-    left: 0;
-    z-index: 200;
-
-    .content-margin {
-      margin: 340px 30px 0px 30px; 
-      background-color: white;
-      border-radius: 20px;
-      box-shadow: 0px 8px 100px 0px rgba(182, 197, 205, 0.7);
+  display: flex;
+  flex-direction: column;
+  .banner {
+    position: relative;
+    height: 500px; 
+    .qrpay_bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .content {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      height: 100%;
+      justify-content: center;
+      margin: 0 40px;
+      .park-name {
+        font-size: 44px;
+        color: #000;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .order-number {
+        font-size: 28px;
+        margin-bottom: 40px; 
+      }
+      .qrpay_position {
+        width: 26px;
+        height: 26px;
+        margin-right: 10px;
+      }
+      .position {
+        background-color: white;
+        height: 54px;
+        border-radius: 27px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 16px;
+        
+      }
+      .position-text {
+        font-size: 26px;
+      }
     }
   }
-  .card {
-    background-color: white;
-    border-radius: 32px;
-  
+
+  .qrpay_right {
+    flex-shrink: 0;
+    width: 13px;
+    height: 22px;
+    margin-left: 10px;
   }
+
+
+  .fee-body {
+    position: absolute;
+    top: 480px;
+    left: 0;
+    width: 100%;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    background-color: white;
+    .plate-no {
+      color: var(--nut-primary-color);
+      font-size: 38px;
+    }
+    .plate-no-type {
+      color: var(--nut-primary-color);
+      font-size: 26px;
+    }
+    .plate-info {
+      margin: 40px;
+      .qrpay_car {
+        width: 36px;
+        height: 30px;
+        margin-right: 20px;
+      }
+      .park-duration {
+        font-size: 28px;
+        margin-top: 10px;
+      }
+    }
+    .cate-title {
+      font-size: 32px;
+      color: #000;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .cate-item {
+      height: 100px;
+      background-color: #EEF4F0;
+      border-radius: 16px;
+      padding: 0 29px;
+      align-items: center;
+      .text {
+        color: #797e7a;
+        font-size: 30px;
+      }
+    }
+  }
+
+
   .header {
     justify-content: space-around;
-    padding: 65px 0;
+    padding: 50px 0;
+    background-color: #EEF4F0;
+    border-radius: 16px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
-  .count {
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 44px;
+  .count { 
+    font-size: 26px;
     color: #000;
+    margin-bottom: 10px;
     font-family: PingFang SC, PingFang SC;
   }
   .count-tip {
     font-size: 24px;
-    color: #9496A5;
+    color: #797e7a; 
     font-family: PingFang SC, PingFang SC;
   }
-  .item {
-    height: 96px;
-    align-items: center;
-    margin: 0 10px;
-  
+  .qrpay_img {
+    width: 23px;
+    height: 20px;
+    margin-left: 10px;
   }
-  .item-title {
-
-    font-size: 28px;
-    color: #9496A5;
-    font-family: PingFang SC, PingFang SC;
+  .icon {
+    font-size: 24px;
+    color: #797e7a; 
   }
-  .item-value {
-    font-size: 28px;
-    color: #000;
-    flex: 1;
-    text-align: right;
-    font-family: PingFang SC, PingFang SC;
-  }
-  .cate-title {
-    padding-left: 25px;
-    height: 64px;
-    line-height: 64px;
-
-    font-size: 28px;
-    color: #171B2E;
-    background-color: #f8f8f8;
-    font-family: PingFang SC, PingFang SC;
-  }
+ 
   .line {
-    background-color: #EFF0F9;
+    background-color: #acb1ad;
+    height: 60px;
+    width: 0.5px; 
   }
  
   .pay-bottom {
@@ -85,43 +150,38 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 44px;
+    .qrpay_info {
+      width: 29px;
+      height: 28px;
+      margin-left: 30px;
+      margin-right: 10px;
+    }
+    .price {
+      flex: 1;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 40px;
+    }
+    .price-tip {
+      color: white;
+      font-size: 30px;
+    }
   }
   .pay-content {
     margin: 0 30px;
-    background-color: #323232;
+    background-color: var(--nut-primary-color);
     border-radius: 55px;
   }
   .pay-btn {
-    border-top-right-radius: 55px;
-    border-bottom-right-radius: 55px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    height: 110px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 100px;
     width: 220px;
     font-size: 36px;
     font-weight: bold;
-  }
-  .pay-price-container {
-    margin-left: 40px;
-    .pay-price {
-      color: white;
-      font-size: 36px;
-      font-weight: bold;
-      font-family: PingFang SC, PingFang SC;
-    }
-    .pay-price-tip {
-      color: #9496A5;
-      font-size: 25px;
-      font-family: PingFang SC, PingFang SC;
-    }
-  }
-  .divider {
-    background-image: linear-gradient(to right, #d7d7d8 50%, transparent 50%);
-    background-size: 26px 1px;
-    background-repeat: repeat-x;
-    background-position: 0 100%;
-    height: 1px;
-    margin: 10px 20px;
   }
   .bottom-tips {
     width: 100%;
@@ -132,15 +192,19 @@
     margin-top: 10px;
   }
 
+  .item {
+    height: 44px;
+    .item-title {
+      flex: 1;
+      text-align: left;
+    }
+  }
 
-  .skeleton-picture {
-    display: flex;
-    justify-content: space-between;
+  .empty {
+    margin-top: 400px;
   }
-  .skeleton-picture .item {
-    width: 47%;
-  }
-  .skeleton {
-    margin: 40px;
+ 
+  .scanQRCode {
+    margin-top: 30px;
   }
 }

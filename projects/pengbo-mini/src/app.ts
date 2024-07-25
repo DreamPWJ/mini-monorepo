@@ -11,7 +11,7 @@ import { login } from '@/api/demo/demo'
 const App = createApp({
 
   async mounted() {
-    console.log('App mounted.')
+    // console.log('App mounted.')
 
     Taro.setStorageSync('base_token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjA0MDMwMTQsInN1YiI6IntcInVzZXJJZFwiOi0xfSIsImlzcyI6InBlbmdiby1wYXJrLWFwcCJ9.4CPG_ZZTcNo1E0H6pucfCNwc1HldNa-JwiKJREmj4rI')
     // Taro.setStorageSync('token', null)
@@ -34,7 +34,7 @@ const App = createApp({
           if (res.code) {
          
             login(res.code).then(res => {
-              console.log(res)
+              // console.log(res)
               if (res.data.code == 200) {
                 // 设置token 到本地
                 Taro.setStorageSync('token', res.data.data.token)

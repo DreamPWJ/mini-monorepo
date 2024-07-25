@@ -1,17 +1,18 @@
 export default defineAppConfig({
   pages: [
     'pages/index/index',
-    'pages/my/my',
-    'pages/qrpay/index'
+    'pages/qrpay/index',
+    'pages/inner-qrpay/index',
+    'pages/qrpay-result/index'
   ],
-  subPackages: [
-    {
-      root: 'sub-package',
-      pages: [
-        'pages/details/details'
-      ]
-    }
-  ],
+  // subPackages: [
+  //   {
+  //     root: 'sub-package',
+  //     pages: [
+  //       'pages/details/details'
+  //     ]
+  //   }
+  // ],
   // renderer: 'skyline',
   // rendererOptions: {
   //   'skyline': {
@@ -25,7 +26,7 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: '澎泊',
     navigationBarTextStyle: 'black'
     //navigationStyle: 'custom'
   }
