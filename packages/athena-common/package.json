@@ -20,5 +20,8 @@
   },
   "peerDependencies": {
     "@tarojs/taro": "^3.6.33"
+  },
+  "dependencies": {
+    "@tarojs/taro": "^3.6.33"
   }
 }

@@ -13,12 +13,14 @@
     "clean:modules": "rimraf node_modules"
   },
   "dependencies": {
-    "@tarojs/taro": "^3.6.33"
+    "@nutui/nutui-taro": "^4.3.0",
+    "@tarojs/components": "^3.6.33",
+    "@tarojs/taro": "^3.6.33",
+    "vue": ">=3"
   },
   "peerDependencies": {
-    "vue": ">=3",
+    "@nutui/nutui-taro": "^4.3.0",
     "@tarojs/components": "^3.6.33",
-    "@nutui/nutui-taro": "^4.3.0"
+    "vue": ">=3"
   }
 }
-
