@@ -9,21 +9,37 @@
     
     <div class="flex flex-row plate-type" style="flex-wrap: wrap;">
 
-      <div class="item">新能源</div>
-      <div class="item">非标准车牌</div>
-      <div class="item">使馆车</div>
-      <div class="item item-select">蓝牌</div>
+      <div class="item" :class="{'item-select': plateTypeValue == item.value}" @click="changePlateType(item)" v-for="(item, index) in plateTypeList" :key="index">{{item.title}}</div>
+
+ 
+ 
     </div>
 
-    <nut-button type="primary" class="btn">保存</nut-button>
+    <nut-button type="primary" class="btn">下一步</nut-button>
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import './index.scss' 
 import PlateNoInput from '@/components/PlateNoInput/PlateNoInput.vue' 
-
+import { getPlateType } from '@/api/pay'
 const plateNoInputRef = ref(null)
+const plateTypeValue = ref(-1)
+const plateTypeList = ref([])
+
+onMounted(()=>{ 
+  // plateNoInputRef.value.setValue('鲁DL00004')
+
+  getPlateType().then(res=> {
+
+    plateTypeList.value = res
+   
+  })
+})
+
+const changePlateType = item => {
+  plateTypeValue.value = item.value
+}
 
 const hideKeyboard = () => {
   plateNoInputRef.value?.hideKeyboard()

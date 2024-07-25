@@ -32,6 +32,8 @@ const showKeyboardNewEnergy = ref(false)
 const plateNo = ref(['', '', '', '', '', '', ''])
 const newEnergyCode = ref('')
 
+const emits = defineEmits(['onChange'])
+
 const lastIndex = computed(() => {
 
   const len = plateNo.value.length - 1
@@ -69,6 +71,7 @@ const onInput = () => {
 
 const onKeyDel = () => {
   plateNo.value[lastIndex.value] = ''
+  onValueChange()
 }
 
 const onKeyChange = (value) => {
@@ -86,6 +89,7 @@ const onKeyChange = (value) => {
   }
 
 
+  onValueChange()
 }
 
 const hideKeyboard = () => {
@@ -93,7 +97,29 @@ const hideKeyboard = () => {
   showKeyboard.value = false
 }
 
-defineExpose({ hideKeyboard })
+const onValueChange = () => { 
+  emits('onChange', getValue())
+}
+
+const getValue = () => {
+  return plateNo.value.join('') + newEnergyCode.value
+
+}
+
+const setValue = (value) => {
+
+  const noArr = value.split('')
+  const result = noArr.slice(0, 8)
+  while (result.length < 8) {
+    result.push('')
+  }
+  newEnergyCode.value = result[7]
+  plateNo.value = result.slice(0, 7)
+
+}
+
+
+defineExpose({ hideKeyboard, setValue, getValue })
 
 </script>
 
