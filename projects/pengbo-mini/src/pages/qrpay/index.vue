@@ -1,82 +1,65 @@
 <template>
   <div class="qrpay">
-    <div class="bg">
-      <img style="width: 100%; height: auto" mode="widthFix"
-        src="https://wx2.sinaimg.cn/mw690/0070NSSfgy1hqwad3yetgj31e01e0dhl.jpg" alt="" />
+
+
+    <div class="banner">
+
+      <div class="content flex flex-column">
+        <div class="park-name">动岚停车场</div>
+        <div class="order-number">订单号：17P8G9L6K4B3Q2N1R5X5</div>
+        <div class="flex flex-row">
+          <div class="flex flex-row position">
+            <div class="position-text">东出口</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-    <!-- 订单详情区域 -->
-    <div class="flex flex-column content">
 
-      <div class="flex flex-column content-margin">
-        <template v-if="!loading">
-          <div class="flex flex-row header">
-            <div class="flex flex-column align-items-center">
-              <div class="count">{{ infoData.parkDurationText }}</div>
+    <div class="fee-body">
+   
+      <div class="plate-info">
+           <!-- 车牌信息 -->
+        <div class="flex flex-row" style="align-items: baseline;">
+          <div class="plate-no">鲁L·B1582</div>
+          <div class="plate-no-type">（蓝牌）</div>
+        </div>
+        <!-- 停车时长+停车金额 -->
+        <div class="flex flex-row header">
+          <div class="flex flex-column align-items-center">
+            <div class="count">{{ infoData.parkDurationText }}</div>
+            <div class="flex flex-row" style="align-items: center;">
               <div class="count-tip">停车时长</div>
-            </div>
-            <div style="height: 30px; width: 1px; align-self: center" class="line"></div>
+              <IconFont name="tips" style="color: #9496a5">
+              </IconFont>
 
-            <div class="flex flex-column align-items-center" @click="payFeeInfoClick">
-              <div class="count">{{ infoData.needPay }}元</div>
-              <div class="flex flex-row" style="align-items: center;">
-                <div class="count-tip">停车金额</div>
-                <IconFont name="tips" style="color: #9496a5">
-                </IconFont>
-
-              </div>
             </div>
           </div>
+          <div style="height: 30px; width: 1px; align-self: center" class="line"></div>
 
-          <div class="cate-title">基本信息</div>
-          <div class="flex flex-column">
-            <div v-for="(item, index) in infos" :key="index" style="margin: 0 10px">
-              <div class="flex flex-row item">
-                <div class="item-title">{{ item.title }}</div>
-                <IconFont :name="item.icon" v-if="item.icon" style="margin-right: 10px; color: #9496a5"
-                  @click="tipsClick(item)">
-                </IconFont>
-                <div class="item-value">{{ infoData[item.key] }}</div>
-                <div class="item-value" style="flex: none;" v-if="item.subKey">【{{ infoData[item.subKey] }}】</div>
-              </div>
-              <div v-if="index < infos.length - 1" style="height: 0.5px" class="line"></div>
+          <div class="flex flex-column align-items-center" @click="payFeeInfoClick">
+            <div class="count">{{ infoData.needPay }}元</div>
+            <div class="flex flex-row" style="align-items: center;">
+              <div class="count-tip">停车金额</div>
+              <IconFont name="tips" style="color: #9496a5">
+              </IconFont>
+
             </div>
           </div>
-
-          <!-- 优惠券  -->
-          <div class="cate-title">优惠</div>
-          <div class="flex flex-column">
-            <div style="margin: 0 10px">
-              <div class="flex flex-row item" @click="chooseCoupon">
-                <div class="item-title">优惠券</div>
-                <div class="item-value" style="color: #9496a5">请选择</div>
-                <IconFont name="right" style="color: #9496a5"></IconFont>
-              </div>
-            </div>
-          </div>
-        </template>
-        <div v-else class="skeleton">
-          <div class="skeleton-picture" style="display: flex;justify-content: center;">
-            <nut-skeleton width="250px" height="15px" title animated row="3" class="item"> </nut-skeleton>
-            <nut-skeleton width="250px" height="15px" title animated row="23" class="item"> </nut-skeleton>
-          </div>
-          <nut-skeleton width="600rpx" height="80rpx" animated row="6"> </nut-skeleton>
+        </div>
+        <div class="cate-title">优惠</div>
+        <div class="flex flex-row cate-item">
+          <div class="text" style="flex: 1;">优惠券</div>
+          <div class="text">请选择</div>
         </div>
       </div>
-      <div style="height: 100px"></div>
-
-
-
-
     </div>
 
     <!-- 底部的订单区域 -->
     <div class="pay-bottom" v-if="!loading">
       <div class="pay-content flex flex-row">
-        <div class="flex flex-column justify-content-center pay-price-container">
-          <div class="pay-price">{{ parkInfo.parkName }}</div>
-          <div class="pay-price-tip">{{ parkInfo.gateName }}</div>
-        </div>
-        <div style="flex: 1"></div>
+
         <nut-button type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
       </div>
 
@@ -167,17 +150,17 @@ onMounted((options) => {
     const urlParams = decodeURIComponent(q)
     const data = parseUrlParams(urlParams)
 
-    if (!data.code) {
-      Taro.showToast({
-        title: '请扫描正确的二维码！',
-        icon: 'error',
-        duration: 2000
-      })
+    // if (!data.code) {
+    //   Taro.showToast({
+    //     title: '请扫描正确的二维码！',
+    //     icon: 'error',
+    //     duration: 2000
+    //   })
 
-      return
-    }
+    //   return
+    // }
 
-    orderInfo(data.code).then(res => {
+    orderInfo(data.code || 'awg9ipo3').then(res => {
       if (res.data.code == 200) {
         const data = res.data
         Object.assign(parkInfo, data.data.parkInfo)
@@ -217,7 +200,7 @@ const pay = () => {
     // 优惠券ID
     couponId: '',
     // 1微信 支付宝
-    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1: 0,
+    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1 : 0,
   }).then((res) => {
     const data = res.data.data
     Taro.requestOrderPayment({

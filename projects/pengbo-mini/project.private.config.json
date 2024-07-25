@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/qrpay/index",
+          "pathName": "pages/qrpay/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/inner-qrpay/index",
           "pathName": "pages/inner-qrpay/index",
           "query": "",

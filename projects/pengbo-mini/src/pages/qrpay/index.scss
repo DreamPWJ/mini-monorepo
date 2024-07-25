@@ -1,40 +1,89 @@
 
 .qrpay {
-
   position: relative;
-  .bg {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0; 
-  }
-  .content {
-    position: absolute;
-    width:100%;
-    top: 0;
-    left: 0;
-    z-index: 200;
-
-    .content-margin {
-      margin: 340px 30px 0px 30px; 
-      background-color: white;
-      border-radius: 20px;
-      box-shadow: 0px 8px 100px 0px rgba(182, 197, 205, 0.7);
+  .banner {
+    position: relative;
+    height: 500px;
+    background-color: aquamarine;
+    .content {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      height: 100%;
+      justify-content: center;
+      margin: 0 40px;
+      .park-name {
+        font-size: 44px;
+        color: #000;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .order-number {
+        font-size: 28px;
+        margin-bottom: 40px; 
+      }
+      .position {
+        background-color: white;
+        height: 46px;
+        border-radius: 23px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+      }
+      .position-text {
+        font-size: 28px;
+      }
     }
   }
-  .card {
+
+
+  .fee-body {
+    position: absolute;
+    top: 480px;
+    left: 0;
+    width: 100%;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
     background-color: white;
-    border-radius: 32px;
-  
+    .plate-no {
+      color: var(--nut-primary-color);
+      font-size: 38px;
+    }
+    .plate-no-type {
+      color: var(--nut-primary-color);
+      font-size: 26px;
+    }
+    .plate-info {
+      margin: 40px;
+    }
+    .cate-title {
+      font-size: 32px;
+      color: #000;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .cate-item {
+      height: 100px;
+      background-color: #EEF4F0;
+      border-radius: 16px;
+      padding: 0 29px;
+      align-items: center;
+      .text {
+        color: #9496A5;
+        font-size: 30px;
+      }
+    }
   }
+
+
   .header {
     justify-content: space-around;
-    padding: 65px 0;
+    padding: 80px 0;
   }
   .count {
     font-weight: bold;
     margin-bottom: 5px;
-    font-size: 44px;
+    font-size: 48px;
     color: #000;
     font-family: PingFang SC, PingFang SC;
   }
@@ -43,35 +92,7 @@
     color: #9496A5;
     font-family: PingFang SC, PingFang SC;
   }
-  .item {
-    height: 96px;
-    align-items: center;
-    margin: 0 10px;
-  
-  }
-  .item-title {
-
-    font-size: 28px;
-    color: #9496A5;
-    font-family: PingFang SC, PingFang SC;
-  }
-  .item-value {
-    font-size: 28px;
-    color: #000;
-    flex: 1;
-    text-align: right;
-    font-family: PingFang SC, PingFang SC;
-  }
-  .cate-title {
-    padding-left: 25px;
-    height: 64px;
-    line-height: 64px;
-
-    font-size: 28px;
-    color: #171B2E;
-    background-color: #f8f8f8;
-    font-family: PingFang SC, PingFang SC;
-  }
+ 
   .line {
     background-color: #EFF0F9;
   }
@@ -88,40 +109,15 @@
   }
   .pay-content {
     margin: 0 30px;
-    background-color: #323232;
+ 
     border-radius: 55px;
   }
   .pay-btn {
-    border-top-right-radius: 55px;
-    border-bottom-right-radius: 55px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    height: 110px;
-    width: 220px;
+    border-radius: 50px;
+    height: 100px;
+    width: 100%;
     font-size: 36px;
     font-weight: bold;
-  }
-  .pay-price-container {
-    margin-left: 40px;
-    .pay-price {
-      color: white;
-      font-size: 36px;
-      font-weight: bold;
-      font-family: PingFang SC, PingFang SC;
-    }
-    .pay-price-tip {
-      color: #9496A5;
-      font-size: 25px;
-      font-family: PingFang SC, PingFang SC;
-    }
-  }
-  .divider {
-    background-image: linear-gradient(to right, #d7d7d8 50%, transparent 50%);
-    background-size: 26px 1px;
-    background-repeat: repeat-x;
-    background-position: 0 100%;
-    height: 1px;
-    margin: 10px 20px;
   }
   .bottom-tips {
     width: 100%;
@@ -132,15 +128,5 @@
     margin-top: 10px;
   }
 
-
-  .skeleton-picture {
-    display: flex;
-    justify-content: space-between;
-  }
-  .skeleton-picture .item {
-    width: 47%;
-  }
-  .skeleton {
-    margin: 40px;
-  }
+ 
 }
