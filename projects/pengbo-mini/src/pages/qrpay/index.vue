@@ -3,14 +3,14 @@
     <template v-if="!loading">
       <!-- 停车场信息 -->
       <div class="banner">
-        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
+        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg"/>
 
         <div class="content flex flex-column">
           <div class="park-name">{{ parkInfo.parkName }}</div>
           <div class="order-number">订单号：{{ infoData.orderNo }}</div>
           <div class="flex flex-row">
             <div class="flex flex-row position">
-              <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
+              <image src="@/assets/images/qrpay_position.png" class="qrpay_position"/>
               <div class="position-text">{{ parkInfo.gateName }}</div>
             </div>
           </div>
@@ -24,7 +24,7 @@
         <div class="plate-info">
           <!-- 车牌信息 -->
           <div class="flex flex-row" style="align-items: center;">
-            <image src="@/assets/images/qrpay_car.png" class="qrpay_car" />
+            <image src="@/assets/images/qrpay_car.png" class="qrpay_car"/>
             <div class="plate-no">{{ infoData.plateNo }}</div>
             <div class="plate-no-type">（{{ infoData.plateTypeText }}）</div>
           </div>
@@ -33,22 +33,22 @@
           <!-- 停车时长+停车金额 -->
           <div class="flex flex-row header">
             <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
-              @click="previewImage(infoData.enterPictureUrl)">
+                 @click="previewImage(infoData.enterPictureUrl)">
               <div class="count">{{ infoData.enterTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">进场时间</div>
-                <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
+                <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
 
               </div>
             </div>
             <div style="align-self: center" class="line"></div>
 
             <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
-              @click="previewImage(infoData.exitPictureUrl)">
+                 @click="previewImage(infoData.exitPictureUrl)">
               <div class="count">{{ infoData.exitTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">出场时间</div>
-                <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
+                <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
 
               </div>
             </div>
@@ -58,7 +58,7 @@
             <div class="text" style="flex: 1;">优惠券</div>
             <div class="flex flex-row align-items-baseline">
               <div class="text">请选择</div>
-              <image src="@/assets/images/qrpay_right.png" class="qrpay_right" />
+              <image src="@/assets/images/qrpay_right.png" class="qrpay_right"/>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
       <div class="pay-bottom">
         <div class="pay-content flex flex-row align-items-center">
           <div class="flex flex-row align-items-center" style="flex: 1" @click="payFeeInfoClick">
-            <image src="@/assets/images/qrpay_info.png" class="qrpay_info" />
+            <image src="@/assets/images/qrpay_info.png" class="qrpay_info"/>
             <div class="price-tip">
               停车金额(元):
             </div>
@@ -76,7 +76,8 @@
               {{ infoData.needPay }}
             </div>
           </div>
-          <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
+          <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付
+          </nut-button>
         </div>
 
         <div class="bottom-tips">24小时客服电话：{{ parkInfo.operationPhone }}</div>
@@ -107,11 +108,12 @@
 </template>
 <script setup>
 import './index.scss'
-import { ref, reactive, onMounted } from 'vue'
-import { IconFont } from '@nutui/icons-vue-taro'
+import {ref, reactive, onMounted} from 'vue'
+import {IconFont} from '@nutui/icons-vue-taro'
 import Taro from '@tarojs/taro'
-import { enqueue } from 'athena-common'
-import { orderPay, orderInfo } from '@/api/pay'
+import {enqueue} from 'athena-common'
+import {orderPay, orderInfo} from '@/api/pay'
+import {CommonUtils} from "@athena-utils";
 
 const loading = ref(true)
 const payLoading = ref(false)
@@ -138,7 +140,6 @@ const orderFeeVisible = ref(false)
 const erroMsg = ref('')
 
 
-
 onMounted((options) => {
 
 
@@ -148,18 +149,26 @@ onMounted((options) => {
     loading.value = true
 
 
-    const q = (Taro.getCurrentInstance().router.params || {}).q
+    const params = Taro.getCurrentInstance().router.params
+
+
+    const q = ( params|| {}).q
     const url = decodeURIComponent(q)
 
-    getData(url)
+    getData(url, params.code)
 
   })
 })
 
-const getData = (url) => {
+/**
+ *
+ * @param url 二维码进入
+ * @param code 订单编号进入查询订单
+ */
+const getData = (url, code) => {
 
-  const data = parseUrlParams(url)
- 
+  const data = CommonUtils.parseUrlParams(url)
+
 
   if (!data.code) {
     erroMsg.value = '请扫描正确的二维码！'
@@ -183,24 +192,14 @@ const getData = (url) => {
 const scanQRCode = () => {
   Taro.scanCode({
     success: (res) => {
-       erroMsg.value = ''
-       getData(res.result)
+      erroMsg.value = ''
+      getData(res.result)
     }
   })
 }
 
 
-const parseUrlParams = (url) => {
-  const params = {};
-  const regex = /[?&]([^=&#]+)=([^&#]*)/g;
-  let match;
 
-  while ((match = regex.exec(url)) !== null) {
-    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
-  }
-
-  return params;
-}
 
 const chooseCoupon = () => {
 }

@@ -25,6 +25,23 @@ export class CommonUtils {
   }
 
   /**
+   * 解析 url
+   * @param url http://192.168.1.128:8180?id=123&a=3434
+   */
+  static parseUrlParams(url: string){
+    const params = {};
+    const regex = /[?&]([^=&#]+)=([^&#]*)/g;
+    let match;
+
+    while ((match = regex.exec(url)) !== null) {
+      params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+    }
+
+    return params;
+  }
+
+
+  /**
    * json对象布尔类型true false转换成1 0数字类型
    */
   static booleanToNumber(json: any) {
