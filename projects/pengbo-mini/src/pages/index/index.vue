@@ -1,6 +1,6 @@
 <template>
   <div class='flex flex-row ad-bg fade-in fade-in-show'
-    style='background-color: #fff;align-items: center;justify-content: center;'>
+       style='background-color: #fff;align-items: center;justify-content: center;'>
     <div class="flex flex-column">
       <div class="ad-info">
         <div class="ad-name" @click="toPay">澎泊云</div>
@@ -19,8 +19,9 @@
   </div>
 </template>
 
- <script setup>
+<script setup>
 import Taro from '@tarojs/taro'
+
 const toPay = () => {
   // Taro.navigateTo({
   //   url: '/pages/qrpay/index'
@@ -29,7 +30,7 @@ const toPay = () => {
 
 </script>
 
-<style  >
+<style>
 .ad-name {
   color: #333;
   font-size: 72px;
