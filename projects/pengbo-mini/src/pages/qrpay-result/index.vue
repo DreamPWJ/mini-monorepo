@@ -4,12 +4,13 @@
     <div class="title">支付成功!</div>
     <div class="sub-title">场内支付后请在15分钟内离场，超时重新计费。</div>
     <nut-button type="primary" @click="backHome">返回首页</nut-button>
- 
+
   </div>
 </template>
 
-<script setup> 
+<script setup>
 import Taro from '@tarojs/taro'
+
 const backHome = () => {
   Taro.redirectTo({
     url: '/pages/index/index'

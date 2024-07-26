@@ -1,11 +1,13 @@
 <template>
   <div class="flex flex-column plate-add">
     <template v-if="mode == 'history'">
-      <div class="title">历史车牌号</div>
+      <div class="title">使用过的车牌号</div>
       <div class="flex flex-row plate-type" style="flex-wrap: wrap;">
         <div class="item" :class="{ 'item-select': historyPlateIndexValue == index }"
-          v-for="(item, index) in historyPlateNoList" :key="index" @click="changePlateHistoryType(index)">{{ item.plateNo
-          }}</div>
+             v-for="(item, index) in historyPlateNoList" :key="index" @click="changePlateHistoryType(index)">
+          {{ item.plateNo
+          }}
+        </div>
       </div>
       <div class="flex flex-row">
         <div class="no-plate" @click="changeMode('new')">不在列表中？</div>
@@ -19,10 +21,11 @@
       <div class="title">车牌类型</div>
       <div class="flex flex-row plate-type" style="flex-wrap: wrap;">
         <div class="item" :class="{ 'item-select': plateTypeValue == item.value }" @click="changePlateType(item)"
-          v-for="(item, index) in plateTypeList" :key="index">{{ item.title }}</div>
+             v-for="(item, index) in plateTypeList" :key="index">{{ item.title }}
+        </div>
       </div>
       <div class="flex flex-row">
-        <div class="no-plate" @click="changeMode('history')" v-if="historyPlateNoList.length > 0">历史车牌记录</div>
+        <div class="no-plate" @click="changeMode('history')" v-if="historyPlateNoList.length > 0">使用过的车牌号</div>
       </div>
     </template>
   </div>
@@ -77,13 +80,13 @@ const getLocalPlateNo = () => {
     const value = Taro.getStorageSync(SAVE_KEY) || JSON.stringify([])
 
     return JSON.parse(value)
-  } catch (error) { 
+  } catch (error) {
     return []
   }
 }
 /**
- * 
- * @param {*} plateInfo 
+ *
+ * @param {*} plateInfo
  *  {
  *    plateNo: string,
  *    plateType: number
@@ -96,16 +99,16 @@ const putLocalPlateNo = (plateInfo) => {
   // 检查是否有重复
   const index = arr.findIndex(item =>
     item.plateNo === plateInfo.plateNo && item.plateType === plateInfo.plateType
-  );
+  )
 
   if (index !== -1) {
     // 如果找到重复项，将其从原位置删除
-    arr.splice(index, 1);
+    arr.splice(index, 1)
   }
 
   // 在数组开头添加新对象
-  arr.unshift(plateInfo);
-
+  arr.unshift(plateInfo)
+  Taro.setStorageSync(SAVE_KEY, JSON.stringify(arr))
 }
 
 const changeMode = val => {
@@ -135,7 +138,7 @@ const getValue = () => {
       }
     }
   } else {
-    if (historyPlateIndexValue.value >=0 ) {
+    if (historyPlateIndexValue.value >= 0) {
       return toRaw(historyPlateNoList.value[historyPlateIndexValue.value])
     }
   }

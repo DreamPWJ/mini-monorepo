@@ -5,16 +5,16 @@ const basePath = `/qr-pay`
 
 // 支付
 export function orderPay(data) {
-  return http.post(`${basePath}/order/pay`, data)
+  return http.post(`${basePath}/order-pay`, data)
 }
 
 // 获取订单详情
-export function orderInfo(gateCode) {
-  return http.get(`${basePath}/order/${gateCode}`)
+export function orderInfo(gateCode, orderNo) {
+  return http.post(`${basePath}/order-detail`, { gateCode, orderNo })
 }
 
 export const innerPayOrder = (parkCode, plateNo, plateType) => {
-  return http.post(`${basePath}/order/`, {
+  return http.post(`${basePath}/inner-order-detail`, {
     parkCode, plateNo, plateType
   })
 }

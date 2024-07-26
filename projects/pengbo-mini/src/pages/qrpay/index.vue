@@ -3,15 +3,21 @@
     <template v-if="!loading">
       <!-- 停车场信息 -->
       <div class="banner">
-        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg"/>
+        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
 
         <div class="content flex flex-column">
           <div class="park-name">{{ parkInfo.parkName }}</div>
           <div class="order-number">订单号：{{ infoData.orderNo }}</div>
           <div class="flex flex-row">
             <div class="flex flex-row position">
-              <image src="@/assets/images/qrpay_position.png" class="qrpay_position"/>
-              <div class="position-text">{{ parkInfo.gateName }}</div>
+              <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
+              <template v-if="parkInfo.gateName.length>0">
+                <div class="position-text">{{ parkInfo.gateName }}</div>
+              </template>
+              <template v-else>
+                <div class="position-text">提前付</div>
+              </template>
+
             </div>
           </div>
 
@@ -24,7 +30,7 @@
         <div class="plate-info">
           <!-- 车牌信息 -->
           <div class="flex flex-row" style="align-items: center;">
-            <image src="@/assets/images/qrpay_car.png" class="qrpay_car"/>
+            <image src="@/assets/images/qrpay_car.png" class="qrpay_car" />
             <div class="plate-no">{{ infoData.plateNo }}</div>
             <div class="plate-no-type">（{{ infoData.plateTypeText }}）</div>
           </div>
@@ -37,7 +43,7 @@
               <div class="count">{{ infoData.enterTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">进场时间</div>
-                <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
+                <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
 
               </div>
             </div>
@@ -48,7 +54,7 @@
               <div class="count">{{ infoData.exitTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">出场时间</div>
-                <image src="@/assets/images/qrpay_img.png" class="qrpay_img"/>
+                <image src="@/assets/images/qrpay_img.png" class="qrpay_img" />
 
               </div>
             </div>
@@ -58,7 +64,7 @@
             <div class="text" style="flex: 1;">优惠券</div>
             <div class="flex flex-row align-items-baseline">
               <div class="text">请选择</div>
-              <image src="@/assets/images/qrpay_right.png" class="qrpay_right"/>
+              <image src="@/assets/images/qrpay_right.png" class="qrpay_right" />
             </div>
           </div>
         </div>
@@ -68,7 +74,7 @@
       <div class="pay-bottom">
         <div class="pay-content flex flex-row align-items-center">
           <div class="flex flex-row align-items-center" style="flex: 1" @click="payFeeInfoClick">
-            <image src="@/assets/images/qrpay_info.png" class="qrpay_info"/>
+            <image src="@/assets/images/qrpay_info.png" class="qrpay_info" />
             <div class="price-tip">
               停车金额(元):
             </div>
@@ -85,7 +91,7 @@
     </template>
 
 
-    <nut-empty :description="erroMsg" image="error" v-if="erroMsg.length > 0" class="empty">
+    <nut-empty :description="errorMsg" image="error" v-if="errorMsg.length > 0" class="empty">
 
       <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
     </nut-empty>
@@ -108,12 +114,11 @@
 </template>
 <script setup>
 import './index.scss'
-import {ref, reactive, onMounted} from 'vue'
-import {IconFont} from '@nutui/icons-vue-taro'
+import { onMounted, reactive, ref } from 'vue'
 import Taro from '@tarojs/taro'
-import {enqueue} from 'athena-common'
-import {orderPay, orderInfo} from '@/api/pay'
-import {CommonUtils} from "@athena-utils";
+import { enqueue } from 'athena-common'
+import { orderInfo, orderPay } from '@/api/pay'
+import { CommonUtils } from '@athena-utils'
 
 const loading = ref(true)
 const payLoading = ref(false)
@@ -121,26 +126,26 @@ const payLoading = ref(false)
 const payFeeInfos = ref([
   {
     title: '总费用',
-    key: 'totalCharge',
+    key: 'totalCharge'
   },
   {
     title: '减免费用',
-    key: 'reductionFee',
+    key: 'reductionFee'
   },
   {
     title: '已交费用',
-    key: 'realCharge',
-  },
+    key: 'realCharge'
+  }
 
 ])
 
 const infoData = reactive({})
 const parkInfo = reactive({})
 const orderFeeVisible = ref(false)
-const erroMsg = ref('')
+const errorMsg = ref('')
 
 
-onMounted((options) => {
+onMounted(() => {
 
 
   enqueue((next) => {
@@ -152,7 +157,7 @@ onMounted((options) => {
     const params = Taro.getCurrentInstance().router.params
 
 
-    const q = ( params|| {}).q
+    const q = (params || {}).q
     const url = decodeURIComponent(q)
 
     getData(url, params.code)
@@ -165,24 +170,24 @@ onMounted((options) => {
  * @param url 二维码进入
  * @param code 订单编号进入查询订单
  */
-const getData = (url, code) => {
+const getData = (url, orderNo) => {
 
   const data = CommonUtils.parseUrlParams(url)
 
 
-  if (!data.code) {
-    erroMsg.value = '请扫描正确的二维码！'
+  if (!data.code && !orderNo) {
+    errorMsg.value = '请扫描正确的二维码！'
     return
   }
 
-  orderInfo(data.code).then(res => {
+  orderInfo(data.code, orderNo).then(res => {
     if (res.data.code == 200) {
       const data = res.data
       Object.assign(parkInfo, data.data.parkInfo)
       Object.assign(infoData, data.data.orderInfo)
       loading.value = false
     } else {
-      erroMsg.value = '当前出口未检测到车辆！'
+      errorMsg.value = '当前出口未检测到车辆！'
     }
 
   })
@@ -192,13 +197,11 @@ const getData = (url, code) => {
 const scanQRCode = () => {
   Taro.scanCode({
     success: (res) => {
-      erroMsg.value = ''
+      errorMsg.value = ''
       getData(res.result)
     }
   })
 }
-
-
 
 
 const chooseCoupon = () => {
@@ -216,7 +219,7 @@ const pay = () => {
     // 优惠券ID
     couponId: '',
     // 1微信 支付宝
-    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1 : 0,
+    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1 : 0
   }).then((res) => {
     const data = res.data.data
     if (res.data.code != 200) {
@@ -249,17 +252,9 @@ const pay = () => {
 
 }
 
-const tipsClick = (item) => {
-  if (item.key == 'enterTime') {
-    previewImage(infoData.enterPictureUrl)
-  } else if (item.key == 'exitTime') {
-    previewImage(infoData.exitPictureUrl)
-  }
-}
-
 const previewImage = (imageUrl) => {
   Taro.previewImage({
-    urls: [imageUrl], // 需要预览的图片http链接列表
+    urls: [imageUrl] // 需要预览的图片http链接列表
   })
 }
 </script>
