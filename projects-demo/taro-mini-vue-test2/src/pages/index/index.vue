@@ -12,6 +12,7 @@
 import { ref } from 'vue'
 import './index.scss'
 import { useDidShow, useLoad } from '@tarojs/taro'
+import { CommonUtils } from '@athena-utils'
 
 
 /**
@@ -42,8 +43,8 @@ const testMonoRepo = () => {
       apiData.value = res.data
     })*/
 
-  /* console.log(CommonUtils.randomString(6, 12))
-     console.log(Pipe.hidePart('18863302302', 'phone'))
+  console.log(CommonUtils.randomString(6, 12))
+  /*   console.log(Pipe.hidePart('18863302302', 'phone'))
      console.log(Constant.TOKEN_KEY)
      console.log('校验结果: ' + Validate.email('123'))*/
 

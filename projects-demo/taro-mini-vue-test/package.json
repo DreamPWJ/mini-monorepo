@@ -10,7 +10,9 @@
     "framework": "Vue3"
   },
   "scripts": {
-    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:weapp": "pnpm run -r compile:ts && npm run build:weapp -- --watch",
+    "pnpm:reInstall": "rimraf node_modules && rimraf dist && rimraf .swc && pnpm install",
+    "clean:modules": "rimraf node_modules && rimraf dist && rimraf .swc",
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
