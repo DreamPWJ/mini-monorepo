@@ -1,5 +1,4 @@
 <template>
-  <!--  <CustomNavBar :title="'首页'" :showBack=false />-->
   <view class="index-demo">
     <view class="top-demo">
       <text class="msg">{{ msg }}</text>
