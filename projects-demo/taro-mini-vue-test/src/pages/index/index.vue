@@ -1,15 +1,19 @@
 <template>
   <view class="index">
-    <nut-button type="primary" @click="onClick">按钮</nut-button>
-    <nut-toast v-model:visible="show" msg="你成功了" />
+    <text>{{ msg }}</text>
   </view>
 </template>
 
-<script setup>
+<script>
 import { ref } from 'vue'
+import './index.scss'
 
-const show = ref(false)
-const onClick = () => {
-  show.value = true
+export default {
+  setup() {
+    const msg = ref('Hello world')
+    return {
+      msg
+    }
+  }
 }
 </script>
