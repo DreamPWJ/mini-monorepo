@@ -12,10 +12,6 @@
 import { ref } from 'vue'
 import './index.scss'
 import { useDidShow, useLoad } from '@tarojs/taro'
-// import { CommonUtils } from '@athena-utils'
-// import { Pipe, Validate } from '@athena-common'
-// import { Constant } from '@athena-constants'
-// import { demoApi } from '@/api/demo/demo'
 
 
 /**
