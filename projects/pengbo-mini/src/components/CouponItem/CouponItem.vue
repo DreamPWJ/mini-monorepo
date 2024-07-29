@@ -24,7 +24,7 @@ import './index.scss'
 import { computed } from 'vue'
 
 const couponItemTypeColor = computed(() => {
-  return '#28c76f'
+  return '#9f1de8'
 })
 
 </script>

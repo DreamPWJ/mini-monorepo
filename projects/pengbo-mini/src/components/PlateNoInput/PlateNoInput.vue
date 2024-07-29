@@ -3,10 +3,11 @@
     <div class="flex flex-row plateNoInput">
 
       <template v-for="(item, index) in plateNo" :key="index">
-        <div class="item" @click.stop="onInput(index)"
+        <div class="plateNoInput-item" @click.stop="onInput(index)"
           :class="{ 'item-select': (lastIndex < 0 ? 0 : lastIndex) == index && showKeyboard }">{{ item }}</div>
       </template>
-      <div class="item new-energy" @click.stop="newEnergyInput" :class="{ 'item-select': showKeyboardNewEnergy }">
+      <div class="plateNoInput-item new-energy" @click.stop="newEnergyInput"
+           :class="{ 'item-select': showKeyboardNewEnergy }">
         <template v-if="newEnergyCode.length > 0">
           <div class="energy-text">{{ newEnergyCode }}</div>
         </template>

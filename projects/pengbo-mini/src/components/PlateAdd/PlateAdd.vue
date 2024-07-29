@@ -19,11 +19,21 @@
         <PlateNoInput ref="plateNoInputRef" />
       </div>
       <div class="title">车牌类型</div>
-      <div class="flex flex-row plate-type" style="flex-wrap: wrap;">
-        <div class="item" :class="{ 'item-select': plateTypeValue == item.value }" @click="changePlateType(item)"
-             v-for="(item, index) in plateTypeList" :key="index">{{ item.title }}
-        </div>
-      </div>
+
+
+      <nut-grid :border="false" :column-num="3" direction="horizontal">
+        <nut-grid-item v-for="(item, index) in plateTypeList" :key="index">
+          <div class="item" :class="{ 'item-select': plateTypeValue == item.value }" @click="changePlateType(item)"
+          >{{ item.title }}
+          </div>
+        </nut-grid-item>
+      </nut-grid>
+
+      <!--      <div class="flex flex-row plate-type justify-content-center" style="flex-wrap: wrap;">-->
+      <!--        <div class="item" :class="{ 'item-select': plateTypeValue == item.value }" @click="changePlateType(item)"-->
+      <!--             v-for="(item, index) in plateTypeList" :key="index">{{ item.title }}-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="flex flex-row">
         <div class="no-plate" @click="changeMode('history')" v-if="historyPlateNoList.length > 0">使用过的车牌号</div>
       </div>
