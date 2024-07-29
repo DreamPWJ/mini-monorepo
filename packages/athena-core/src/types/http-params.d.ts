@@ -9,7 +9,7 @@ export interface HttpParams {
    */
   httpURL: string;
   /**
-   * 是否开启调试 是打印日志等
+   * 是否开启调试 打印接口入参、响应数据日志等
    */
   isDebug: boolean;
   /**

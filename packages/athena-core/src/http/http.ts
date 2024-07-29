@@ -15,7 +15,7 @@ export class Http {
 
   // API服务基础地址
   httpURL = ''
-  // 是否开启调试 是打印日志等
+  // 是否开启调试 打印接口入参、响应数据日志等
   isDebug = true
   // 是否添加请求loading加载提示
   isLoading = true
