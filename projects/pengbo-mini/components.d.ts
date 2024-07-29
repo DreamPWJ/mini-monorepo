@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ComponentDemo: typeof import('./src/components/demo/ComponentDemo.vue')['default']
+    CouponItem: typeof import('./src/components/CouponItem/CouponItem.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutDialog: typeof import('@nutui/nutui-taro')['Dialog']
     NutEmpty: typeof import('@nutui/nutui-taro')['Empty']

@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "优惠券领取",
+          "pathName": "pages/coupon-get/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/qrpay/index",
           "pathName": "pages/qrpay/index",
           "query": "",
