@@ -1,19 +1,18 @@
 <template>
   <div class="CouponItem flex flex-row">
-
-    <div class="flex flex-column coupon-info">
-      <div class="logo-text">澎泊</div>
-      <div class="park-name">蓝能停车场</div>
-      <div class="coupon-value" :style="{color: couponItemTypeColor}">单次全免费</div>
-      <div class="coupon-valid">失效日期：01/09/2023</div>
-
-    </div>
-
-    <div class="coupon-tag" :style="{backgroundColor: couponItemTypeColor}">
-      <div class="content flex flex-column">
-        50%
+    <image src="@/assets/images/coupon_bg.png" class="coupon-bg" />
+    <div class="coupon-content flex flex-row">
+      <div class="flex flex-column left align-items-center">
+        <div class="coupon-type">固定金额</div>
+        <div class="coupon-value">50分</div>
       </div>
-      <div class="triangle"></div>
+
+      <div class="flex flex-column align-items-center justify-content-center right">
+        <div class="coupon-valid ">澎泊云 蓝能停车场</div>
+        <div class="title">优惠券</div>
+        <div class="coupon-valid">有效日期:12/12/2023</div>
+      </div>
+
     </div>
 
   </div>

@@ -1,68 +1,59 @@
 .CouponItem {
-  background-color: #ffffff;
-  border-radius: var(--border-radius);
-  padding: 0px 12px;
-  margin: 20px;
 
-  .coupon-info {
-    flex: 1;
-    margin-left: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  font-family: "Alimama ShuHeiTi";
+  letter-spacing: 4px;
+  position: relative;
+  width: 100%;
+  height: 304px;
 
-    .logo-text {
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-
-    .park-name {
-      font-size: 32px;
-      letter-spacing: 2px;
-    }
-
-    .coupon-value {
-      font-size: 48px;
-      font-weight: bold;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
-
-    .coupon-valid {
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+  .coupon-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 304px;
   }
 
-  .coupon-tag {
-    width: 220px;
-    height: 230px;
-    background: #007AFF;
-    margin-right: 30px;
-    position: relative;
+  .coupon-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-    .content {
-      position: absolute;
-      top: 50px;
-      left: 0;
-      width: 100%;
-      font-size: 62px;
+    .left {
+      transform: rotate(-90deg);
+      align-content: center;
+      justify-content: center;
+
+      .coupon-value {
+        font-size: 84px;
+        -webkit-text-stroke: 1.5px #FEB800;
+        color: white;
+      }
+
+      .coupon-type {
+        margin-top: 70px;
+        font-size: 25px;
+      }
+    }
+
+    .right {
       color: white;
-      text-align: center;
-      font-weight: bold;
+      flex: 1;
+
+      .title {
+        font-size: 96px;
+        margin: 20px 0;
+      }
+
+      .coupon-valid {
+        font-size: 20px;
+      }
     }
 
-    .triangle {
-      width: 0;
-      height: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      border-bottom: 30px solid white;
-      border-right: 110px solid transparent;
-      border-left: 110px solid transparent;
-    }
+
   }
+
 
 }
