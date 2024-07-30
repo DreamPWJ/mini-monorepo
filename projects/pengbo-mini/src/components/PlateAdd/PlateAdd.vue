@@ -57,6 +57,7 @@ const historyPlateIndexValue = ref(-1)
 const mode = ref(null)
 
 const SAVE_KEY = 'getLocalPlateNo'
+const MAX_SAVE_LEN = 7
 
 onMounted(() => {
   // plateNoInputRef.value.setValue('鲁DL00004')
@@ -89,7 +90,14 @@ const getLocalPlateNo = () => {
   try {
     const value = Taro.getStorageSync(SAVE_KEY) || JSON.stringify([])
 
-    return JSON.parse(value)
+
+    const arr = JSON.parse(value)
+    // 如果数组长度超过7，只保留前7个元素
+    if (arr.length > MAX_SAVE_LEN) {
+      return arr.slice(0, MAX_SAVE_LEN)
+    }
+
+    return arr
   } catch (error) {
     return []
   }
@@ -118,6 +126,13 @@ const putLocalPlateNo = (plateInfo) => {
 
   // 在数组开头添加新对象
   arr.unshift(plateInfo)
+
+  // 如果数组长度超过7，只保留前7个元素
+  if (arr.length > MAX_SAVE_LEN) {
+    return arr.slice(0, MAX_SAVE_LEN)
+  }
+
+
   Taro.setStorageSync(SAVE_KEY, JSON.stringify(arr))
 }
 
