@@ -22,19 +22,24 @@
     height: 100%;
 
     .left {
-      transform: rotate(-90deg);
+      //transform: rotate(-90deg);
       align-content: center;
       justify-content: center;
+      text-align: center;
+      width: 220px;
 
       .coupon-value {
-        font-size: 84px;
+        font-size: 54px;
         -webkit-text-stroke: 1.5px #FEB800;
         color: white;
+
+
       }
 
-      .coupon-type {
-        margin-top: 70px;
-        font-size: 25px;
+      .coupon-left {
+        width: 304px;
+        transform: rotate(-90deg);
+
       }
     }
 
