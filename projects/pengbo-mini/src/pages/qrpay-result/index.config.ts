@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: "支付结果"
+  navigationBarTitleText: '结果'
 })

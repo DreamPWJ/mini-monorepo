@@ -203,7 +203,7 @@ const scanQRCode = () => {
   })
 }
 
-
+// TODO: 接口完成可以选择优惠券
 const chooseCoupon = () => {
 }
 
@@ -234,7 +234,7 @@ const pay = () => {
       paySign: data.paySign,
       success: (payRes) => {
         Taro.redirectTo({
-          url: '/pages/qrpay-result/index'
+          url: '/pages/qrpay-result/index?title=支付成功!&subTitle=场内支付后请在15分钟内离场，超时重新计费。'
         })
       },
       fail: (e) => {
