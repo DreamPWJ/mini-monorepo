@@ -3,8 +3,10 @@
     <template v-if="!loading">
       <!-- 停车场信息 -->
       <div class="banner">
-        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
 
+        <image src="https://lanneng.oss-cn-qingdao.aliyuncs.com/img/pay-bg.png" class="qrpay_bg" />
+        <!--        <div style="position: absolute;top:0;left:0;width: 100%;height: 100%;background: linear-gradient(180deg, rgba(69, 199, 111, 0.77) 0%, #45C76F 100%, #45C76F 100%);"></div>-->
+        <!--        <div style="position: absolute;top:0;left:0;width: 100%;height: 100%;background: #FFE53A;"></div>-->
         <div class="content flex flex-column">
           <div class="park-name">{{ parkInfo.parkName }}</div>
           <div class="order-number">订单号：{{ infoData.orderNo }}</div>
@@ -174,6 +176,9 @@ const getData = (url, orderNo) => {
 
   const data = CommonUtils.parseUrlParams(url)
 
+  // const data = {
+  //   code: "awg9ipo3"
+  // }
 
   if (!data.code && !orderNo) {
     errorMsg.value = '请扫描正确的二维码！'
