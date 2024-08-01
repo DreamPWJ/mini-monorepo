@@ -6,6 +6,7 @@ import './app.scss'
 import Taro from '@tarojs/taro'
 // import { enqueue } from 'athena-common'
 import { login } from '@/api/demo/demo'
+import { enqueue } from '@athena-common'
 
 // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 const App = createApp({
@@ -25,12 +26,12 @@ const App = createApp({
     })
 
     Taro.setStorageSync('base_token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjA0MDMwMTQsInN1YiI6IntcInVzZXJJZFwiOi0xfSIsImlzcyI6InBlbmdiby1wYXJrLWFwcCJ9.4CPG_ZZTcNo1E0H6pucfCNwc1HldNa-JwiKJREmj4rI')
-    // Taro.setStorageSync('token', null)
-    // enqueue(next => {
-    //
-    //   this.next = next
-    //   this.loginWithCode()
-    // })
+    Taro.setStorageSync('token', null)
+    enqueue(next => {
+
+      this.next = next
+      this.loginWithCode()
+    })
   },
 
   methods: {
