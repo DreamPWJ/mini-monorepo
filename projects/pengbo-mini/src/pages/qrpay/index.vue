@@ -3,23 +3,15 @@
     <template v-if="!loading">
       <!-- 停车场信息 -->
       <div class="banner">
+        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
 
-        <image src="https://lanneng.oss-cn-qingdao.aliyuncs.com/img/pay-bg.png" class="qrpay_bg" />
-        <!--        <div style="position: absolute;top:0;left:0;width: 100%;height: 100%;background: linear-gradient(180deg, rgba(69, 199, 111, 0.77) 0%, #45C76F 100%, #45C76F 100%);"></div>-->
-        <!--        <div style="position: absolute;top:0;left:0;width: 100%;height: 100%;background: #FFE53A;"></div>-->
         <div class="content flex flex-column">
           <div class="park-name">{{ parkInfo.parkName }}</div>
           <div class="order-number">订单号：{{ infoData.orderNo }}</div>
           <div class="flex flex-row">
             <div class="flex flex-row position">
               <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
-              <template v-if="parkInfo.gateName.length>0">
-                <div class="position-text">{{ parkInfo.gateName }}</div>
-              </template>
-              <template v-else>
-                <div class="position-text">提前付</div>
-              </template>
-
+              <div class="position-text">{{ parkInfo.gateName }}</div>
             </div>
           </div>
 
@@ -41,7 +33,7 @@
           <!-- 停车时长+停车金额 -->
           <div class="flex flex-row header">
             <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
-                 @click="previewImage(infoData.enterPictureUrl)">
+              @click="previewImage(infoData.enterPictureUrl)">
               <div class="count">{{ infoData.enterTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">进场时间</div>
@@ -52,7 +44,7 @@
             <div style="align-self: center" class="line"></div>
 
             <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
-                 @click="previewImage(infoData.exitPictureUrl)">
+              @click="previewImage(infoData.exitPictureUrl)">
               <div class="count">{{ infoData.exitTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">出场时间</div>
@@ -84,8 +76,7 @@
               {{ infoData.needPay }}
             </div>
           </div>
-          <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付
-          </nut-button>
+          <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
         </div>
 
         <div class="bottom-tips">24小时客服电话：{{ parkInfo.operationPhone }}</div>
@@ -93,9 +84,10 @@
     </template>
 
 
-    <nut-empty :description="errorMsg" image="error" v-if="errorMsg.length > 0" class="empty">
+    <nut-empty :description="erroMsg" image="error" v-if="erroMsg.length > 0" class="empty">
 
-      <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
+
+    <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
     </nut-empty>
 
 
@@ -120,7 +112,6 @@ import { onMounted, reactive, ref } from 'vue'
 import Taro from '@tarojs/taro'
 import { enqueue } from 'athena-common'
 import { orderInfo, orderPay } from '@/api/pay'
-import { CommonUtils } from '@athena-utils'
 
 const loading = ref(true)
 const payLoading = ref(false)
@@ -128,26 +119,27 @@ const payLoading = ref(false)
 const payFeeInfos = ref([
   {
     title: '总费用',
-    key: 'totalCharge'
+    key: 'totalCharge',
   },
   {
     title: '减免费用',
-    key: 'reductionFee'
+    key: 'reductionFee',
   },
   {
     title: '已交费用',
-    key: 'realCharge'
-  }
+    key: 'realCharge',
+  },
 
 ])
 
 const infoData = reactive({})
 const parkInfo = reactive({})
 const orderFeeVisible = ref(false)
-const errorMsg = ref('')
+const erroMsg = ref('')
 
 
-onMounted(() => {
+
+onMounted((options) => {
 
 
   enqueue((next) => {
@@ -156,43 +148,32 @@ onMounted(() => {
     loading.value = true
 
 
-    const params = Taro.getCurrentInstance().router.params
-
-
-    const q = (params || {}).q
+    const q = (Taro.getCurrentInstance().router.params || {}).q
     const url = decodeURIComponent(q)
 
-    getData(url, params.code)
+    getData(url)
 
   })
 })
 
-/**
- *
- * @param url 二维码进入
- * @param code 订单编号进入查询订单
- */
-const getData = (url, orderNo) => {
+const getData = (url) => {
 
-  const data = CommonUtils.parseUrlParams(url)
+  const data = parseUrlParams(url)
 
-  // const data = {
-  //   code: "awg9ipo3"
-  // }
 
-  if (!data.code && !orderNo) {
-    errorMsg.value = '请扫描正确的二维码！'
+  if (!data.code) {
+    erroMsg.value = '请扫描正确的二维码！'
     return
   }
 
-  orderInfo(data.code, orderNo).then(res => {
+  orderInfo(data.code).then(res => {
     if (res.data.code == 200) {
       const data = res.data
       Object.assign(parkInfo, data.data.parkInfo)
       Object.assign(infoData, data.data.orderInfo)
       loading.value = false
     } else {
-      errorMsg.value = '当前出口未检测到车辆！'
+      erroMsg.value = '当前出口未检测到车辆！'
     }
 
   })
@@ -202,13 +183,25 @@ const getData = (url, orderNo) => {
 const scanQRCode = () => {
   Taro.scanCode({
     success: (res) => {
-      errorMsg.value = ''
-      getData(res.result)
+       erroMsg.value = ''
+       getData(res.result)
     }
   })
 }
 
-// TODO: 接口完成可以选择优惠券
+
+const parseUrlParams = (url) => {
+  const params = {};
+  const regex = /[?&]([^=&#]+)=([^&#]*)/g;
+  let match;
+
+  while ((match = regex.exec(url)) !== null) {
+    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+  }
+
+  return params;
+}
+
 const chooseCoupon = () => {
 }
 
@@ -224,7 +217,7 @@ const pay = () => {
     // 优惠券ID
     couponId: '',
     // 1微信 支付宝
-    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1 : 0
+    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1 : 0,
   }).then((res) => {
     const data = res.data.data
     if (res.data.code != 200) {
@@ -239,7 +232,7 @@ const pay = () => {
       paySign: data.paySign,
       success: (payRes) => {
         Taro.redirectTo({
-          url: '/pages/qrpay-result/index?title=支付成功!&subTitle=场内支付后请在15分钟内离场，超时重新计费。'
+          url: '/pages/qrpay-result/index'
         })
       },
       fail: (e) => {
@@ -257,9 +250,17 @@ const pay = () => {
 
 }
 
+const tipsClick = (item) => {
+  if (item.key == 'enterTime') {
+    previewImage(infoData.enterPictureUrl)
+  } else if (item.key == 'exitTime') {
+    previewImage(infoData.exitPictureUrl)
+  }
+}
+
 const previewImage = (imageUrl) => {
   Taro.previewImage({
-    urls: [imageUrl] // 需要预览的图片http链接列表
+    urls: [imageUrl], // 需要预览的图片http链接列表
   })
 }
 </script>
