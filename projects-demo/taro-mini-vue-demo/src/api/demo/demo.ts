@@ -14,7 +14,7 @@ export function demoApi() {
  * API调用示例 单独使用http服务
  */
 export function demoHttpApi() {
-  return http.get(`http://192.168.1.128:8180${basePath}/base`)
+  return http.get(`http://192.168.0.100:8180${basePath}/base`)
 }
 
 /**
@@ -33,7 +33,7 @@ export async function weiXinLogin() {
     }
   })
   console.log(code)
-  return http.post(`http://127.0.0.1:8080/weixin/login`, { 'code': code }) // http://192.168.1.128:8180
+  return http.post(`http://127.0.0.1:8080/weixin/login`, { 'code': code }) // http://192.168.0.100:8180
 }
 
 /**
@@ -41,7 +41,7 @@ export async function weiXinLogin() {
  */
 export function createPay(data) {
   Taro.setStorageSync('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk0ODA2MjcsInN1YiI6IntcInVzZXJJZFwiOjF9IiwiaXNzIjoicGVuZ2JvLXBhcmstYXBwIn0.ygIW3PVks6_a7br13UnmfOl4wnPjBVii_xYcYOcsR1M')
-  return http.post(`http://192.168.1.128:8180/wx/pay/order`, data) // http://192.168.1.128:8180
+  return http.post(`http://192.168.0.100:8180/wx/pay/order`, data) // http://192.168.0.100:8180
 }
 
 /**
@@ -49,5 +49,5 @@ export function createPay(data) {
  */
 export function getPhone(data) {
   Taro.setStorageSync('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk0ODA2MjcsInN1YiI6IntcInVzZXJJZFwiOjF9IiwiaXNzIjoicGVuZ2JvLXBhcmstYXBwIn0.ygIW3PVks6_a7br13UnmfOl4wnPjBVii_xYcYOcsR1M')
-  return http.post(`http://192.168.1.128:8080/weixin/phone`, data) // http://192.168.1.128:8180
+  return http.post(`http://192.168.0.100:8080/weixin/phone`, data) // http://192.168.0.100:8180
 }
