@@ -5,8 +5,7 @@
       <div class="flex flex-row plate-type" style="flex-wrap: wrap;">
         <div class="item" :class="{ 'item-select': historyPlateIndexValue == index }"
              v-for="(item, index) in historyPlateNoList" :key="index" @click="changePlateHistoryType(index)">
-          {{ item.plateNo
-          }}
+          {{ item.plateNo }}
         </div>
       </div>
       <div class="flex flex-row">
@@ -47,6 +46,7 @@ import './index.scss'
 import Taro from '@tarojs/taro'
 import PlateNoInput from '@/components/PlateNoInput/PlateNoInput.vue'
 import { getPlateType } from '@/api/pay'
+import { enqueue } from '@athena-common'
 
 const plateNoInputRef = ref(null)
 const plateTypeValue = ref(-1)
@@ -64,16 +64,17 @@ onMounted(() => {
 
   const list = getLocalPlateNo()
 
-
   historyPlateNoList.value = list
   mode.value = list.length > 0 ? 'history' : 'new'
 
-
-  getPlateType().then(res => {
-
-    plateTypeList.value = res
-
+  enqueue(next => {
+    next()
+    getPlateType().then(res => {
+      plateTypeList.value = res
+    })
   })
+
+
 })
 
 /**
