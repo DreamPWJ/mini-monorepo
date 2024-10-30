@@ -57,28 +57,29 @@ const couponItemType = computed(() => {
   let value = ''
   let couponValid = ''
 
-  const rule = item.couponRule
+  const rule = item.rule
   if (item.couponType === 1) {
 
-    value = rule.amount + '元'
-    couponValid = `${rule.expireHours}小时内有效`
+    value = rule.paperAmount + '元'
+    couponValid = `${rule.validHours}小时内有效`
   } else if (item.couponType === 2) {
 
-    value = rule.duration + '分钟'
-    couponValid = `${rule.expireHours}小时内有效`
+    value = rule.freeDuration + '分钟'
+    couponValid = `${rule.validHours}小时内有效`
   } else if (item.couponType === 3) {
 
-    value = (rule.discount * 10) + '折'
-    couponValid = `${rule.expireHours}小时内有效`
+    value = (rule.discountRatio * 10) + '折'
+    couponValid = `${rule.validHours}小时内有效`
   } else if (item.couponType === 4) {
     title = ''
     value = '单次减免'
-    couponValid = `${rule.expireHours}小时内有效`
-  } else if (item.couponType === 5) {
-    title = ''
-    value = '多次减免'
-    couponValid = `${rule.day}天·${rule.time}后失效`
+    couponValid = `${rule.validHours}小时内有效`
   }
+  // else if (item.couponType === 5) {
+  //   title = ''
+  //   value = '多次减免'
+  //   couponValid = `${rule.day}天·${rule.time}后失效`
+  // }
 
 
   return {
