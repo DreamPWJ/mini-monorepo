@@ -30,7 +30,7 @@
 
 #### 安装Pnpm相关依赖
 
-npm i -g pnpm &&  npm i -g gulp
+npm i -g pnpm && npm i -g gulp && pnpm i
 
 #### 安装编译所有依赖 建立link软连接
 
