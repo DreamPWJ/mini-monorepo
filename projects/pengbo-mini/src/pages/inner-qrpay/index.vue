@@ -24,7 +24,7 @@ onMounted(() => {
     const url = decodeURIComponent(q)
     const data = CommonUtils.parseUrlParams(url)
     // 获取码上的停车场编号
-    parkCode.value = data.code
+    parkCode.value = data.code || '3716262'
 
 
   })
@@ -59,7 +59,7 @@ const submit = async () => {
       plateAddRef.value.putLocalPlateNo(value)
 
       Taro.navigateTo({
-        url: `/pages/qrpay/index?code=${data.data.data.orderNo}`
+        url: `/pages/qrpay/index?orderId=${data.data.data.orderId}`
       })
     }
 

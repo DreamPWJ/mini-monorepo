@@ -3,7 +3,7 @@
     <template v-if="!loading">
       <!-- 停车场信息 -->
       <div class="banner">
-        <image src="@/assets/images/qrpay_bg.png" class="qrpay_bg" />
+        <image class="qrpay_bg" />
 
         <div class="content flex flex-column">
           <div class="park-name">{{ parkInfo.parkName }}</div>
@@ -53,14 +53,16 @@
               </div>
             </div>
           </div>
-          <div class="cate-title">优惠</div>
-          <div class="flex flex-row cate-item">
-            <div class="text" style="flex: 1;">优惠券</div>
-            <div class="flex flex-row align-items-baseline">
-              <div class="text">请选择</div>
-              <image src="@/assets/images/qrpay_right.png" class="qrpay_right" />
+          <template v-if="false">
+            <div class="cate-title">优惠</div>
+            <div class="flex flex-row cate-item">
+              <div class="text" style="flex: 1;">优惠券</div>
+              <div class="flex flex-row align-items-baseline">
+                <div class="text">请选择</div>
+                <image src="@/assets/images/qrpay_right.png" class="qrpay_right" />
+              </div>
             </div>
-          </div>
+          </template>
         </div>
       </div>
 
@@ -146,27 +148,28 @@ onMounted((options) => {
     next()
 
     loading.value = true
+    const params = Taro.getCurrentInstance().router.params
 
 
     const q = (Taro.getCurrentInstance().router.params || {}).q
     const url = decodeURIComponent(q)
 
-    getData(url)
+    getData(url, params.orderId)
 
   })
 })
 
-const getData = (url) => {
+const getData = (url, orderId) => {
 
   const data = parseUrlParams(url)
 
 
-  if (!data.code) {
+  if (!data.code && !orderId) {
     erroMsg.value = '请扫描正确的二维码！'
     return
   }
 
-  orderInfo(data.code).then(res => {
+  orderInfo(data.code, orderId).then(res => {
     if (res.data.code == 200) {
       const data = res.data
       Object.assign(parkInfo, data.data.parkInfo)
@@ -213,7 +216,7 @@ const pay = () => {
   payLoading.value = true
   orderPay({
     // 订单号
-    orderNo: infoData.orderNo,
+    orderId: infoData.orderId,
     // 优惠券ID
     couponId: '',
     // 1微信 支付宝
@@ -232,7 +235,7 @@ const pay = () => {
       paySign: data.paySign,
       success: (payRes) => {
         Taro.redirectTo({
-          url: '/pages/qrpay-result/index'
+          url: '/pages/qrpay-result/index?title=支付成功!&subTitle=支付成功，请尽快出场！'
         })
       },
       fail: (e) => {

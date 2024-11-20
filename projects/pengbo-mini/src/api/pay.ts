@@ -9,8 +9,8 @@ export function orderPay(data) {
 }
 
 // 获取订单详情
-export function orderInfo(gateCode, orderNo) {
-  return http.post(`${basePath}/order-detail`, { gateCode, orderNo })
+export function orderInfo(gateCode, orderId) {
+  return http.post(`${basePath}/order-detail`, { gateCode, orderId })
 }
 
 export const innerPayOrder = (parkCode, plateNo, plateType) => {

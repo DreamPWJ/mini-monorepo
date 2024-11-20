@@ -13,7 +13,7 @@
       <div class="flex flex-column align-items-center justify-content-center right">
         <div class="coupon-valid ">{{ data.parkName }}</div>
         <div class="title">优惠券</div>
-        <div class="coupon-valid">有效日期: {{ couponItemType.couponValid }}</div>
+        <div class="coupon-valid">{{ couponItemType.couponValid }}</div>
       </div>
 
     </div>
@@ -24,7 +24,6 @@
 <script setup>
 import './index.scss'
 import { computed } from 'vue'
-import { getCouponType } from '@/constants/CouponType'
 
 const props = defineProps({
   data: {
@@ -52,41 +51,20 @@ const couponItemType = computed(() => {
    */
   const item = props.data || {}
 
-  let title = getCouponType()[item.couponType]
-
-  let value = ''
-  let couponValid = ''
-
-  const rule = item.rule
-  if (item.couponType === 1) {
-
-    value = rule.paperAmount + '元'
-    couponValid = `${rule.validHours}小时内有效`
-  } else if (item.couponType === 2) {
-
-    value = rule.freeDuration + '分钟'
-    couponValid = `${rule.validHours}小时内有效`
-  } else if (item.couponType === 3) {
-
-    value = (rule.discountRatio * 10) + '折'
-    couponValid = `${rule.validHours}小时内有效`
-  } else if (item.couponType === 4) {
-    title = ''
-    value = '单次减免'
-    couponValid = `${rule.validHours}小时内有效`
-  }
-  // else if (item.couponType === 5) {
-  //   title = ''
-  //   value = '多次减免'
-  //   couponValid = `${rule.day}天·${rule.time}后失效`
-  // }
-
 
   return {
-    title: title,
-    value: value,
-    couponValid: couponValid
+    title: item.rule.description.title,
+    value: item.rule.description.value,
+    couponValid: item.rule.description.couponValid
   }
 })
+
+const formatValidHours = (val) => {
+  if (rule.validHours < 0) {
+    return `长期有效`
+  } else {
+    return `${rule.validHours}小时内有效`
+  }
+}
 
 </script>
