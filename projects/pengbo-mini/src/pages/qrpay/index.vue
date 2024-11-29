@@ -86,7 +86,7 @@
     </template>
 
 
-    <nut-empty :description="erroMsg" image="error" v-if="erroMsg.length > 0" class="empty">
+    <nut-empty :description="errMsg" image="error" v-if="errMsg.length > 0" class="empty">
 
 
     <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
@@ -137,7 +137,7 @@ const payFeeInfos = ref([
 const infoData = reactive({})
 const parkInfo = reactive({})
 const orderFeeVisible = ref(false)
-const erroMsg = ref('')
+const errMsg = ref('')
 
 
 
@@ -165,18 +165,18 @@ const getData = (url, orderId) => {
 
 
   if (!data.code && !orderId) {
-    erroMsg.value = '请扫描正确的二维码！'
+    errMsg.value = '请扫描正确的二维码！'
     return
   }
 
   orderInfo(data.code, orderId).then(res => {
-    if (res.data.code == 200) {
+    if (res.data.code === 200) {
       const data = res.data
       Object.assign(parkInfo, data.data.parkInfo)
       Object.assign(infoData, data.data.orderInfo)
       loading.value = false
     } else {
-      erroMsg.value = '当前出口未检测到车辆！'
+      errMsg.value = res.data.msg
     }
 
   })
@@ -186,7 +186,7 @@ const getData = (url, orderId) => {
 const scanQRCode = () => {
   Taro.scanCode({
     success: (res) => {
-       erroMsg.value = ''
+      errMsg.value = ''
        getData(res.result)
     }
   })
