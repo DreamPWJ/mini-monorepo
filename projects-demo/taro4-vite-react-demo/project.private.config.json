@@ -3,5 +3,6 @@
   "projectname": "taro4-vite-react-demo",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "3.7.2"
 }

@@ -13,6 +13,7 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "sourceMap": true,
+    "baseUrl": ".",
     "rootDir": ".",
     "jsx": "react-jsx",
     "allowJs": true,
@@ -21,7 +22,10 @@
       "node_modules/@types"
     ],
     "paths": {
-      // TS5090 leading './'
+      // import自动提示导入关键配置
+      "@*": [
+        "../../packages/*"
+      ],
       "@/*": [
         "./src/*"
       ]
@@ -30,7 +34,9 @@
   "include": [
     "./src",
     "./types",
-    "./config"
+    "./config",
+    "global.d.ts",
+    "components.d.ts"
   ],
   "compileOnSave": false
 }
