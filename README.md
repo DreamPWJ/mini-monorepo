@@ -28,6 +28,10 @@
 - CSS Variables
 - NutUI [文档](https://nutui.jd.com/taro/vue/4x/#/zh-CN/guide/intro)
 
+#### 创建Taro工程
+
+npx @tarojs/cli init taro-demo
+
 #### 安装Pnpm相关依赖
 
 npm i -g pnpm && npm i -g gulp && pnpm i
