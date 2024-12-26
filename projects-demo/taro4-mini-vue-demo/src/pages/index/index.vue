@@ -1,6 +1,7 @@
 <template>
   <view class="index">
     <text>{{ msg }}</text>
+    <VueDemoComponent msg="Hello MonoRepo VueComponentDemo"></VueDemoComponent>
   </view>
 </template>
 
@@ -9,6 +10,7 @@ import { ref } from 'vue'
 import './index.scss'
 import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 import { testHelloJSMonoRepo, testHelloMonoRepo } from 'athena-test'
+import { VueDemoComponent } from 'athena-components-vue'
 import { demoApi } from '@/api/demo/demo'
 import { CommonUtils } from 'athena-utils'
 import { Pipe, Validate } from 'athena-common'
