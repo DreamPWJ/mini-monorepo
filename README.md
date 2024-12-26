@@ -1,9 +1,10 @@
-## 基于Pnpm Workspace管理跨端小程序统一的MonoRepo单体式仓库 单仓多包 Web技术栈
+## 基于Pnpm Workspace管理跨端小程序统一的MonoRepo单体式仓库 单仓多包代码架构 Web技术栈
 
 ### 项目代号: athena(雅典娜 智慧女神) 愿景: 使项目更易于复用迭代维护扩展、分离关注点并避免代码重复
 
 ### monorepo 最主要的好处是统一的工作流和共享代码, 兼顾通用性和独立性之间的最佳平衡点, 统一最佳实战只需搭建一套脚手架, 统一管理(规范、配置、开发、联调、构建、测试、发布等)多个包
-#### TurboRepo解决Monorepo多项目构建缓慢问题 充分利用CPU性能并发构建提速
+
+#### Vite与TurboRepo解决Monorepo多项目构建缓慢问题 充分利用CPU性能并发构建提速
 
 ### 目录结构
 
@@ -27,9 +28,13 @@
 - CSS Variables
 - NutUI [文档](https://nutui.jd.com/taro/vue/4x/#/zh-CN/guide/intro)
 
+#### 创建Taro工程
+
+npx @tarojs/cli init taro-demo
+
 #### 安装Pnpm相关依赖
 
-npm i -g pnpm &&  npm i -g gulp
+npm i -g pnpm && npm i -g gulp && pnpm i
 
 #### 安装编译所有依赖 建立link软连接
 

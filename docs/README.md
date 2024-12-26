@@ -1,4 +1,4 @@
-## Docusaurus、Dumi、VitePress 等实现在线文档工具
+## VitePress、Docusaurus、Dumi等实现在线文档工具
 ## Gatsby 实现现代快速的静态网站 如官网、博客等
 ## Cloudflare Pages、Vercel、Netlify、Github Pages 等实现站点部署平台 Vercel国内访问CDN更快并提供多环境个人用户免费部署
 ## MicroApp、qiankun 等微前端方案 解决大型复杂项目的分治、不同技术栈和跨团队协作、旧项目升级改造等问题
@@ -17,6 +17,4 @@
 
 eslint --fix
 
-#### yarn镜像源
 
-yarn config set registry https://registry.npmmirror.com -g
