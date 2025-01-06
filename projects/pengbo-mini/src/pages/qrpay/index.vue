@@ -252,15 +252,6 @@ const pay = () => {
   })
 
 }
-
-const tipsClick = (item) => {
-  if (item.key == 'enterTime') {
-    previewImage(infoData.enterPictureUrl)
-  } else if (item.key == 'exitTime') {
-    previewImage(infoData.exitPictureUrl)
-  }
-}
-
 const previewImage = (imageUrl) => {
   Taro.previewImage({
     urls: [imageUrl], // 需要预览的图片http链接列表

@@ -53,7 +53,7 @@ const submit = async () => {
   try {
     const data = await innerPayOrder(parkCode.value, value.plateNo, value.plateType)
 
-    if (data.data.code == 200) {
+    if (data.data.code === 200) {
 
       // 查询到订单号 存到本地缓存里面下次可以取
       plateAddRef.value.putLocalPlateNo(value)
