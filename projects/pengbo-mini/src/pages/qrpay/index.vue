@@ -86,7 +86,8 @@
 
     <nut-empty :description="erroMsg" image="error" v-if="erroMsg.length > 0" class="empty">
 
-      <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
+
+    <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
     </nut-empty>
 
 
@@ -107,11 +108,10 @@
 </template>
 <script setup>
 import './index.scss'
-import { ref, reactive, onMounted } from 'vue'
-import { IconFont } from '@nutui/icons-vue-taro'
+import { onMounted, reactive, ref } from 'vue'
 import Taro from '@tarojs/taro'
 import { enqueue } from 'athena-common'
-import { orderPay, orderInfo } from '@/api/pay'
+import { orderInfo, orderPay } from '@/api/pay'
 
 const loading = ref(true)
 const payLoading = ref(false)
@@ -159,7 +159,7 @@ onMounted((options) => {
 const getData = (url) => {
 
   const data = parseUrlParams(url)
- 
+
 
   if (!data.code) {
     erroMsg.value = '请扫描正确的二维码！'
