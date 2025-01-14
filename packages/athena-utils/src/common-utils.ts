@@ -4,77 +4,75 @@
  * 通用工具类
  */
 export class CommonUtils {
-
   /**
    *  数组去重(只支持js原始类型，数组对象类型不可用)
    */
   static uniqueArray(arr: any[]) {
     return [...new Set(arr)]
-  };
+  }
 
   /**
    * 根据key正则表达式对比获取url中的参数值
    */
   static queryUrlParam(key: string, paramsStr?: string) {
-    const reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)');
-    const params = !!paramsStr ? paramsStr.match(reg) : window.location.search.substr(1).match(reg);
+    const reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)')
+    const params = !!paramsStr ? paramsStr.match(reg) : window.location.search.substr(1).match(reg)
     if (params != null) {
-      return params[2];
+      return params[2]
     }
-    return '';
+    return ''
   }
 
   /**
-   * 解析 url
-   * @param url http://192.168.1.128:8180?id=123&a=3434
+   * 解析url参数
+   * @param url http://?id=123&name=pwj
    */
-  static parseUrlParams(url: string){
-    const params = {};
-    const regex = /[?&]([^=&#]+)=([^&#]*)/g;
-    let match;
+  static parseUrlParams(url: string) {
+    const params = {}
+    const regex = /[?&]([^=&#]+)=([^&#]*)/g
+    let match
 
     while ((match = regex.exec(url)) !== null) {
-      params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+      params[decodeURIComponent(match[1])] = decodeURIComponent(match[2])
     }
 
-    return params;
+    return params
   }
-
 
   /**
    * json对象布尔类型true false转换成1 0数字类型
    */
   static booleanToNumber(json: any) {
     for (const key of Object.keys(json)) {
-      const value = json[key];
+      const value = json[key]
       if (value === true) {
-        json[key] = 1;
+        json[key] = 1
       } else if (value === false) {
-        json[key] = 0;
+        json[key] = 0
       }
     }
-    return json;
+    return json
   }
 
   /**
    * 数组并集
    */
   static unionArray(a: any[], b: any[]) {
-    return new Set([...a, ...b]);
+    return new Set([...a, ...b])
   }
 
   /**
    * 数组交集
    */
   static intersectArray(a: any[], b: any) {
-    return new Set([...a].filter(x => b.has(x)));
+    return new Set([...a].filter((x) => b.has(x)))
   }
 
   /**
    * 数组差集
    */
   static differenceArray(a: any[], b: any) {
-    return new Set([...a].filter(x => !b.has(x)));
+    return new Set([...a].filter((x) => !b.has(x)))
   }
 
   /**
@@ -82,9 +80,9 @@ export class CommonUtils {
    */
   static humpToLine(name: string) {
     if (name) {
-      return name.replace(/([A-Z])/g, '_$1').toLowerCase();
+      return name.replace(/([A-Z])/g, '_$1').toLowerCase()
     }
-    return '';
+    return ''
   }
 
   /**
@@ -92,28 +90,97 @@ export class CommonUtils {
    *  min任意长度最小位[固定位数] max任意长度最大位 randomFlag-是否任意长度
    */
   static randomString(min: number, max: number, randomFlag = false) {
-    let str = "",
+    let str = '',
       range = min,
-      arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+      arr = [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        'a',
+        'b',
+        'c',
+        'd',
+        'e',
+        'f',
+        'g',
+        'h',
+        'i',
+        'j',
+        'k',
+        'l',
+        'm',
+        'n',
+        'o',
+        'p',
+        'q',
+        'r',
+        's',
+        't',
+        'u',
+        'v',
+        'w',
+        'x',
+        'y',
+        'z',
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+        'Q',
+        'R',
+        'S',
+        'T',
+        'U',
+        'V',
+        'W',
+        'X',
+        'Y',
+        'Z',
+      ]
 
     // 随机产生
     if (randomFlag) {
-      range = Math.round(Math.random() * (max - min)) + min;
+      range = Math.round(Math.random() * (max - min)) + min
     }
     for (let i = 0; i < range; i++) {
-      let pos = Math.round(Math.random() * (arr.length - 1));
-      str += arr[pos];
+      let pos = Math.round(Math.random() * (arr.length - 1))
+      str += arr[pos]
     }
-    return str;
+    return str
   }
 
   /**
    *  js判断是否是移动设备
    */
   static isMobile(): boolean {
-    let sUserAgent = navigator.userAgent;
-    if (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1
-      || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1 || sUserAgent.indexOf('Windows Phone') > -1) {
+    let sUserAgent = navigator.userAgent
+    if (
+      sUserAgent.indexOf('Android') > -1 ||
+      sUserAgent.indexOf('iPhone') > -1 ||
+      sUserAgent.indexOf('iPad') > -1 ||
+      sUserAgent.indexOf('iPod') > -1 ||
+      sUserAgent.indexOf('Symbian') > -1 ||
+      sUserAgent.indexOf('Windows Phone') > -1
+    ) {
       return true
     } else {
       return false
@@ -124,13 +191,11 @@ export class CommonUtils {
    *  暂停程序 毫秒数的函数
    */
   static pauseTime(millTime) {
-    let start = Date.now();
+    let start = Date.now()
     while (true) {
-      let nowTime = Date.now();
-      let offset = nowTime - start;
-      if (offset >= millTime)
-        break;
+      let nowTime = Date.now()
+      let offset = nowTime - start
+      if (offset >= millTime) break
     }
   }
-
 }

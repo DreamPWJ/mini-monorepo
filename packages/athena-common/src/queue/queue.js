@@ -3,10 +3,14 @@ var queueMap = new Map()
 var queueId = 0
 var queuing = false
 
+/**
+ * @author 潘维吉
+ * @date 2014-07-02 17:17
+ * JS实现简单的消息队列
+ */
 
 /**
- *
- * @param {*} next (next) => {}
+ * 添加到队列
  */
 const enqueue = (next) => {
   queueId += 1
