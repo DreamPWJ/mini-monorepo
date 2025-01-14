@@ -30,9 +30,9 @@
 
 #### 创建Taro工程
 
-npx @tarojs/cli init taro-demo
-taro update self
-taro update project
+- npx @tarojs/cli init taro-demo
+- taro update self
+- taro update project
 
 #### 安装Pnpm相关依赖
 
