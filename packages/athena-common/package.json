@@ -19,9 +19,9 @@
     "directory": "dist"
   },
   "peerDependencies": {
-    "@tarojs/taro": "^3.6.33"
+    "@tarojs/taro": "^4.0.9"
   },
   "dependencies": {
-    "@tarojs/taro": "^3.6.33"
+    "@tarojs/taro": "^4.0.9"
   }
 }

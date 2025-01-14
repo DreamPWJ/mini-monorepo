@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "athena-constants": "workspace:*",
-    "@tarojs/taro": "^3.6.33"
+    "@tarojs/taro": "^4.0.9"
   }
 }
 
