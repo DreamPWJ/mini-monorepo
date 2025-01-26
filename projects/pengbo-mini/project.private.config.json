@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/orders/index",
+          "pathName": "pages/orders/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "优惠券领取",
           "pathName": "pages/coupon-get/index",
           "query": "",

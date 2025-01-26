@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AutoList: typeof import('./src/components/AutoList/AutoList.vue')['default']
     ComponentDemo: typeof import('./src/components/demo/ComponentDemo.vue')['default']
     CouponItem: typeof import('./src/components/CouponItem/CouponItem.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
@@ -14,6 +15,7 @@ declare module 'vue' {
     NutEmpty: typeof import('@nutui/nutui-taro')['Empty']
     NutGrid: typeof import('@nutui/nutui-taro')['Grid']
     NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
+    NutToast: typeof import('@nutui/nutui-taro')['Toast']
     PlateAdd: typeof import('./src/components/PlateAdd/PlateAdd.vue')['default']
     PlateKeyBoard: typeof import('./src/components/PlateKeyBoard/PlateKeyBoard.vue')['default']
     PlateNoInput: typeof import('./src/components/PlateNoInput/PlateNoInput.vue')['default']

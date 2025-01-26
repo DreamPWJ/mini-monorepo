@@ -4,7 +4,8 @@ export default defineAppConfig({
     'pages/qrpay/index',
     'pages/inner-qrpay/index',
     'pages/coupon-get/index',
-    'pages/qrpay-result/index'
+    'pages/qrpay-result/index',
+    'pages/orders/index'
   ],
   // subPackages: [
   //   {
