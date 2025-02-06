@@ -39,7 +39,7 @@ const submit = async () => {
 
   if (!value) {
     await Taro.showToast({
-      title: '请输入正确的车牌',
+      title: '车牌号错误',
       icon: 'error',
       duration: 2000
     })
