@@ -24,7 +24,7 @@ onMounted(() => {
     const url = decodeURIComponent(q)
     const data = CommonUtils.parseUrlParams(url)
     // 获取码上的停车场编号
-    parkCode.value = data.code
+    parkCode.value = data.code || '5502303034001'
   })
 })
 

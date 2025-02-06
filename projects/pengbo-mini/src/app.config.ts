@@ -28,7 +28,7 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: '澎泊',
+    navigationBarTitleText: '澎泊停车',
     navigationBarTextStyle: 'black'
     //navigationStyle: 'custom'
   }

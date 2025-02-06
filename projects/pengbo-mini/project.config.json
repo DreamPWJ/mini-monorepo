@@ -1,6 +1,5 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "pengbo-mini",
   "description": "PengBo",
   "setting": {
     "urlCheck": false,
@@ -24,8 +23,6 @@
     "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -43,17 +40,17 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "3.4.7",
   "srcMiniprogramRoot": "dist/",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
   "condition": {},
   "appid": "wxd8df6d7eb82fbf29",
-  "simulatorPluginLibVersion": {}
+  "simulatorPluginLibVersion": {},
+  "libVersion": "3.4.7",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  }
 }
