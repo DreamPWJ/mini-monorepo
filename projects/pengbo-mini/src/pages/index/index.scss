@@ -1,16 +1,49 @@
-$color-primary: #007AFF;
 
-.index-demo {
-  margin-top: 64px;
-  text-align: center;
-
-  .top-demo {
-    view {
-      margin: 24px;
-    }
+.index-page {
+  .ad-name {
+    color: #333;
+    font-size: 72px;
+    font-weight: bold;
   }
 
-  .msg {
-    color: $color-primary;
+  .ad-name-en {
+    color: #333;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
   }
+
+  .ad-bg {
+    background-image: url('https://pengbocloud.com/img/ad_bg.cbeaf74f.png');
+    overflow: auto;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+  }
+
+  .ad-info {
+    position: absolute;
+    max-width: 600px;
+    backdrop-filter: blur(52px);
+    -webkit-backdrop-filter: blur(52px);
+    padding: 80px 25px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+    display: flex;
+
+  }
+
+
+  .detail {
+    color: #666;
+    font-size: 34px;
+    text-indent: 35px;
+  }
+
 }

@@ -8,7 +8,7 @@
         <div class="content flex flex-column">
           <div class="park-name">{{ parkInfo.parkName }}</div>
           <div class="order-number">订单号：{{ infoData.orderNo }}</div>
-          <div class="flex flex-row">
+          <div class="flex flex-row" v-if="parkInfo.gateName">
             <div class="flex flex-row position">
               <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
               <div class="position-text">{{ parkInfo.gateName }}</div>
@@ -260,6 +260,17 @@ const pay = () => {
 
 }
 const previewImage = (imageUrl) => {
+
+
+  if (!imageUrl || imageUrl.length <= 0) {
+    Taro.showToast({
+      title: '暂无图片',
+      icon: 'error',
+      duration: 2000
+    })
+    return
+  }
+
   Taro.previewImage({
     urls: [imageUrl] // 需要预览的图片http链接列表
   })

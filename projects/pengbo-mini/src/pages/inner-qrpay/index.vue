@@ -36,11 +36,12 @@ const hideKeyboard = () => {
 const submit = async () => {
   const value = plateAddRef.value.getValue()
 
+  console.log('value', value)
 
   if (!value) {
     await Taro.showToast({
-      title: '车牌号错误',
-      icon: 'error',
+      title: '请输入车牌号或类型',
+      icon: 'none',
       duration: 2000
     })
 

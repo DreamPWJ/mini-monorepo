@@ -35,7 +35,7 @@ export function failHandle(data: any) {
       // Message全局提示
       Taro.showToast({
         title: data.msg,
-        icon: 'error',
+        icon: 'none',
         duration: 2000
       })
     }
