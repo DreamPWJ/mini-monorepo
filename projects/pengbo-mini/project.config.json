@@ -46,11 +46,11 @@
     "tabSize": 2
   },
   "condition": {},
-  "appid": "wxd8df6d7eb82fbf29",
   "simulatorPluginLibVersion": {},
   "libVersion": "3.4.7",
   "packOptions": {
     "ignore": [],
     "include": []
-  }
+  },
+  "appid": "wxd8df6d7eb82fbf29"
 }
