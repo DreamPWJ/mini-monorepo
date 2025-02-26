@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-column plate-add">
-    <template v-if="mode == 'history'">
+    <template v-if="mode === 'history'">
       <div class="title">使用过的车牌号</div>
       <div class="flex flex-row plate-type" style="flex-wrap: wrap;">
-        <div class="item" :class="{ 'item-select': historyPlateIndexValue == index }"
+        <div class="item" :class="{ 'item-select': historyPlateIndexValue === index }"
              v-for="(item, index) in historyPlateNoList" :key="index" @click="changePlateHistoryType(index)">
           {{ item.plateNo }}
         </div>
@@ -22,7 +22,7 @@
 
       <nut-grid :border="false" :column-num="3" direction="horizontal">
         <nut-grid-item v-for="(item, index) in plateTypeList" :key="index">
-          <div class="item" :class="{ 'item-select': plateTypeValue == item.value }" @click="changePlateType(item)"
+          <div class="item" :class="{ 'item-select': plateTypeValue === item.value }" @click="changePlateType(item)"
           >{{ item.title }}
           </div>
         </nut-grid-item>
@@ -52,7 +52,7 @@ const plateNoInputRef = ref(null)
 const plateTypeValue = ref(-1)
 const plateTypeList = ref([])
 const historyPlateNoList = ref([])
-const historyPlateIndexValue = ref(-1)
+const historyPlateIndexValue = ref(0)
 // history new
 const mode = ref(null)
 
@@ -154,7 +154,7 @@ const hideKeyboard = () => {
 
 // 获取当前组件选择的
 const getValue = () => {
-  if (mode.value == 'new') {
+  if (mode.value === 'new') {
     const plateNo = plateNoInputRef.value.getValue()
     const plateType = plateTypeValue.value
     if (plateType >= 0 && plateNo.length >= 7) {
