@@ -4,7 +4,7 @@ export default defineAppConfig({
     'pages/qrpay/index',
     'pages/inner-qrpay/index',
     'pages/coupon-get/index',
-    'pages/qrpay-result/index'
+    'pages/qrpay-result/index',
   ],
   // subPackages: [
   //   {
@@ -27,8 +27,8 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: '澎泊',
-    navigationBarTextStyle: 'black'
+    navigationBarTitleText: '澎泊停车',
+    navigationBarTextStyle: 'black',
     //navigationStyle: 'custom'
-  }
+  },
 })
