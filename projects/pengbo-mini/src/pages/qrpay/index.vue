@@ -8,7 +8,7 @@
         <div class="content flex flex-column">
           <div class="park-name">{{ parkInfo.parkName }}</div>
           <div class="order-number">订单号：{{ infoData.orderNo }}</div>
-          <div class="flex flex-row">
+          <div class="flex flex-row" v-if="parkInfo.gateName">
             <div class="flex flex-row position">
               <image src="@/assets/images/qrpay_position.png" class="qrpay_position" />
               <div class="position-text">{{ parkInfo.gateName }}</div>
@@ -33,7 +33,7 @@
           <!-- 停车时长+停车金额 -->
           <div class="flex flex-row header">
             <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
-              @click="previewImage(infoData.enterPictureUrl)">
+                 @click="previewImage(infoData.enterPictureUrl)">
               <div class="count">{{ infoData.enterTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">进场时间</div>
@@ -44,7 +44,7 @@
             <div style="align-self: center" class="line"></div>
 
             <div class="flex flex-column align-items-center" style="flex-shrink: 0;width: 49%;"
-              @click="previewImage(infoData.exitPictureUrl)">
+                 @click="previewImage(infoData.exitPictureUrl)">
               <div class="count">{{ infoData.exitTime }}</div>
               <div class="flex flex-row" style="align-items: center;">
                 <div class="count-tip">出场时间</div>
@@ -78,7 +78,8 @@
               {{ infoData.needPay }}
             </div>
           </div>
-          <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付</nut-button>
+          <nut-button color="#252525" type="primary" class="pay-btn" :loading="payLoading" @click="pay">支 付
+          </nut-button>
         </div>
 
         <div class="bottom-tips">24小时客服电话：{{ parkInfo.operationPhone }}</div>
@@ -89,7 +90,8 @@
     <nut-empty :description="errMsg" image="error" v-if="errMsg.length > 0" class="empty">
 
 
-    <nut-button type="primary" class="scanQRCode" @click="scanQRCode">重新扫码</nut-button>
+      <nut-button type="primary" class="scanQRCode" @click="scanQRCode">{{ mode === 'QR_PAY' ? '重新扫码' : '返回' }}
+      </nut-button>
     </nut-empty>
 
 
@@ -99,7 +101,6 @@
         <div v-for="(item, index) in payFeeInfos" :key="index" style="margin: 0 10px">
           <div class="flex flex-row item">
             <div class="item-title">{{ item.title }}</div>
-
             <div class="item-value">￥{{ infoData[item.key] }}</div>
           </div>
         </div>
@@ -121,16 +122,16 @@ const payLoading = ref(false)
 const payFeeInfos = ref([
   {
     title: '总费用',
-    key: 'totalCharge',
+    key: 'totalCharge'
   },
   {
     title: '减免费用',
-    key: 'reductionFee',
+    key: 'reductionFee'
   },
   {
     title: '已交费用',
-    key: 'realCharge',
-  },
+    key: 'realCharge'
+  }
 
 ])
 
@@ -138,7 +139,9 @@ const infoData = reactive({})
 const parkInfo = reactive({})
 const orderFeeVisible = ref(false)
 const errMsg = ref('')
-
+// QR_PAY INNER_PAY
+// 二维码支付， 场内支付（输入车牌号查订单id）
+const mode = ref('QR_PAY')
 
 
 onMounted((options) => {
@@ -154,6 +157,8 @@ onMounted((options) => {
     const q = (Taro.getCurrentInstance().router.params || {}).q
     const url = decodeURIComponent(q)
 
+    mode.value = params.orderId && params.orderId.length > 0 ? 'INNER_PAY' : 'QR_PAY'
+
     getData(url, params.orderId)
 
   })
@@ -163,9 +168,8 @@ const getData = (url, orderId) => {
 
   const data = parseUrlParams(url)
 
-
   if (!data.code && !orderId) {
-    errMsg.value = '请扫描正确的二维码！'
+    errMsg.value = '页面参数不正确！'
     return
   }
 
@@ -178,31 +182,34 @@ const getData = (url, orderId) => {
     } else {
       errMsg.value = res.data.msg
     }
-
   })
 }
 
 // 重新扫码，这里可以让后台重新识别一下
 const scanQRCode = () => {
+  if (mode.value === 'INNER_PAY') {
+    Taro.navigateBack()
+    return
+  }
   Taro.scanCode({
     success: (res) => {
       errMsg.value = ''
-       getData(res.result)
+      getData(res.result)
     }
   })
 }
 
 
 const parseUrlParams = (url) => {
-  const params = {};
-  const regex = /[?&]([^=&#]+)=([^&#]*)/g;
-  let match;
+  const params = {}
+  const regex = /[?&]([^=&#]+)=([^&#]*)/g
+  let match
 
   while ((match = regex.exec(url)) !== null) {
-    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2])
   }
 
-  return params;
+  return params
 }
 
 const chooseCoupon = () => {
@@ -220,10 +227,10 @@ const pay = () => {
     // 优惠券ID
     couponId: '',
     // 1微信 支付宝
-    userAgent: Taro.getEnv() == Taro.ENV_TYPE.WEAPP ? 1 : 0,
+    userAgent: Taro.getEnv() === Taro.ENV_TYPE.WEAPP ? 1 : 0
   }).then((res) => {
     const data = res.data.data
-    if (res.data.code != 200) {
+    if (res.data.code !== 200) {
       payLoading.value = false
       return
     }
@@ -253,8 +260,19 @@ const pay = () => {
 
 }
 const previewImage = (imageUrl) => {
+
+
+  if (!imageUrl || imageUrl.length <= 0) {
+    Taro.showToast({
+      title: '暂无图片',
+      icon: 'error',
+      duration: 2000
+    })
+    return
+  }
+
   Taro.previewImage({
-    urls: [imageUrl], // 需要预览的图片http链接列表
+    urls: [imageUrl] // 需要预览的图片http链接列表
   })
 }
 </script>

@@ -4,6 +4,7 @@ import 'athena-styles/base.css'
 import 'athena-styles/variable.css'
 import './app.scss'
 import Taro from '@tarojs/taro'
+import { Empty, Toast } from '@nutui/nutui-taro'
 // import { enqueue } from 'athena-common'
 import { login } from '@/api/demo/demo'
 import { enqueue } from '@athena-common'
@@ -86,5 +87,7 @@ const App = createApp({
   }
 
 })
+App.use(Toast)
+App.use(Empty)
 
 export default App

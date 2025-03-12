@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AutoList: typeof import('./src/components/AutoList/AutoList.vue')['default']
     ComponentDemo: typeof import('./src/components/demo/ComponentDemo.vue')['default']
     CouponItem: typeof import('./src/components/CouponItem/CouponItem.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']

@@ -15,7 +15,7 @@
 </template>
 <script setup>
 import Taro from '@tarojs/taro'
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import './index.scss'
 
 defineProps({
@@ -29,10 +29,10 @@ const emits = defineEmits(['onChange', 'onDel'])
 
 
 const p = [
-  ['京', '津', '渝', '沪', '冀', '晋', '辽', '吉', '黑', '苏'],
-  ['浙', '皖', '闽', '赣', '鲁', '豫', '鄂', '湘', '粤', '琼'],
+  ['鲁', '津', '渝', '沪', '冀', '晋', '辽', '吉', '黑', '苏'],
+  ['浙', '皖', '闽', '赣', '京', '豫', '鄂', '湘', '粤', '琼'],
   ['川', '贵', '云', '陕', '甘', '青', '蒙', '桂', '宁', '新'],
-  ['藏', '使', '领', '警', '学', '港', '澳', '港']
+  ['藏', '使', '领', '警', '学', '港', '澳', '港', '临']
 ];
 
 const p1 = [
@@ -68,4 +68,3 @@ const onClick = (obj) => {
 
 </script>
 
- 
