@@ -15,13 +15,13 @@
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
-    "@tarojs/taro": "^4.0.9"
+    "@tarojs/taro": "^4.0.12"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
   },
   "dependencies": {
-    "@tarojs/taro": "^4.0.9"
+    "@tarojs/taro": "^4.0.12"
   }
 }
