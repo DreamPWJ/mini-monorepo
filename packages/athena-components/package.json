@@ -16,7 +16,7 @@
     "clean:ts": "rimraf dist && rimraf tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
-    "@tarojs/components": "^4.0.9",
+    "@tarojs/components": "^4.0.12",
     "@types/react": "^17.0.0",
     "react": ">=18"
   },
@@ -25,7 +25,7 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@tarojs/components": "^4.0.9",
+    "@tarojs/components": "^4.0.12",
     "@types/react": "^17.0.0",
     "react": ">=18"
   }

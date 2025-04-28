@@ -1,8 +1,8 @@
 {
-  "name": "taro-mini-vue-demo",
+  "name": "pengbo-mini",
   "version": "1.0.0",
   "private": true,
-  "description": "Vue Demo",
+  "description": "PengBo",
   "templateInfo": {
     "name": "default",
     "typescript": true,
@@ -14,7 +14,7 @@
     "pnpm:reInstall": "rimraf node_modules && rimraf dist && rimraf .swc && pnpm install",
     "clean:modules": "rimraf node_modules && rimraf dist && rimraf .swc",
     "dev:h5": "npm run build:h5 -- --watch",
-    "build:weapp": "taro build --type weapp",
+    "build:weapp": "taro build --type weapp --production",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
     "build:tt": "taro build --type tt",
@@ -67,7 +67,6 @@
     "athena-styles": "workspace:*",
     "athena-test": "workspace:*",
     "athena-utils": "workspace:*",
-    "pinia": "^2.3.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {

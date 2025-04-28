@@ -14,13 +14,13 @@
   },
   "dependencies": {
     "@nutui/nutui-taro": "^4.3.0",
-    "@tarojs/components": "^4.0.9",
-    "@tarojs/taro": "^4.0.9",
+    "@tarojs/components": "^4.0.12",
+    "@tarojs/taro": "^4.0.12",
     "vue": ">=3"
   },
   "peerDependencies": {
     "@nutui/nutui-taro": "^4.3.0",
-    "@tarojs/components": "^4.0.9",
+    "@tarojs/components": "^4.0.12",
     "vue": ">=3"
   }
 }
